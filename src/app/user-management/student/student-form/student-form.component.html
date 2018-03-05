@@ -1,0 +1,66 @@
+<div class="container">
+<div class="col-md-10">
+    <div class="form-area">  
+        <form  [formGroup]="form" (ngSubmit)="onSubmit()">
+        <br style="clear:both">
+                    <h3 style="margin-bottom: 25px; text-align: center;">Student Form</h3>
+            <div class="form-group">
+            <input type="text" class="form-control" id="name" formControlName="name" value="name" placeholder="Name" required>
+          </div>
+          
+          <div class="form-group">
+            <input type="text" class="form-control" id="lib_no" formControlName="lib_no" placeholder="Library Number" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="standard" formControlName="standard" placeholder="Standard" required>
+          </div>
+           <div class="form-group">
+            <input type="text" class="form-control" id="section" formControlName="section" placeholder="Section" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="aadhar_id" formControlName="aadhar_id" placeholder="Aadhar ID" required>
+          </div> 
+          <div class="form-group">
+            <input type="text" class="form-control" id="dob" formControlName="dob" placeholder="Date of Birth" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="doj" formControlName="doj" placeholder="Date of Joining" required>
+          </div>
+          
+          <div class="form-group">
+            <input type="text" class="form-control" id="mother_name" formControlName="mother_name" placeholder="Mother Name" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="mother_email" formControlName="mother_email" name="mother_email" placeholder="Mother Email " required>
+          </div>
+         <div class="form-group">
+            <input type="text" class="form-control" id="mother_contact" formControlName="mother_contact" placeholder="Mother Contact" required>
+          </div> 
+          <div class="form-group">
+            <input type="text" class="form-control" id="mother_tel_no" formControlName="mother_tel_no" placeholder="Mother Telephone No" required>
+          </div>
+          
+          <div class="form-group">
+            <input type="text" class="form-control" id="father_name" formControlName="father_name" placeholder="Father Name" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="father_email" formControlName="father_email" placeholder="Father Email" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="father_contact" formControlName="father_contact" placeholder="Father Contact" required>
+          </div> 
+          <div class="form-group">
+            <input type="text" class="form-control" id="father_tel_no" formControlName="father_tel_no" placeholder="Father Telephone No" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="previous_school" formControlName="previous_school" placeholder="Previous School" required>
+          </div>           
+          <div class="form-group">
+            <input type="password" class="form-control" id="password" formControlName="password" placeholder="Password" required>
+          </div>
+              
+        <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right">Submit Form</button>
+        </form>
+    </div>
+</div>
+</div>

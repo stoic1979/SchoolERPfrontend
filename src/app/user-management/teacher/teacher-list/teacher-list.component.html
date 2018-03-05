@@ -1,0 +1,46 @@
+<div class="container">
+	<div class="page-header">
+		<a routerLink="/users/teacher/add" class="btn btn-primary">Add Teacher</a>
+	</div>
+ 	<div class="table-responsive-sm">          
+  		<table class="table">
+    		<thead>
+      		<tr>
+        			<th>#</th>
+        			<th>Name</th>
+        			<th>Email</th>
+        			<th>DOB</th>
+        			<th>DOJ</th>
+              <th>Marital Status</th>
+        			<th>Mob No.</th>
+        			<th>Tel No.</th>
+              <th>Father Name</th>
+        			<th>Education</th>
+              <th>Work Experience</th>
+              <th>Bank acc. no.</th>
+              <th>Bank Name</th>
+              <th>Aadhar ID</th>
+              <th>Address</th>
+     			 </tr>
+    		</thead>
+    		<tbody>
+      			<tr *ngFor="let values of dataSource; let i = index">
+              <td>{{i+1}}</td>
+        			<td>{{values.name}}</td>
+        			<td>{{values.user.email}}</td>
+        			<td>{{values.dob}}</td>
+        			<td>{{values.doj}}</td>
+        			<td>{{values.marital_status}}</td>
+        			<td>{{values.mob_no}}</td>
+        			<td>{{values.tel_no}}</td>
+        			<td>{{values.father_name}}</td>
+        			<td>{{values.education}}</td>
+        			<td>{{values.work_exp}}</td>
+              <td>{{values.bank_acc_no}}</td>
+              <td>{{values.aadhar_id}}</td>
+              <td>{{values.address}}</td>
+      			</tr>
+    		</tbody>
+  		</table>
+  	</div>
+</div>

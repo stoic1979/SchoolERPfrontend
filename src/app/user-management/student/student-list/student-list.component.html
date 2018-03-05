@@ -1,0 +1,96 @@
+<br>
+<div class="card">
+  <div class="container">
+    <h3>Search Student</h3>
+    <div class="row">
+      <div class="col-sm-6">
+        <label class="radio-inline">
+          <input [(ngModel)]="options" [value]="true" name="options" type="radio">Specific Student
+        </label>
+        <div *ngIf="options">
+          <div class="form-check" >
+            <label class="form-check-label">
+              <input   #standard type="checkbox" class="form-check-input">Search By Standard
+              <select *ngIf="standard.checked">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+              </select>
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input  #name type="checkbox" class="form-check-input">Search By Name
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <label class="radio-inline">
+          <input [(ngModel)]="options" type="radio"  [value]="all" name="options" >All Student
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br>
+  <div class="container tbl">
+    <div class="row">
+	   <div class="col-sm-6">
+        <a routerLink="/users/student/add" class="btn btn-primary">Add Student</a>
+      </div>
+    </div>
+ 	  <div class="table-responsive-sm">          
+  		<table class="table">
+    		<thead>
+      			<tr>
+        			<th>#</th>
+        			<th>Name</th>
+        			<th>Gender</th>
+        			<th>Lib No.</th>
+        			<th>Standard</th>
+        			<th>Section</th>
+        			<th>DOB</th>
+        			<th>DOJ</th>
+        			<th>Prev School</th>
+        			<th>Aadhar Id</th>
+        			<th>Mother Name</th>
+              <th>Mother's Email</th>
+              <th>Mother's Mob No.</th>
+              <th>Mother's Tel No.</th>
+              <th>Father Name</th>
+              <th>Father's Email</th>
+              <th>Father's Mob No.</th>
+              <th>Father's Tel No.</th>
+              <th>Edit</th>
+              <th>Delete</th>
+     			 </tr>
+    		</thead>
+    		<tbody *ngIf = "!options">
+      			<tr *ngFor="let values of dataSource; let i = index">
+              <td>{{i+1}}</td>
+        			<td>{{values.name}}</td>
+        			<td>{{values.gender}}</td>
+        			<td>{{values.lib_no}}</td>
+        			<td>{{values.standard}}</td>
+        			<td>{{values.section}}</td>
+        			<td>{{values.dob}}</td>
+        			<td>{{values.doj}}</td>
+        			<td>{{values.previous_school}}</td>
+        			<td>{{values.aadhar_id}}</td>
+        			<td>{{values.parent.mother_name}}</td>
+              <td>{{values.parent.mother_email}}</td>
+              <td>{{values.parent.mother_mob_no}}</td>
+              <td>{{values.parent.mother_tel_no}}</td>
+              <td>{{values.parent.father_name}}</td>
+              <td>{{values.parent.father_email}}</td>
+              <td>{{values.parent.father_mob_no}}</td>
+              <td>{{values.parent.father_tel_no}}</td>
+              <td><i class="fa fa-pencil" routerLink="#"></i></td>
+              <td><i class="fa fa-trash" routerLink="#"></i></td>
+      			</tr>
+    		</tbody>
+  		</table>
+  	</div>
+</div>

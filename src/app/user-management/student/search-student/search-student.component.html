@@ -1,0 +1,24 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6">
+			<label class="radio-inline">
+				<input [(ngModel)]="options" type="radio" [value]="true" name="options">Specific Student
+			</label>
+			<div *ngIf="options">
+			<div class="form-check" >
+  				<label class="form-check-label">
+    				<input [(ngModel)]="chkbox" [value]="true" type="checkbox" class="form-check-input" value="">Search By Standard
+  				</label>
+			</div>
+			<div class="form-check">
+  				<label class="form-check-label">
+    				<input [(ngModel)]="chkbox" [value]="false" type="checkbox" class="form-check-input" value="">Search By Name
+  				</label>
+			</div>
+			</div>
+		</div>
+		<div class="col-sm-6">
+			<label class="radio-inline"><input [(ngModel)]="options" type="radio"  [value]="false" name="options">All Student</label>
+		</div>
+	</div>
+</div>
