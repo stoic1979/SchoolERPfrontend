@@ -13,6 +13,7 @@ export class StudentListComponent implements OnInit {
   
   dataSource;
   options;
+  all;
 
   constructor(
   private studentService: StudentService
