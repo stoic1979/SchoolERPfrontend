@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchStudentComponent implements OnInit {
 
+	options;
+
   constructor() { }
 
   ngOnInit() {

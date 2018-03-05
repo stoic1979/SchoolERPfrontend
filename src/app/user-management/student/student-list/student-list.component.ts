@@ -12,7 +12,7 @@ export class StudentListComponent implements OnInit {
   
   
   dataSource;
-
+  options;
 
   constructor(
   private studentService: StudentService
