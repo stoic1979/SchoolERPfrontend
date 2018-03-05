@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
@@ -15,8 +15,10 @@
   "dependencies": {
     "@angular-devkit/core": "^0.4.3",
     "@angular/animations": "^5.0.0",
+    "@angular/cli": "1.6.3",
     "@angular/common": "^5.0.0",
     "@angular/compiler": "^5.0.0",
+    "@angular/compiler-cli": "^5.0.0",
     "@angular/core": "^5.0.0",
     "@angular/forms": "^5.0.0",
     "@angular/http": "^5.0.0",
@@ -24,10 +26,9 @@
     "@angular/platform-browser-dynamic": "^5.0.0",
     "@angular/router": "^5.0.0",
     "core-js": "^2.4.1",
+    "express": "^4.16.2",
     "rxjs": "^5.5.2",
-    "zone.js": "^0.8.14",
-    "@angular/cli": "1.6.3",
-    "@angular/compiler-cli": "^5.0.0"
+    "zone.js": "^0.8.14"
   },
   "devDependencies": {
     "@angular/cli": "1.6.3",
