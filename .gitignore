@@ -57,3 +57,5 @@ typings/
 # dotenv environment variables file
 .env
 
+# navi added it in ignore list
+package-lock.json
