@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { StudentService } from '../../../core/services/user-management/student.service';
+import { AlertService } from '../../../core/services/utils/alert.service';
+
 @Component({
   selector: 'app-student-form',
   templateUrl: './student-form.component.html',
@@ -18,6 +20,7 @@ export class StudentFormComponent implements OnInit {
   constructor(
   private fb: FormBuilder,
   private studentService: StudentService,
+  private alertService: AlertService
   ) { }
 
   ngOnInit() {
@@ -45,12 +48,14 @@ export class StudentFormComponent implements OnInit {
   onSubmit() {
     console.log('onSubmit()');
     this.studentService.add(this.form.value).subscribe((res)=> {
-        console.log('[Student Componets] Response =>' +JSON.stringify(res));
+        console.log('[StudentFormComponent] Response =>' +JSON.stringify(res));
         this.formSubmitAttempt = true;
+        this.alertService.success("Student added successfully");
 
       },(err) => {
             const errBody = err.json();
             console.log('add student  error: ', errBody);
+            this.alertService.success("[StudentFormComponent] failed to add student");
       });
     }
   

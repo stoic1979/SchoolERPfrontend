@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
+import { AlertService } from '../../core/services/utils/alert.service';
+
 import { AuthService } from '../../core/services/auth/auth.service';
 
 @Component({
@@ -16,10 +18,12 @@ export class LoginComponent implements OnInit {
  private formSubmitAttempt: boolean;
 
  loginErrors;
+ errMsg;
 
   constructor(
   	 	private fb: FormBuilder,
   		private authService: AuthService,
+      private alertService: AlertService
   	) { }
  
   
@@ -40,7 +44,9 @@ export class LoginComponent implements OnInit {
 
       },(err) => {
             this.loginErrors = JSON.stringify(err.json());
-            console.log('add login  error: ', this.loginErrors);
+            console.log('[LoginComponent] login  error: ', this.loginErrors);
+            this.alertService.error("Login Failed");
+            this.errMsg = "Login Failed !!!";
       });
     }
   get isLoggedIn() {
