@@ -15,31 +15,46 @@
           <h5 class="sidenav-heading">Main</h5>
           <ul id="side-main-menu" class="side-menu list-unstyled">                  
             <li><a routerLink="/dashboard"> <i class="icon-home"></i>Dashboard</a></li>
-            <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>User Management </a>
-              <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                <li><a routerLink="/users/student/list"><i class="icon-mail"></i>Student</a></li>
+            <li><a href="#userManagementDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-user"></i>User Management </a>
+              <ul id="userManagementDropdown" class="collapse list-unstyled ">
+                <li><a routerLink="/users/student/list"><i class="icon-user"></i>Student</a></li>
                 <li><a routerLink="/users/teacher/list"><i class="icon-mail"></i>Teacher</a></li>
                 <li><a routerLink="/users/transport/list"><i class="icon-mail"></i>Transport Manager</a></li>
                 <li><a routerLink="/users/finance/list"><i class="icon-mail"></i>Finance Manager</a></li>
+                <li><a routerLink="/users/principal/list"><i class="icon-mail"></i>Principal</a></li>
+                <li><a routerLink="/users/counsellor/list"><i class="icon-mail"></i>Counsellor</a></li>
               </ul>
             </li>
-            <li><a routerLink="forms.html"> <i class="icon-form"></i>Forms</a></li>
-            <li><a routerLink="charts.html"> <i class="fa fa-bar-chart"></i>Charts</a></li>
-            <li><a routerLink="tables.html"> <i class="icon-grid"></i>Tables</a></li>
-
-            <li><a routerLink="login.html"> <i class="icon-interface-windows"></i>Login page                             </a></li>
-            <li> <a routerLink="#"> <i class="icon-mail"></i>Demo
-                <div class="badge badge-warning">6 New</div></a></li>
+            <li><a href="#systemManagementDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-grid"></i>System Management </a>
+              <ul id="systemManagementDropdown" class="collapse list-unstyled ">
+                <li><a routerLink="/system"><i class="icon-user"></i>Designations</a></li>
+                <li><a routerLink="/system"><i class="icon-user"></i>Standards</a></li>
+                <li><a routerLink="/system"><i class="icon-user"></i>Batches</a></li>
+              </ul>
+            </li>
+            <li><a href="#attendanceDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-user"></i>Attendance</a>
+              <ul id="attendanceDropdown" class="collapse list-unstyled ">
+                <li><a routerLink="/system"><i class="icon-user"></i>Designations</a></li>
+                <li><a routerLink="/system"><i class="icon-user"></i>Standards</a></li>
+                <li><a routerLink="/system"><i class="icon-user"></i>Batches</a></li>
+              </ul>
+            </li>
+            <li><a href="#stationaryDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-user"></i>Stationary</a>
+              <ul id="stationaryDropdown" class="collapse list-unstyled ">
+                <li><a routerLink="/stationary"><i class="icon-user"></i>Designations</a></li>
+                <li><a routerLink="/stationary"><i class="icon-user"></i>Standards</a></li>
+                <li><a routerLink="/stationary"><i class="icon-user"></i>Batches</a></li>
+              </ul>
+            </li>
+            <li><a routerLink="charts.html"> <i class="fa fa-bar-chart"></i>Reports</a></li>
           </ul>
         </div>
         <div class="admin-menu">
-          <h5 class="sidenav-heading">Second menu</h5>
+          <h5 class="sidenav-heading">Personal</h5>
           <ul id="side-admin-menu" class="side-menu list-unstyled"> 
-            <li> <a href="#"> <i class="icon-screen"> </i>Demo</a></li>
-            <li> <a href="#"> <i class="icon-flask"> </i>Demo
-                <div class="badge badge-info">Special</div></a></li>
-            <li> <a href=""> <i class="icon-flask"> </i>Demo</a></li>
-            <li> <a href=""> <i class="icon-picture"> </i>Demo</a></li>
+            <li><a routerLink="forms.html"> <i class="icon-form"></i>Settings</a></li>
+            <li><a routerLink="forms.html"> <i class="icon-form"></i>Profile</a></li>
+            <li><a routerLink="forms.html"> <i class="fa fa-sign-out"></i>Logout</a></li>
           </ul>
         </div>
       </div>
