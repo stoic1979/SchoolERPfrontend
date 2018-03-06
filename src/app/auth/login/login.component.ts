@@ -6,6 +6,9 @@ import { AlertService } from '../../core/services/utils/alert.service';
 
 import { AuthService } from '../../core/services/auth/auth.service';
 
+import { LoadingService } from '../../core/services/utils/loading.service';
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -23,7 +26,8 @@ export class LoginComponent implements OnInit {
   constructor(
   	 	private fb: FormBuilder,
   		private authService: AuthService,
-      private alertService: AlertService
+      private alertService: AlertService,
+      private loadingService: LoadingService
   	) { }
  
   
@@ -35,14 +39,25 @@ export class LoginComponent implements OnInit {
   }
   onSubmit() {
     console.log('onSubmit()');
+
+    
+      this.loadingService.display(true);
+
       this.authService.login(this.form.value).subscribe((res)=> {
+
+        this.loadingService.display(false);
+
         console.log('[Login Component] Response =>' +JSON.stringify(res));
         console.log('[Login Componets] Token =>' +JSON.stringify(res.token));
         this.authService.saveToken(res.token);
         this.authService.loginDone();
         this.formSubmitAttempt = true;
 
+
       },(err) => {
+
+            this.loadingService.display(false);
+            
             this.loginErrors = JSON.stringify(err.json());
             console.log('[LoginComponent] login  error: ', this.loginErrors);
             this.alertService.error("Login Failed");

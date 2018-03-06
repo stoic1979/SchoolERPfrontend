@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { StudentService } from '../../../core/services/user-management/student.service';
 import { AlertService } from '../../../core/services/utils/alert.service';
+import { LoadingService } from '../../../core/services/utils/loading.service';
+
 
 @Component({
   selector: 'app-student-form',
@@ -20,7 +22,8 @@ export class StudentFormComponent implements OnInit {
   constructor(
   private fb: FormBuilder,
   private studentService: StudentService,
-  private alertService: AlertService
+  private alertService: AlertService,
+  private loadingService: LoadingService
   ) { }
 
   ngOnInit() {
@@ -47,12 +50,21 @@ export class StudentFormComponent implements OnInit {
    }
   onSubmit() {
     console.log('onSubmit()');
+
+    this.loadingService.display(true);
+
     this.studentService.add(this.form.value).subscribe((res)=> {
+
+        this.loadingService.display(false);
+
         console.log('[StudentFormComponent] Response =>' +JSON.stringify(res));
         this.formSubmitAttempt = true;
         this.alertService.success("Student added successfully");
 
       },(err) => {
+            
+            this.loadingService.display(false);
+
             const errBody = err.json();
             console.log('add student  error: ', errBody);
             this.alertService.success("[StudentFormComponent] failed to add student");

@@ -19,6 +19,8 @@ import { AuthGuard } from './core/guards/auth.guard'
 
 //services
 import { AlertService } from './core/services/utils/alert.service';
+import { LoadingService } from './core/services/utils/loading.service';
+
 import { AuthService } from './core/services/auth/auth.service'
 import { SectionService } from './core/services/system-management/section.service'
 import { StandardService } from './core/services/system-management/standard.service'
@@ -38,7 +40,7 @@ import { TeacherService } from './core/services/user-management/teacher.service'
     AppRoutingModule,
     HttpModule
   ],
-  providers: [ AuthGuard, AlertService, AuthService, SectionService, StandardService, StudentService, TeacherService],
+  providers: [ AuthGuard, AlertService, LoadingService, AuthService, SectionService, StandardService, StudentService, TeacherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
