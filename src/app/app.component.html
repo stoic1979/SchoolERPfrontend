@@ -1,8 +1,6 @@
-<app-sidebar></app-sidebar>
-
-  <div class="page">
-      <!-- navbar-->
-  <app-header></app-header>
+<div class="page">
+  <app-sidebar *ngIf="isLoggedIn$ | async"></app-sidebar>
+  <app-header *ngIf="isLoggedIn$ | async"></app-header>
   <router-outlet></router-outlet>     
-  <app-footer></app-footer>
+  <app-footer *ngIf="isLoggedIn$ | async"></app-footer>
 </div>

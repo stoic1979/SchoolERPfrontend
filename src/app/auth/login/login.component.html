@@ -6,6 +6,7 @@
     <div class="page login-page">
         <div class="form-outer text-center d-flex align-items-center">
           <div class="form-inner">
+           <img src="assets/img/school.png" />
             <div class="logo text-uppercase"><span>SchoolERP</span><strong class="text-primary">Login</strong></div>
             <p>Hey ! Login to our school ERP...</p>
             <form [formGroup]="form" (ngSubmit)="onSubmit()" id="login-form" method="post" class="login100-form validate-form p-b-33 p-t-5">
@@ -18,7 +19,7 @@
                 <label for="password" class="label-material">Password</label>
               </div>   
               <div class="form-group-material">         
-                <button type="submit" id="submit" name="submit" class="login100-form-btn">Login</button>
+                <br><button type="submit" id="submit" name="submit" class="btn btn-primary">Login</button>
               </div>
               <!-- This should be submit button but I replaced it with <a> for demo purposes-->
             </form><a href="#" class="forgot-pass">Forgot Password?</a><small>Do not have an account? </small><a href="register.html" class="signup">Signup</a>
