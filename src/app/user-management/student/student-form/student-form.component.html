@@ -35,10 +35,10 @@
                         <input type="text" class="form-control" id="aadhar_id" formControlName="aadhar_id" placeholder="Aadhar ID" required>
                     </div> 
                     <div class="form-group">
-                        <input type="text" class="form-control" id="dob" formControlName="dob" placeholder="Date of Birth" required>
+                        <input type='text'  onfocus="(this.type='date')" class="form-control"  formControlName="dob" placeholder="Date of Birth"> 
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="doj" formControlName="doj" placeholder="Date of Joining" required>
+                         <input type="text"  onfocus="(this.type='date')" class="form-control"  formControlName="doj" placeholder="Date of Joining" required>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" id="previous_school" formControlName="previous_school" placeholder="Previous School" required>
@@ -46,6 +46,10 @@
                     <div class="form-group">
                         <input type="password" class="form-control" id="password" formControlName="password" placeholder="Password" required>
                     </div>
+                    <ul class="nav nav-tabs">
+                        <li><a class="btn btn-primary pull-right" data-toggle="tab" href="#parent_tab">Next Step - Fill Parents Details</a></li>
+                    </ul>
+                    <!-- <a class="btn btn-primary pull-right" data-toggle="tab" href="#parent_tab">Next</a> -->
                 </div>
                 <div id="parent_tab" class="tab-pane fade">
                     <br>
@@ -75,10 +79,11 @@
                     <div class="form-group">
                         <input type="text" class="form-control" id="father_tel_no" formControlName="father_tel_no" placeholder="Father Telephone No" required>
                     </div>
+                    <div class="nav nav-tabs">
+                        <a class="btn btn-primary pull-right" data-toggle="tab" href="#student_tab">Previous Step - Go to  Student Details</a>
+                    </div>
+                    <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right">Save Data</button>
                 </div>
-
-                <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right">Save Data</button>
-
             </div>
         </form>
 

@@ -8,3 +8,6 @@
 	margin: 10px 0px 60px;
 	border: 2px solid GREY;
 }
+ #submit{
+	float: right;
+}
