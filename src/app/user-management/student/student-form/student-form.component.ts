@@ -50,6 +50,7 @@ export class StudentFormComponent implements OnInit {
    }
   onSubmit() {
     console.log('onSubmit()');
+    console.log('onSubmit() student data '+JSON.stringify(this.form.value));
 
     this.loadingService.display(true);
 

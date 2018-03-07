@@ -1,3 +1,86 @@
-<p>
-  teacher-form works!
-</p>
+<div class="container-fluid">
+    <br>
+    <div class="row">
+        <div class="col-sm-6">
+            <a routerLink="/users/teacher/list" class="btn btn-primary">View All Teachers</a>
+        </div>
+    </div>
+
+        <br>
+    <div class="card">
+        <br>
+        <ul class="nav nav-tabs">
+            <li class="active"><a class="btn" data-toggle="tab" href="#teacher_tab">TEACHER DETAILS</a></li>
+            <li><a class="btn" data-toggle="tab" href="#edu_bank_tab">EDUCATION/BANK DETAILS</a></li>
+        </ul>
+
+        <form  [formGroup]="form" (ngSubmit)="onSubmit()">
+
+            <div class="tab-content clearfix">
+                <div id="teacher_tab" class="tab-pane active">
+                    <br>
+                    <h3>Fill Teacher Details</h3>
+
+                     <div class="form-group">
+                        <input type="text" class="form-control" id="designation" formControlName="designation" value="designation" placeholder="Designation" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="name" formControlName="name" value="name" placeholder="Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="father_name" formControlName="father_name" placeholder="Father Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="age" formControlName="age" placeholder="Age" required>
+                    </div> 
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="aadhar_id" formControlName="aadhar_id" placeholder="Aadhar ID" required>
+                    </div> 
+                    <div class="form-group" data-provide="datepicker"> 
+                    <div class='input-group date'>
+                      <input type='text'  onfocus="(this.type='date')" class="form-control" id='datepicker' formControlName="datepicker" placeholder="Date of Birth"> 
+                      <i class="fa fa-calender"></i>
+                    </div>
+                    </div>
+                    <div class="form-group" >
+                        <input type="text"  onfocus="(this.type='date')" class="form-control" id="doj" formControlName="doj" placeholder="Date of Joining" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="marital_status" formControlName="marital_status" placeholder="Marital Status" required>
+                    </div>      
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="domicile" formControlName="domicile" placeholder="Domicile" required>
+                    </div>   
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="postal_address" formControlName="postal_address" placeholder="Postal Address" required>
+                    </div> <div class="form-group">
+                        <input type="text" class="form-control" id="permanent_address" formControlName="permanent_address" placeholder="Permanent Address" required>
+                    </div>    
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="password" formControlName="password" placeholder="Password" required>
+                    </div>
+                </div>
+                <div id="edu_bank_tab" class="tab-pane fade">
+                    <br>
+                    <h3>Fill Educational Details / Bank Details</h3>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="education" formControlName="education" placeholder="Education" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="working_exp" formControlName="working_exp" name="working_exp" placeholder="Working Experience" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="bank_name" formControlName="bank_name" placeholder="Bank Name" required>
+                    </div> 
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="bank_acc_no" formControlName="bank_acc_no" placeholder="Bank Account No" required>
+                    </div>
+                </div>
+
+                <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right">Save Data</button>
+
+            </div>
+        </form>
+
+    </div>
+</div>
