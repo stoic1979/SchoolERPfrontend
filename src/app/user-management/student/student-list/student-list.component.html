@@ -1,59 +1,118 @@
 <br>
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-6">
-            <a routerLink="/users/student/add" class="btn btn-primary">Add New Student</a>
-            <a routerLink="/users/student/add" class="btn btn-primary">Search Student</a>
-            <a routerLink="/users/student/list" class="btn btn-primary">All Students</a>
-        </div>
+    <div class="page-header">
+        <a routerLink="/users/student/add" class="btn btn-primary">Add New Student</a>
+        <a class="btn btn-primary" data-toggle="modal" data-target="#myModal">Search Student</a>
+        <a routerLink="/users/student/list" class="btn btn-primary">All Students</a>
     </div>
     <br><br>
-        <div class="container">
-            <div class="card">
-                <div class="table">          
-                    <table class="table table-responsive">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Name</th>
-                                <th>Gender</th>
-                                <th>Lib No.</th>
-                                <th>Standard</th>
-                                <th>Section</th>
-                                <th>DOB</th>
-                                <th>DOJ</th>
-                                <th>Prev School</th>
-                                <th>Aadhar Id</th>
-                                <th>Mother Name</th>
-                                <th>Mother's Email</th>
-                                <th>Mother's Mob No.</th>
-                                <th>Mother's Tel No.</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
-                            </tr>
-                        </thead>
-                        <tbody *ngIf = "!options">
-                            <tr *ngFor="let values of dataSource; let i = index">
-                                <td>{{i+1}}</td>
-                                <td>{{values.name}}</td>
-                                <td>{{values.gender}}</td>
-                                <td>{{values.lib_no}}</td>
-                                <td>{{values.standard}}</td>
-                                <td>{{values.section}}</td>
-                                <td>{{values.dob}}</td>
-                                <td>{{values.doj}}</td>
-                                <td>{{values.previous_school}}</td>
-                                <td>{{values.aadhar_id}}</td>
-                                <td>{{values.parent.mother_name}}</td>
-                                <td>{{values.parent.mother_email}}</td>
-                                <td>{{values.parent.mother_mob_no}}</td>
-                                <td>{{values.parent.mother_tel_no}}</td>
-                                <td><i class="fa fa-pencil" routerLink="#"></i></td>
-                                <td><i class="fa fa-trash" routerLink="#"></i></td>
-                            </tr>
-                        </tbody>
-                    </table>
+    <div class="container">
+        <div class="card">
+            <div class="table">          
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Gender</th>
+                            <th>Lib No.</th>
+                            <th>Standard</th>
+                            <th>Section</th>
+                            <th>DOB</th>
+                            <th>DOJ</th>
+                            <th>Prev School</th>
+                            <th>Aadhar Id</th>
+                            <th>Mother Name</th>
+                            <th>Mother's Email</th>
+                            <th>Mother's Mob No.</th>
+                            <th>Mother's Tel No.</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf = "!options">
+                        <tr *ngFor="let values of dataSource; let i = index">
+                            <td>{{i+1}}</td>
+                            <td>{{values.name}}</td>
+                            <td>{{values.gender}}</td>
+                            <td>{{values.lib_no}}</td>
+                            <td>{{values.standard}}</td>
+                            <td>{{values.section}}</td>
+                            <td>{{values.dob}}</td>
+                            <td>{{values.doj}}</td>
+                            <td>{{values.previous_school}}</td>
+                            <td>{{values.aadhar_id}}</td>
+                            <td>{{values.parent.mother_name}}</td>
+                            <td>{{values.parent.mother_email}}</td>
+                            <td>{{values.parent.mother_mob_no}}</td>
+                            <td>{{values.parent.mother_tel_no}}</td>
+                            <td><i class="fa fa-pencil" routerLink="#"></i></td>
+                            <td><i class="fa fa-trash" routerLink="#"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- code for search modal -->
+
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Search  Student</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input-group" id="adv-search">
+                                <input type="text" class="form-control" placeholder="Search for snippets" />
+                                <div class="input-group-btn">
+                                    <div class="btn-group" role="group">
+                                        <div class="dropdown dropdown-lg">
+                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Search By<span class="caret"></span></button>
+                                            <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                                <form class="form-horizontal" role="form">
+                                                    <div class="form-group">
+                                                        <label>Serach by standard</label>
+                                                        <select class="form-control">
+                                                            <option value="0" selected>All Snippets</option>
+                                                            <option value="1">Featured</option>
+                                                            <option value="2">Most popular</option>
+                                                            <option value="3">Top rated</option>
+                                                            <option value="4">Most commented</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Serach by section</label>
+                                                        <select class="form-control">
+                                                            <option value="0" selected>All Snippets</option>
+                                                            <option value="1">Featured</option>
+                                                            <option value="2">Most popular</option>
+                                                            <option value="3">Top rated</option>
+                                                            <option value="4">Most commented</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="contain">Search by name</label>
+                                                        <input class="form-control" type="text" />
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary" data-dismiss="modal">Search</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
