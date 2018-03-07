@@ -182,16 +182,16 @@ span.fa {
 }
 /*--placeholder-color--*/
 ::-webkit-input-placeholder{
-  color:#000;
+  color:#6c757d;
 }
 :-moz-placeholder { /* Firefox 18- */
-   color: #000; 
+   color: #6c757d; 
 }
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: #000;  
+   color: #6c757d;  
 }
 :-ms-input-placeholder {  
-   color: #000;  
+   color: #6c757d;  
 }
 /*--//placeholder-color--*/
 /*--//main--*/

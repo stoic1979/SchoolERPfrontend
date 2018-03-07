@@ -13,18 +13,18 @@
             <p>Hey ! Login to our school ERP...</p>
             <form [formGroup]="form" (ngSubmit)="onSubmit()" id="login-form" method="post" class="login100-form validate-form p-b-33 p-t-5">
               <div class="form-group-material">
-                <input id="login-username" type="text" name="email" required class="input-material" formControlName="email">
-                <label for="login-username" class="label-material">Email</label>
+                <input id="login-username" type="text" name="email" required class="input-material" formControlName="email" placeholder="Email">
+                <!-- <label for="login-username" class="label-material">Email</label> -->
               </div>
               <div class="form-group-material">
-                <input id="password" type="password" name="password" formControlName="password" required class="input-material">
-                <label for="password" class="label-material">Password</label>
+                <input id="password" type="password" name="password" formControlName="password" required class="input-material" placeholder="Password">
+                <!-- <label for="password" class="label-material">Password</label> -->
               </div>   
               <div class="form-group-material">         
                 <br><button type="submit" id="submit" name="submit" class="btn btn-primary">Login</button>
               </div>
               <!-- This should be submit button but I replaced it with <a> for demo purposes-->
-            </form><a href="#" class="forgot-pass">Forgot Password?</a><small>Do not have an account? </small><a href="register.html" class="signup">Signup</a>
+            </form><a href="#" class="forgot-pass">Forgot Password?</a>
           </div>
         </div>
     </div>
