@@ -8,13 +8,12 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
+import config from '../../../config/config';
 
-const API_ENDPOINT = 'http://localhost:3000';
+const API_ENDPOINT = config.API_ENDPOINT;
 
+//const API_ENDPOINT = 'http://localhost:3000';
 //const API_ENDPOINT = 'http://192.168.1.13:3000';
-
-//const API_ENDPOINT = 'http://192.168.1.13:3000';
-
 
 @Injectable()
 export class CounsellorService {
