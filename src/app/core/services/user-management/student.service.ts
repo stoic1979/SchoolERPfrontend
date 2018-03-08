@@ -41,7 +41,7 @@ export class StudentService {
       .map(res => this.result = res.json());        
   }
 
-   getById = (id) => {
+  getById = (id) => {
     const header = this.createAuthorizationHeader();
     return this.http.get(`${API_ENDPOINT}/api/student/id`, { headers: header })
       .map(res => this.result = res.json());        

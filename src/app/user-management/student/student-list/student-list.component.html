@@ -69,46 +69,46 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
+                            <form  [formGroup]="form" (ngSubmit)="onSubmit()">
                             <div class="input-group" id="adv-search">
-                                <input type="text" class="form-control" placeholder="Search for snippets" />
+                                <input type="text" class="form-control" placeholder="name of the student" formControlName="name"/>
                                 <div class="input-group-btn">
                                     <div class="btn-group" role="group">
                                         <div class="dropdown dropdown-lg">
                                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Search By<span class="caret"></span></button>
                                             <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                                <form class="form-horizontal" role="form">
                                                     <div class="form-group">
                                                         <label>Serach by standard</label>
-                                                        <select class="form-control">
-                                                            <option value="0" selected>All Snippets</option>
-                                                            <option value="1">Featured</option>
-                                                            <option value="2">Most popular</option>
-                                                            <option value="3">Top rated</option>
-                                                            <option value="4">Most commented</option>
+                                                        <select class="form-control" formControlName="standard">
+                                                            <option [ngValue]="0" selected>All Snippets</option>
+                                                            <option [ngValue]="1">Featured</option>
+                                                            <option [ngValue]="2">Most popular</option>
+                                                            <option [ngValue]="3">Top rated</option>
+                                                            <option [ngValue]="4">Most commented</option>
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Serach by section</label>
-                                                        <select class="form-control">
-                                                            <option value="0" selected>All Snippets</option>
-                                                            <option value="1">Featured</option>
-                                                            <option value="2">Most popular</option>
-                                                            <option value="3">Top rated</option>
-                                                            <option value="4">Most commented</option>
+                                                        <select class="form-control" formControlName="section">
+                                                            <option [ngValue]="0" selected>All Snippets</option>
+                                                            <option [ngValue]="1">Featured</option>
+                                                            <option [ngValue]="2">Most popular</option>
+                                                            <option [ngValue]="3">Top rated</option>
+                                                            <option [ngValue]="4">Most commented</option>
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="contain">Search by name</label>
-                                                        <input class="form-control" type="text" />
+                                                        <label for="contain">Search by roll no</label>
+                                                        <input class="form-control" type="text" formControlName="roll_no" />
                                                     </div>
-                                                    <button type="submit" class="btn btn-primary" data-dismiss="modal">Search</button>
-                                                </form>
+                                                    <button type="submit" class="btn btn-primary">Search</button>
                                             </div>
                                         </div>
-                                        <button type="button" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                        <button type="submit" class="btn btn-primary" ><i class="fa fa-search" aria-hidden="true" ></i></button>
                                     </div>
                                 </div>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>
