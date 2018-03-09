@@ -8,3 +8,26 @@
 	margin: 10px 0px 60px;
 	border: 2px solid GREY;
 }
+
+.page-header > a{
+	color: white;
+}
+/*.main-center{
+	display: inline-block;
+  	text-align: center;
+  	padding: 10px;
+  	margin: 20px auto;
+  	width: 800px;
+  	background-color: #fff;
+    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+  	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+}*/
+
+.inputButton1{
+	float: left;
+}
+
+.inputButton2{
+	float: right;
+}
