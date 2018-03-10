@@ -100,9 +100,6 @@
                         <ul class="nav nav-tabs">
                             <li><a class="btn btn-primary " data-toggle="tab" href="#parent_tab">Next Step - Fill Educational Details</a><li>
                         </ul>
-                        <div class="sbt_btn">
-                            <button class="btn btn-primary" type="submit">Save Data</button>
-                        </div>
                     </div>
 
                     <div id="parent_tab" class="tab-pane fade">
@@ -117,19 +114,19 @@
                         <div class="form-group row">
                             <label class="col-2 col-form-label">Mother Email</label>
                             <div class="col-10">
-                                <input class="form-control" type="text"  formControlName="mother_email" required>
+                                <input class="form-control" type="text" formControlName="mother_email" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-2 col-form-label">Mother Mobile No.</label>
                             <div class="col-10">
-                                <input class="form-control" type="text" formControlName="mother_mob_no" required>
+                                <input class="form-control" type="number" formControlName="mother_mob_no" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-2 col-form-label">Mother Telephone No.</label>
                             <div class="col-10">
-                                <input class="form-control" type="text" formControlName="mother_tel_no" required>
+                                <input class="form-control" type="number" title="only numbers" formControlName="mother_tel_no" required>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -147,13 +144,13 @@
                        <div class="form-group row">
                             <label class="col-2 col-form-label">Father Mobile No.</label>
                             <div class="col-10">
-                                <input class="form-control" type="text" formControlName="father_mob_no" required>
+                                <input class="form-control" type="number" title="only numbers" formControlName="father_mob_no" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-2 col-form-label">Father Telephone No.</label>
                             <div class="col-10">
-                                <input class="form-control" type="text" formControlName="father_tel_no" required>
+                                <input class="form-control" type="number" title="only numbers" formControlName="father_tel_no" required>
                             </div>
                         </div>
                          <div class="form-group row">
