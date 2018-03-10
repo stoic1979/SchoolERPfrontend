@@ -11,7 +11,7 @@
             <li><a class="btn" data-toggle="tab" href="#parent_tab">PARENTAL DETAILS</a></li>
         </ul>
         <div  class = "card" id="logbox">
-            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" ngNativeValidate>
                 <div class="tab-content clearfix">
                     <div id="student_tab" class="tab-pane active">
                         <h3>Fill Personal Details</h3>
@@ -28,24 +28,24 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="example-url-input" class="col-2 col-form-label">Gender</label>
+                            <label class="col-2 col-form-label">Gender</label>
                             <div class="col-10">
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" value="male" formControlName="gender" /> male
+                                        <input type="radio" value="male" name="gender" formControlName="gender" required/> male
                                     </label>
                                 </div>
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" value="female" formControlName="gender"/> female
+                                        <input type="radio" value="female" name="gender" formControlName="gender"/> female
                                     </label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="example-tel-input" class="col-2 col-form-label">Standard</label>
+                            <label class="col-2 col-form-label">Standard</label>
                                 <div class="col-10">
-                                <select class="form-control" formControlName="standard" placeholder="Standard">
+                                <select class="form-control" formControlName="standard" placeholder="Standard" required>
                                 <option value="nursery" selected>Nursery</option>
                                 <option value="lkg">LKG</option>
                                 <option value="ukg">UKG</option>
@@ -58,9 +58,9 @@
                             </div>
                         </div>
                          <div class="form-group row">
-                            <label for="example-tel-input" class="col-2 col-form-label">Section</label>
+                            <label class="col-2 col-form-label">Section</label>
                                 <div class="col-10">
-                                <select class="form-control" formControlName="section" placeholder="Standard">
+                                <select class="form-control" formControlName="section" placeholder="Standard" required>
                                 <option value="a" selected>A</option>
                                 <option value="b">B</option>
                                 <option value="c">C</option>
@@ -78,15 +78,15 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="example-date-input" class="col-2 col-form-label">Date of Birth</label>
+                            <label class="col-2 col-form-label">Date of Birth</label>
                             <div class="col-10">
-                                <input class="form-control" type="text" onfocus="(this.type='date')" formControlName="dob">
+                                <input class="form-control" type="text" onfocus="(this.type='date')" formControlName="dob" required>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="example-date-input" class="col-2 col-form-label">Date of Joining</label>
+                            <label class="col-2 col-form-label">Date of Joining</label>
                             <div class="col-10">
-                                <input class="form-control" type="text" onfocus="(this.type='date')" formControlName="doj">
+                                <input class="form-control" type="text" onfocus="(this.type='date')" formControlName="doj" required>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -100,6 +100,9 @@
                         <ul class="nav nav-tabs">
                             <li><a class="btn btn-primary " data-toggle="tab" href="#parent_tab">Next Step - Fill Educational Details</a><li>
                         </ul>
+                        <div class="sbt_btn">
+                            <button class="btn btn-primary" type="submit">Save Data</button>
+                        </div>
                     </div>
 
                     <div id="parent_tab" class="tab-pane fade">
@@ -144,7 +147,7 @@
                        <div class="form-group row">
                             <label class="col-2 col-form-label">Father Mobile No.</label>
                             <div class="col-10">
-                                <input class="form-control" type="text" formControlName="father_contact" required>
+                                <input class="form-control" type="text" formControlName="father_mob_no" required>
                             </div>
                         </div>
                         <div class="form-group row">
