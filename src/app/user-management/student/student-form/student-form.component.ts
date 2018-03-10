@@ -29,32 +29,42 @@ export class StudentFormComponent implements OnInit {
   ngOnInit() {
   	 this.form = this.fb.group({
         name:  ['', Validators.required],
+        gender: ['',Validators.required],
         lib_no:  ['', Validators.required],
         standard:  ['', Validators.required],
         section:  ['', Validators.required],
         dob:  ['', Validators.required],
         doj:  ['', Validators.required],
-        tel_no:   ['', Validators.required],
+        previous_school:   ['', Validators.required],
         aadhar_id:   ['', Validators.required],
         father_name:  ['', Validators.required],
         mother_name:   ['', Validators.required],
-        father_contact:   ['', Validators.required],
-       	mother_contact:   ['', Validators.required],
+        father_mob_no:   ['', Validators.required],
+       	mother_mob_no:   ['', Validators.required],
        	mother_tel_no:   ['', Validators.required],
        	father_tel_no:   ['', Validators.required],
         father_email:   ['', Validators.required],
         mother_email:   ['', Validators.required],
-        previous_school:   ['', Validators.required],
         password:   ['', Validators.required],
     });
    }
+
+   isFieldInvalid(field: string) {
+    return (
+      (!this.form.get(field).valid && this.form.get(field).touched) ||
+      (this.form.get(field).untouched && this.formSubmitAttempt)
+    );
+  }
+
   onSubmit() {
     console.log('onSubmit()');
     console.log('onSubmit() student data '+JSON.stringify(this.form.value));
 
-    this.loadingService.display(true);
-
-    this.studentService.add(this.form.value).subscribe((res)=> {
+    
+    if (this.form.valid) {
+     
+      this.loadingService.display(true);
+      this.studentService.add(this.form.value).subscribe((res)=> {
 
         this.loadingService.display(false);
 
@@ -71,6 +81,10 @@ export class StudentFormComponent implements OnInit {
             this.alertService.success("[StudentFormComponent] failed to add student");
       });
     }
+    else{
+       console.log("form data is not valid");
+    }
+  }
   
 
 }
