@@ -60,31 +60,22 @@ export class StudentFormComponent implements OnInit {
     console.log('onSubmit()');
     console.log('onSubmit() student data '+JSON.stringify(this.form.value));
 
-    
     if (this.form.valid) {
-     
       this.loadingService.display(true);
       this.studentService.add(this.form.value).subscribe((res)=> {
-
         this.loadingService.display(false);
-
         console.log('[StudentFormComponent] Response =>' +JSON.stringify(res));
         this.formSubmitAttempt = true;
         this.alertService.success("Student added successfully");
-
-      },(err) => {
-            
-            this.loadingService.display(false);
-
-            const errBody = err.json();
-            console.log('add student  error: ', errBody);
-            this.alertService.success("[StudentFormComponent] failed to add student");
-      });
-    }
+        },(err) => {
+          this.loadingService.display(false);
+          const errBody = err.json();
+          console.log('add student  error: ', errBody);
+          this.alertService.success("[StudentFormComponent] failed to add student");
+        });
+      }
     else{
-       console.log("form data is not valid");
+      console.log("form data is not valid");
     }
   }
-  
-
 }
