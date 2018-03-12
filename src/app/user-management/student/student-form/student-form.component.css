@@ -23,3 +23,42 @@
 .sbt_btn{
 	text-align:center;
 }
+
+
+.tab {
+    overflow: hidden;
+    border-bottom: 3px solid #59d1c5;
+    background-color: #f1f1f1;
+
+
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #59d1c5;
+    border-bottom: 3px solid #42f4e2; 
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color:  #59d1c5;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
