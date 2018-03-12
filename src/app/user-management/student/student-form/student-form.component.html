@@ -1,25 +1,22 @@
 <div class="container-fluid">
     <br>
     <div class="page-header">
-        <a routerLink="/users/student/list" class="btn btn-primary">View Student Data</a>
+        <a routerLink="/users/student/list" class="btn btn-primary">View All Students</a>
     </div>
     <br>
     <div class="card">
         <br>
-       <!--  <ul class="nav nav-tabs">
-            <li class="active"><a class="btn" data-toggle="tab" href="#student_tab">STUDENT DETAILS</a></li>
-            <li><a class="btn" data-toggle="tab" href="#parent_tab">PARENTAL DETAILS</a></li>
-        </ul> -->
         <div class="tab">
-            <button class="tablinks" onclick="openCity(event, 'student_tab')">Student Details</button>
-            <button class="tablinks" onclick="openCity(event, 'parent_tab')">Parent Details</button>
-            <button class="tablinks" onclick="openCity(event, 'Gaudians')">Guardians</button>
+            <button class="tablinks active" id="btn_student_tab" (click)="openTab('student_tab')">Student Details</button>
+            <button class="tablinks" id="btn_parent_tab" (click)="openTab('parent_tab')">Parents Details</button>
         </div>
 
-        <div  class = "card" id="logbox">
+        <div id="logbox">
             <form [formGroup]="form" (ngSubmit)="onSubmit()" ngNativeValidate>
+
+                <!--- STUDENT DETAILS TAB CONTENT -->
                 <div id="student_tab" class="tabcontent">
-                    <h3>Fill Personal Details</h3>
+                    <br><h3 class="tab_title">Fill Student Details</h3>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Name</label>
                         <div class="col-10">
@@ -37,12 +34,12 @@
                         <div class="col-10">
                             <div class="radio">
                                 <label>
-                                    <input type="radio" value="MALE" name="gender" formControlName="gender" required/> male
+                                    <input type="radio" value="MALE" name="gender" formControlName="gender" required/> Male
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" value="FEMALE" name="gender" formControlName="gender"/> female
+                                    <input type="radio" value="FEMALE" name="gender" formControlName="gender"/> Female
                                 </label>
                             </div>
                         </div>
@@ -99,11 +96,12 @@
                             <input class="form-control" type="text" value="previous_school" formControlName="previous_school" required>
                         </div>
                     </div>
-                     <button class="tablinks" onclick="openCity(event, 'parent_tab')">Next Step - Parent Details</button>
+                     <button class="btn btn-primary" (click)="openTab('parent_tab')">Next Step - Parent Details ></button>
                 </div>
+
+                <!--- PARENT DETAILS TAB CONTENT -->
                 <div id="parent_tab" class="tabcontent">
-                    <br>
-                    <h3>Fill Parental Details</h3>
+                    <br><h3 class="tab_title">Fill Parents Details</h3>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Mother Name</label>
                         <div class="col-10">
@@ -158,9 +156,9 @@
                             <input class="form-control" type="text" formControlName="password" required>
                         </div>
                     </div>
-                    <button class="tablinks" onclick="openCity(event, 'student_tab')">Previous Step - Go To Student Details </button>
+                    <button class="btn btn-primary" (click)="openTab('student_tab')">< Previous Step - Go To Student Details </button>
                     <div class="sbt_btn">
-                        <button class="btn btn-primary" type="submit">Save Data</button>
+                        <button class="btn btn-primary" type="submit">Save Student Data</button>
                     </div>
                 </div>
             </form>

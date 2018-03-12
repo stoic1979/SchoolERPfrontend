@@ -26,6 +26,28 @@ export class StudentFormComponent implements OnInit {
   private loadingService: LoadingService
   ) { }
 
+  openTab(tabName: string) {
+
+    console.log("[StudentFormComponent] openTab");
+
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // de-activating all tabs
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+
+    // activating the button for selected tab
+    var btn = document.getElementById("btn_" + tabName);
+    btn.className += " active";
+}
+
   ngOnInit() {
   	 this.form = this.fb.group({
         name:  ['', Validators.required],
@@ -47,6 +69,8 @@ export class StudentFormComponent implements OnInit {
         mother_email:   ['', Validators.required],
         password:   ['', Validators.required],
     });
+
+     this.openTab('student_tab');
    }
 
    isFieldInvalid(field: string) {
