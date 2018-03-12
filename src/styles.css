@@ -1,1 +1,66 @@
-/* You can add global styles to this file, and also import other style files */
+.red{
+    color:red;
+    }
+
+.page-header > a{
+	color: white;
+}
+
+#logbox{
+	padding: 10px;
+  margin: 20px ;
+  background-color: #ffffff;
+}
+.nav-tabs > li {
+  float:none;
+  display:inline-block;
+  zoom:1;
+}
+
+.nav-tabs {
+    text-align:center;
+}
+.sbt_btn{
+	text-align:center;
+}
+
+.tab_title{
+    color: #5cb85c;
+}
+
+
+.tab {
+    overflow: hidden;
+    border-bottom: 4px solid #5cb85c;
+    background-color: #ffffff;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: #555555;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    color: #ffffff;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ff0000;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color:  #5cb85c;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
+    background-color:  #ffffff;
+}

@@ -4,12 +4,14 @@ import { AlertService } from '../../../core/services/utils/alert.service';
 import { LoadingService } from '../../../core/services/utils/loading.service';
 import { TeacherService } from '../../../core/services/user-management/teacher.service';
 
+import { TabManager } from '../../../core/helpers/tabManager';
+
 @Component({
   selector: 'app-teacher-form',
   templateUrl: './teacher-form.component.html',
   styleUrls: ['./teacher-form.component.css']
 })
-export class TeacherFormComponent implements OnInit {
+export class TeacherFormComponent extends TabManager implements OnInit {
 
   public isRole: boolean = false;
  
@@ -22,7 +24,9 @@ export class TeacherFormComponent implements OnInit {
   private teacherService: TeacherService,
   private alertService: AlertService,
   private loadingService: LoadingService
-  ) { }
+  ) { 
+    super();
+  }
 
   ngOnInit() {
   this.form = this.fb.group({
@@ -46,6 +50,9 @@ export class TeacherFormComponent implements OnInit {
         bank_acc_no:   ['', Validators.required],
         password:   ['', Validators.required],
         });
+
+    // calling openTab from TabManager
+    this.openTab('personal_tab');
   }
 
 onSubmit() {

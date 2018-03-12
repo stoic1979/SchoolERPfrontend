@@ -52,6 +52,7 @@ export class StudentFormComponent extends TabManager implements OnInit {
         password:   ['', Validators.required],
     });
 
+     // calling openTab from TabManager
      this.openTab('student_tab');
    }
 

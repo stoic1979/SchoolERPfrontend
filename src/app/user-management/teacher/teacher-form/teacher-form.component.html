@@ -6,135 +6,132 @@
     <br>
     <div class="card">
         <br>
-        <ul class="nav nav-tabs">
-            <li class="active"><a class="btn" data-toggle="tab" href="#personal_tab">TEACHER DETAILS</a></li>
-            <li><a class="btn" data-toggle="tab" href="#edu_tab">EDUCATIONAL DETAILS</a></li>
-        </ul>
-        <div  class = "card" id="logbox">
+        <div class="tab">
+            <button class="tablinks active" id="btn_personal_tab" (click)="openTab('personal_tab')">TEACHER DETAILS</button>
+            <button class="tablinks" id="btn_edu_tab" (click)="openTab('edu_tab')">EDUCATIONAL DETAILS</button>
+        </div>
+        <div id="logbox">
             <form [formGroup]="form" (ngSubmit)="onSubmit()" ngNativeValidate>
-                <div class="tab-content clearfix">
-                    <div id="personal_tab" class="tab-pane active">
-                        <h3>Fill Personal Details</h3>
-                        <div class="form-group row">
-                            <label class="col-2 col-form-label">Name</label>
-                            <div class="col-10">
-                                <input class="form-control" type="string" value="name" formControlName="name" required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-2 col-form-label">Gender</label>
-                            <div class="col-10">
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" value="MALE" name="gender" formControlName="gender" required/> male
-                                    </label>
-                                </div>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" value="FEMALE" name="gender" formControlName="gender"/> female
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-2 col-form-label">Aadhar ID</label>
-                            <div class="col-10">
-                                <input class="form-control" type="text" value="aadhar_id" formControlName="aadhar_id" required>
-                            </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <label class="col-2 col-form-label">Date of Birth</label>
-                            <div class="col-10">
-                                <input class="form-control" type="text" onfocus="(this.type='date')" formControlName="dob" required>
+                <!--- TEACHER DETAILS TAB CONTENT -->
+                <div id="personal_tab" class="tabcontent">
+                    <h3>Fill Personal Details</h3>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">Name</label>
+                        <div class="col-10">
+                            <input class="form-control" type="string" value="name" formControlName="name" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">Gender</label>
+                        <div class="col-10">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" value="MALE" name="gender" formControlName="gender" required/> male
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" value="FEMALE" name="gender" formControlName="gender"/> female
+                                </label>
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label class="col-2 col-form-label">Date of Joining</label>
-                            <div class="col-10">
-                                <input class="form-control" type="text" onfocus="(this.type='date')" formControlName="doj" required>
-                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">Aadhar ID</label>
+                        <div class="col-10">
+                            <input class="form-control" type="text" value="aadhar_id" formControlName="aadhar_id" required>
                         </div>
-                        <div class="form-group row">
-                            <label class="col-2 col-form-label">Address</label>
-                            <div class="col-10">
-                                <input class="form-control" type="text" value="address" formControlName="address" required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-2 col-form-label">Marital Status</label>
-                            <div class="col-10">
-                                <input class="form-control" type="string" value="marital_status" formControlName="marital_status" required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-2 col-form-label">Father Name</label>
-                            <div class="col-10">
-                                <input class="form-control" type="string" value="father_name" formControlName="father_name" required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-2 col-form-label">Telephone No</label>
-                            <div class="col-10">
-                                <input class="form-control" type="text" value="tel_no" formControlName="tel_no" required>
-                            </div>
-                        </div>
-                         <div class="form-group row">
-                            <label class="col-2 col-form-label">Mobile No</label>
-                            <div class="col-10">
-                                <input class="form-control" type="text" value="mob_no" formControlName="mob_no" required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-2 col-form-label">Email</label>
-                            <div class="col-10">
-                                <input class="form-control" type="text" value="email" formControlName="email" required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-2 col-form-label">Password</label>
-                            <div class="col-10">
-                                <input class="form-control" type="text" formControlName="password" required>
-                            </div>
-                        </div>
-                        <ul class="nav nav-tabs">
-                            <li><a class="btn btn-primary " data-toggle="tab" href="#edu_tab">Next Step - Fill Educational Details</a><li>
-                        </ul>
                     </div>
 
-                    <div id="edu_tab" class="tab-pane fade">
-                        <br>
-                        <h3>Fill Educations and Bank Details</h3>
-                         <div class="form-group row">
-                            <label class="col-2 col-form-label">Education</label>
-                            <div class="col-10">
-                                <input class="form-control" type="text"  formControlName="education" required>
-                            </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">Date of Birth</label>
+                        <div class="col-10">
+                            <input class="form-control" type="text" onfocus="(this.type='date')" formControlName="dob" required>
                         </div>
-                        <div class="form-group row">
-                            <label class="col-2 col-form-label">Working Exp</label>
-                            <div class="col-10">
-                                <input class="form-control" type="text" formControlName="work_exp" required>
-                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">Date of Joining</label>
+                        <div class="col-10">
+                            <input class="form-control" type="text" onfocus="(this.type='date')" formControlName="doj" required>
                         </div>
-                        <div class="form-group row">
-                            <label class="col-2 col-form-label">Bank Name</label>
-                            <div class="col-10">
-                                <input class="form-control" type="text" formControlName="bank_name" required>
-                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">Address</label>
+                        <div class="col-10">
+                            <input class="form-control" type="text" value="address" formControlName="address" required>
                         </div>
-                        <div class="form-group row">
-                            <label class="col-2 col-form-label">Bank Account No</label>
-                            <div class="col-10">
-                                <input class="form-control" type="text" formControlName="bank_acc_no" required>
-                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">Marital Status</label>
+                        <div class="col-10">
+                            <input class="form-control" type="string" value="marital_status" formControlName="marital_status" required>
                         </div>
-                        <ul class="nav nav-tabs">
-                            <li><a class="btn btn-primary" data-toggle="tab" href="#personal_tab">Previos Step -Fill Personal Details</a></li>
-                        </ul>
-                        <div class="sbt_btn">
-                            <button class="btn btn-primary" type="submit">Save Data</button>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">Father Name</label>
+                        <div class="col-10">
+                            <input class="form-control" type="string" value="father_name" formControlName="father_name" required>
                         </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">Telephone No</label>
+                        <div class="col-10">
+                            <input class="form-control" type="text" value="tel_no" formControlName="tel_no" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">Mobile No</label>
+                        <div class="col-10">
+                            <input class="form-control" type="text" value="mob_no" formControlName="mob_no" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">Email</label>
+                        <div class="col-10">
+                            <input class="form-control" type="text" value="email" formControlName="email" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">Password</label>
+                        <div class="col-10">
+                            <input class="form-control" type="text" formControlName="password" required>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" (click)="openTab('edu_tab')">Next Step - Fill Educational Details > </button>
+                </div>
+
+                <!--- EDUCATION DETAILS TAB CONTENT -->
+                <div id="edu_tab" class="tabcontent">
+                    <br>
+                    <h3>Fill Educations and Bank Details</h3>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">Education</label>
+                        <div class="col-10">
+                            <input class="form-control" type="text"  formControlName="education" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">Working Exp</label>
+                        <div class="col-10">
+                            <input class="form-control" type="text" formControlName="work_exp" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">Bank Name</label>
+                        <div class="col-10">
+                            <input class="form-control" type="text" formControlName="bank_name" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">Bank Account No</label>
+                        <div class="col-10">
+                            <input class="form-control" type="text" formControlName="bank_acc_no" required>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" (click)="openTab('personal_tab')">< Previous Step - Fill Personal Details </button>
+                    <div class="sbt_btn">
+                        <button class="btn btn-primary" type="submit">Save Teacher Data</button>
                     </div>
                 </div>
             </form>

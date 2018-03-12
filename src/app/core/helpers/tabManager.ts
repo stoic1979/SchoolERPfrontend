@@ -2,7 +2,7 @@ export class TabManager {
 
   openTab(tabName: string) {
 
-    console.log("[StudentFormComponent] openTab");
+    console.log("[TabManager] openTab");
 
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
