@@ -29,6 +29,11 @@ export class AuthService {
   
 
   get isLoggedIn() {
+
+    if(this.getToken().length > 0 ) {
+      this.loggedIn.next(true);
+    }
+
     return this.loggedIn.asObservable();
   }
 
@@ -57,6 +62,7 @@ export class AuthService {
 
   logout() {
     this.loggedIn.next(false);
+    localStorage.removeItem('userToken');
     this.router.navigate(['/auth']);
   }
   

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import {Router} from "@angular/router";
 
 import { AlertService } from '../../core/services/utils/alert.service';
 
@@ -27,8 +28,16 @@ export class LoginComponent implements OnInit {
   	 	private fb: FormBuilder,
   		private authService: AuthService,
       private alertService: AlertService,
-      private loadingService: LoadingService
-  	) { }
+      private loadingService: LoadingService,
+      private router: Router
+  	) { 
+
+    // check user is already logged in
+    if(authService.getToken().length > 0) {
+      this.router.navigate(['/']);
+    }
+
+  }
  
   
   ngOnInit() {
