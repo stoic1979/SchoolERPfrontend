@@ -70,7 +70,7 @@ export class StudentFormComponent implements OnInit {
         },(err) => {
           this.loadingService.display(false);
           const errBody = err.json();
-          console.log('add student  error: ', errBody);
+          console.log('[StudentFormComponent] Error =>' +errBody);
           this.alertService.success("[StudentFormComponent] failed to add student");
         });
       }

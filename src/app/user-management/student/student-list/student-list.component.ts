@@ -37,20 +37,32 @@ export class StudentListComponent implements OnInit {
     });
 
      this.loadingService.display(true);
-     this.studentService.search(this.form.value).subscribe((res)=> {
+     this.studentService.get().subscribe((res)=> {
         this.loadingService.display(false);
         console.log('[Student List Component] Response =>' +JSON.stringify(res));
         this.dataSource = res.data;
       },(err) => {
             this.loadingService.display(false);
             const errBody = err.json();
-            console.log('add student  error: ', errBody);
+            console.log('[Student List Component] Error  =>' +errBody);
       });
   }
 
   onSubmit() {
     console.log('onSubmit()');
     console.log('onSubmit() student data '+JSON.stringify(this.form.value));
+
+    this.loadingService.display(true);
+    this.studentService.search(this.form.value).subscribe((res)=> {
+        this.loadingService.display(false);
+        console.log('[Student List Component] Search Response =>' +JSON.stringify(res));
+        this.dataSource = res.data;
+      },(err) => {
+            this.loadingService.display(false);
+            const errBody = err.json();
+            console.log('[Student List Component] Search Error  =>' +errBody);
+            this.alertService.success("[StudentFormComponent] failed to search student");
+      });
   }
 }
 

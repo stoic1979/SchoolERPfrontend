@@ -7,77 +7,137 @@
     <div class="card">
         <br>
         <ul class="nav nav-tabs">
-            <li class="active"><a class="btn" data-toggle="tab" href="#personal_tab">PERSONAL DETAILS</a></li>
+            <li class="active"><a class="btn" data-toggle="tab" href="#personal_tab">PRINCIPAL DETAILS</a></li>
             <li><a class="btn" data-toggle="tab" href="#edu_tab">EDUCATIONAL DETAILS</a></li>
         </ul>
-		<div class="container">
-    		<div align="center" id="logbox">
-      			<form [formGroup]="form" (ngSubmit)="onSubmit()">
-      				<div class="tab-content clearfix">
-                		<div id="personal_tab" class="tab-pane active">
-        					<h3>Fill Personal Details</h3>
-                            <div class="form-inline">
-                                <label>name:</label>
-        					   <input  type="text" formControlName="name" placeholder="username"  autofocus="autofocus" class="input pass"/>
+        <div  class = "card" id="logbox">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" ngNativeValidate>
+                <div class="tab-content clearfix">
+                    <div id="personal_tab" class="tab-pane active">
+                        <h3>Fill Personal Details</h3>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">Name</label>
+                            <div class="col-10">
+                                <input class="form-control" type="string" value="name" formControlName="name" required>
                             </div>
-                            <div class="form-inline">
-                                <label>Name:</label>
-                            <input type="text" formControlName="email" placeholder="email" required="required" class="input pass"/>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">Gender</label>
+                            <div class="col-10">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" value="MALE" name="gender" formControlName="gender" required/> male
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" value="FEMALE" name="gender" formControlName="gender"/> female
+                                    </label>
+                                </div>
                             </div>
-                            <div class="form-inline">
-                                <label>Password:</label>
-                            <input  type="password" formControlName="password" placeholder="password" required="required" class="input pass"/>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">Aadhar ID</label>
+                            <div class="col-10">
+                                <input class="form-control" type="text" value="aadhar_id" formControlName="aadhar_id" required>
                             </div>
-                            <div class="form-inline">
-                            <label >Gender: </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="optradio">male
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="optradio">female
-                            </label>
-                            </div>
-                            <div class="form-inline">
-                                <label>Father Name:</label>
-                            <input  type="text" formControlName="father_name" placeholder="father name"  autofocus="autofocus" class="input pass"/>
-                            </div>
-                            <div class="form-inline">
-                                <label>Aadhar Id:</label>
-                            <input  type="text" formControlName="aadhar_id" placeholder="aadhar id"  autofocus="autofocus" class="input pass"/>
-                            </div>
-                            <div class="form-inline">
-                                <label>Address:</label>
-        					<input type="text" formControlName="address" placeholder="address" required="required" class="input pass"/>
-                            </div>
-                            <div class="form-inline">
-                                <label>Date of Birth:</label>
-                            <input type="text" onfocus="(this.type='date')"formControlName="dob" placeholder="date of birth" required="required" class="input pass"/>
-                            </div>
-                            <div class="form-inline">
-                                <label>Date of Joining:</label>
-                            <input type="text" onfocus="(this.type='date')"formControlName="doj" placeholder="date of joining" required="required" class="input pass"/>
-                            </div>
-        					<div class="nav nav-tabs">
-                                <a class="inputButton" data-toggle="tab" href="#edu_tab">Next Page</a>
-                            </div>
-        				</div>
-        				<div id="edu_tab" class="tab-pane fade">
-                    		<br>
-                    		<h3>Fill Educational Details</h3>
-                            <input  type="text" formControlName="education" placeholder="education"  autofocus="autofocus" class="input pass"/>
-                            <input  type="text" formControlName="working_exp" placeholder="working experience"  autofocus="autofocus" class="input pass"/>
-                            <input  type="text" formControlName="bank_name" placeholder="bank name"  autofocus="autofocus" class="input pass"/>
-                            <input type="text" formControlName="address" placeholder="address" required="required" class="input pass"/>
-                            <input type="text" formControlName="bank_acc_no" placeholder="bank acc no" required="required" class="input pass"/>
-                            <div class="nav nav-tabs">
-                                <a class="inputButton1" data-toggle="tab" href="#personal_tab">Previous Page</a>
-                                <a class="inputButton2" type="submit" href="#">Submit</a>
-                            </div>
+                        </div>
 
-                    	</div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">Date of Birth</label>
+                            <div class="col-10">
+                                <input class="form-control" type="text" onfocus="(this.type='date')" formControlName="dob" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">Date of Joining</label>
+                            <div class="col-10">
+                                <input class="form-control" type="text" onfocus="(this.type='date')" formControlName="doj" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">Address</label>
+                            <div class="col-10">
+                                <input class="form-control" type="text" value="address" formControlName="address" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">Marital Status</label>
+                            <div class="col-10">
+                                <input class="form-control" type="string" value="marital_status" formControlName="marital_status" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">Father Name</label>
+                            <div class="col-10">
+                                <input class="form-control" type="string" value="father_name" formControlName="father_name" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">Telephone No</label>
+                            <div class="col-10">
+                                <input class="form-control" type="text" value="tel_no" formControlName="tel_no" required>
+                            </div>
+                        </div>
+                         <div class="form-group row">
+                            <label class="col-2 col-form-label">Mobile No</label>
+                            <div class="col-10">
+                                <input class="form-control" type="text" value="mob_no" formControlName="mob_no" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">Email</label>
+                            <div class="col-10">
+                                <input class="form-control" type="text" formControlName="email" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">Password</label>
+                            <div class="col-10">
+                                <input class="form-control" type="text" formControlName="password" required>
+                            </div>
+                        </div>
+                        <ul class="nav nav-tabs">
+                            <li><a class="btn btn-primary " data-toggle="tab" href="#edu_tab">Next Step - Fill Educational Details</a><li>
+                        </ul>
                     </div>
-        		</form>
-    		</div>
-		</div>
-	</div>
+
+                    <div id="edu_tab" class="tab-pane fade">
+                        <br>
+                        <h3>Fill Educations and Bank Details</h3>
+                         <div class="form-group row">
+                            <label class="col-2 col-form-label">Education</label>
+                            <div class="col-10">
+                                <input class="form-control" type="text"  formControlName="education" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">Working Exp</label>
+                            <div class="col-10">
+                                <input class="form-control" type="text" formControlName="work_exp" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">Bank Name</label>
+                            <div class="col-10">
+                                <input class="form-control" type="text" formControlName="bank_name" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">Bank Account No</label>
+                            <div class="col-10">
+                                <input class="form-control" type="text" formControlName="bank_acc_no" required>
+                            </div>
+                        </div>
+                        <ul class="nav nav-tabs">
+                            <li><a class="btn btn-primary" data-toggle="tab" href="#personal_tab">Previos Step -Fill Personal Details</a></li>
+                        </ul>
+                        <div class="sbt_btn">
+                            <button class="btn btn-primary" type="submit">Save Data</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>

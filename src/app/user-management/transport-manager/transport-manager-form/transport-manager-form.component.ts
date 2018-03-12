@@ -30,21 +30,23 @@ export class TransportManagerFormComponent implements OnInit {
         name:  ['', Validators.required],
         designation:  ['', Validators.required],
         father_name:  ['', Validators.required],
-        section:  ['', Validators.required],
+        gender:   ['', Validators.required],
+        email:  ['', Validators.required],
         dob:  ['', Validators.required],
         doj:  ['', Validators.required],
         age:   ['', Validators.required],
-        aadhar_id:  ['', Validators.required],
-        domicile:  ['', Validators.required],
+        tel_no:   ['', Validators.required],
+        mob_no:   ['', Validators.required],
+        aadhar_id:   ['', Validators.required],
         marital_status:   ['', Validators.required],
         address:   ['', Validators.required],
-       	education:   ['', Validators.required],
-       	working_exp:   ['', Validators.required],
+         education:   ['', Validators.required],
+         work_exp:   ['', Validators.required],
         bank_name:   ['', Validators.required],
         bank_acc_no:   ['', Validators.required],
         password:   ['', Validators.required],
     });
-  	}		
+    }   
 
 onSubmit() {
     console.log('onSubmit()');
@@ -68,6 +70,4 @@ onSubmit() {
             this.alertService.success("[TransportManagerFormComponent] failed to add transport manager");
       });
     }
-  
-
 }

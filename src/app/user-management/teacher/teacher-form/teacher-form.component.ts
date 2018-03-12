@@ -11,7 +11,7 @@ import { TeacherService } from '../../../core/services/user-management/teacher.s
 })
 export class TeacherFormComponent implements OnInit {
 
-	public isRole: boolean = false;
+  public isRole: boolean = false;
  
   form: FormGroup;
 
@@ -29,17 +29,19 @@ export class TeacherFormComponent implements OnInit {
         name:  ['', Validators.required],
         designation:  ['', Validators.required],
         father_name:  ['', Validators.required],
-        section:  ['', Validators.required],
+        gender:   ['', Validators.required],
+        email:  ['', Validators.required],
+
         dob:  ['', Validators.required],
         doj:  ['', Validators.required],
         age:   ['', Validators.required],
+        tel_no:   ['', Validators.required],
+        mob_no:   ['', Validators.required],
         aadhar_id:   ['', Validators.required],
-        domicile:  ['', Validators.required],
         marital_status:   ['', Validators.required],
-        postal_address:   ['', Validators.required],
-       	permanent_address:   ['', Validators.required],
-       	education:   ['', Validators.required],
-       	working_exp:   ['', Validators.required],
+        address:   ['', Validators.required],
+        education:   ['', Validators.required],
+        work_exp:   ['', Validators.required],
         bank_name:   ['', Validators.required],
         bank_acc_no:   ['', Validators.required],
         password:   ['', Validators.required],
@@ -68,6 +70,4 @@ onSubmit() {
             this.alertService.success("[TeacherFormComponent] failed to add teacher");
       });
     }
-  
-
 }
