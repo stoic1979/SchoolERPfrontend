@@ -29,8 +29,7 @@ export class StudentListComponent implements OnInit {
   }
 
   ngOnInit() {
-
-     this.form = this.fb.group({
+    this.form = this.fb.group({
         name:  ['', Validators.required],
         roll_no:  ['', Validators.required],
         standard:  ['', Validators.required],
@@ -38,7 +37,7 @@ export class StudentListComponent implements OnInit {
     });
 
      this.loadingService.display(true);
-     this.studentService.get().subscribe((res)=> {
+     this.studentService.search(this.form.value).subscribe((res)=> {
         this.loadingService.display(false);
         console.log('[Student List Component] Response =>' +JSON.stringify(res));
         this.dataSource = res.data;
@@ -47,14 +46,11 @@ export class StudentListComponent implements OnInit {
             const errBody = err.json();
             console.log('add student  error: ', errBody);
       });
-
   }
 
   onSubmit() {
     console.log('onSubmit()');
     console.log('onSubmit() student data '+JSON.stringify(this.form.value));
   }
-
-
 }
 
