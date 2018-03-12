@@ -20,6 +20,12 @@ export class StudentListComponent implements OnInit {
   options;
   all;
 
+  showSearch:boolean = false;
+
+  toggleSearch() {
+    this.showSearch = !this.showSearch
+  }
+
   constructor(
   private fb: FormBuilder,
   private alertService: AlertService,
@@ -36,11 +42,20 @@ export class StudentListComponent implements OnInit {
         section:  ['', Validators.required],
     });
 
-     this.loadingService.display(true);
-     this.studentService.get().subscribe((res)=> {
+     this.getStudents();
+  }
+
+  getStudents() {
+    this.loadingService.display(true);
+     this.studentService.getStudents(this.form.value).subscribe((res)=> {
         this.loadingService.display(false);
-        console.log('[Student List Component] Response =>' +JSON.stringify(res));
+        //console.log('[Student List Component] Response =>' +JSON.stringify(res));
         this.dataSource = res.data;
+
+        if(this.dataSource.length == 0) {
+          this.alertService.info("No records found !!!");
+        }
+
       },(err) => {
             this.loadingService.display(false);
             const errBody = err.json();
@@ -49,20 +64,23 @@ export class StudentListComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('onSubmit()');
-    console.log('onSubmit() student data '+JSON.stringify(this.form.value));
+    this.getStudents();
+  }
 
-    this.loadingService.display(true);
-    this.studentService.search(this.form.value).subscribe((res)=> {
-        this.loadingService.display(false);
-        console.log('[Student List Component] Search Response =>' +JSON.stringify(res));
-        this.dataSource = res.data;
-      },(err) => {
-            this.loadingService.display(false);
-            const errBody = err.json();
-            console.log('[Student List Component] Search Error  =>' +errBody);
-            this.alertService.success("[StudentFormComponent] failed to search student");
-      });
+  // get from top button "Get All Students"
+  getAllStudents() {
+
+    // clear table data
+    this.dataSource = [];
+
+    // close search box
+    this.showSearch = false;
+
+    // reset form
+    this.form.reset();
+
+    // fetch all students
+    this.getStudents();
   }
 }
 
