@@ -47,6 +47,12 @@ export class StudentService {
       .map(res => this.result = res.json());        
   }
 
+  search = (data) => {
+    const header = this.createAuthorizationHeader();
+    return this.http.get(`${API_ENDPOINT}/api/student/search/data`, { headers: header })
+      .map(res => this.result = res.json());  
+  } 
+  
   getToken () {
   	console.log( '[SectionService] token '+localStorage.getItem('userToken'));
     return localStorage.getItem('userToken') || '';

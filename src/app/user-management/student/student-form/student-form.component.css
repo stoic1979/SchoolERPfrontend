@@ -8,13 +8,13 @@
 
 #logbox{
 	padding: 10px;
-  	margin: 20px ;
-  	background-color: #F5F5F5;
+  margin: 20px ;
+  background-color: #F5F5F5;
 }
 .nav-tabs > li {
-    float:none;
-    display:inline-block;
-    zoom:1;
+  float:none;
+  display:inline-block;
+  zoom:1;
 }
 
 .nav-tabs {
