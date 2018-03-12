@@ -1,10 +1,25 @@
 .red{
     color:red;
     }
-.form-area
-{
-    background-color: #FAFAFA;
-	padding: 10px 40px 60px;
-	margin: 10px 0px 60px;
-	border: 2px solid GREY;
+
+.page-header > a{
+	color: white;
+}
+
+#logbox{
+	padding: 10px;
+  margin: 20px ;
+  background-color: #F5F5F5;
+}
+.nav-tabs > li {
+  float:none;
+  display:inline-block;
+  zoom:1;
+}
+
+.nav-tabs {
+    text-align:center;
+}
+.sbt_btn{
+	text-align:center;
 }

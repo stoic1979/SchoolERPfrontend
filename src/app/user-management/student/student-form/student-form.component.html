@@ -6,10 +6,16 @@
     <br>
     <div class="card">
         <br>
-        <ul class="nav nav-tabs">
+       <!--  <ul class="nav nav-tabs">
             <li class="active"><a class="btn" data-toggle="tab" href="#student_tab">STUDENT DETAILS</a></li>
             <li><a class="btn" data-toggle="tab" href="#parent_tab">PARENTAL DETAILS</a></li>
-        </ul>
+        </ul> -->
+        <div class="tab">
+            <button class="tablinks" onclick="openCity(event, 'Personal')">Personal</button>
+            <button class="tablinks" onclick="openCity(event, 'Acadmic')">Acadmic</button>
+            <button class="tablinks" onclick="openCity(event, 'Gaudians')">Guardians</button>
+        </div>
+        
         <div  class = "card" id="logbox">
             <form [formGroup]="form" (ngSubmit)="onSubmit()" ngNativeValidate>
                 <div class="tab-content clearfix">
