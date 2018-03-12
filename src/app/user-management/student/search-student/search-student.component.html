@@ -91,3 +91,64 @@
         </div>
     </div>
 </div>
+
+
+<div class="collapse list-unstyled fade" id="search">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Search  Student</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form  [formGroup]="form" (ngSubmit)="onSubmit()">
+                            <div class="input-group" id="adv-search">
+                                <input type="text" class="form-control" placeholder="name of the student" formControlName="name"/>
+                                <div class="input-group-btn">
+                                    <div class="btn-group" role="group">
+                                        <div class="dropdown dropdown-lg">
+                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Search By<span class="caret"></span></button>
+                                            <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                                    <div class="form-group">
+                                                        <label>Serach by standard</label>
+                                                        <select class="form-control" formControlName="standard">
+                                                            <option [ngValue]="0" selected>All Snippets</option>
+                                                            <option [ngValue]="1">Featured</option>
+                                                            <option [ngValue]="2">Most popular</option>
+                                                            <option [ngValue]="3">Top rated</option>
+                                                            <option [ngValue]="4">Most commented</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Serach by section</label>
+                                                        <select class="form-control" formControlName="section">
+                                                            <option [ngValue]="0" selected>All Snippets</option>
+                                                            <option [ngValue]="1">Featured</option>
+                                                            <option [ngValue]="2">Most popular</option>
+                                                            <option [ngValue]="3">Top rated</option>
+                                                            <option [ngValue]="4">Most commented</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="contain">Search by roll no</label>
+                                                        <input class="form-control" type="text" formControlName="roll_no" />
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary">Search</button>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary" ><i class="fa fa-search" aria-hidden="true" ></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
