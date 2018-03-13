@@ -33,9 +33,21 @@ export class CounsellorService {
       .map(res => this.result = res.json());        
   }
 
-  get = () => {
+  getCounsellors = (formData) => {
+
+    console.log("[CounsellorService] :: data: " + JSON.stringify(formData) );
+
+    // dont send empty/null form variables in a query to server !!!
+    var query = {};
+    for (var propName in formData) { 
+      if (formData[propName] === null || formData[propName] === undefined || formData[propName].length === 0) {
+        continue;
+      }
+      query[propName] = formData[propName];
+    }
+
     const header = this.createAuthorizationHeader();
-    return this.http.get(`${API_ENDPOINT}/api/counsellors`, { headers: header })
+    return this.http.post(`${API_ENDPOINT}/api/counsellors/all`, query, { headers: header })
       .map(res => this.result = res.json());        
   }
 
@@ -49,9 +61,6 @@ export class CounsellorService {
     console.log( '[CounsellorService] token '+localStorage.getItem('userToken'));
     return localStorage.getItem('userToken') || '';
   }
-
-
-
   private handleError (error: Response | any) {
     console.error('[CounsellorService] :: handleError', error);
     return Observable.throw(error);
@@ -65,6 +74,4 @@ export class CounsellorService {
         return headers;
   }
 
- 
-  
 }//CounsellorService
