@@ -33,13 +33,25 @@ export class TeacherService {
       .map(res => this.result = res.json());        
   }
 
- get = () => {
+  getTeachers = (formData) => {
+
+    console.log("[TeacherService] :: data: " + JSON.stringify(formData) );
+
+    // dont send empty/null form variables in a query to server !!!
+    var query = {};
+    for (var propName in formData) { 
+      if (formData[propName] === null || formData[propName] === undefined || formData[propName].length === 0) {
+        continue;
+      }
+      query[propName] = formData[propName];
+    }
+
     const header = this.createAuthorizationHeader();
-    return this.http.get(`${API_ENDPOINT}/api/teachers`, { headers: header })
+    return this.http.post(`${API_ENDPOINT}/api/teachers/all`, query, { headers: header })
       .map(res => this.result = res.json());        
   }
 
-   getById = (id) => {
+  getById = (id) => {
     const header = this.createAuthorizationHeader();
     return this.http.get(`${API_ENDPOINT}/api/teacher/id`, { headers: header })
       .map(res => this.result = res.json());        
