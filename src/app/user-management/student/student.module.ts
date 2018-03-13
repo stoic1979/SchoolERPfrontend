@@ -6,6 +6,7 @@ import { StudentRoutingModule } from './student-routing.module';
 import { StudentFormComponent } from './student-form/student-form.component';
 import { StudentListComponent } from './student-list/student-list.component';
 import { SearchStudentComponent } from './search-student/search-student.component';
+import { StudentDetailsComponent } from './student-details/student-details.component';
 
 @NgModule({
   imports: [
@@ -14,6 +15,6 @@ import { SearchStudentComponent } from './search-student/search-student.componen
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [StudentFormComponent, StudentListComponent, SearchStudentComponent]
+  declarations: [StudentFormComponent, StudentListComponent, SearchStudentComponent, StudentDetailsComponent]
 })
 export class StudentModule { }
