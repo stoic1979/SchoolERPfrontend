@@ -31,7 +31,7 @@
                         <th>Delete</th>
                     </tr>
                 </thead>
-                <tbody *ngIf = "!options">
+                <tbody>
                     <tr *ngFor="let values of dataSource; let i = index">
                         <td>{{i+1}}</td>
                         <td>{{values.name}}</td>

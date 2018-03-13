@@ -14,13 +14,13 @@
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Search By Name</label>
                         <div class="col-10">
-                            <input class="form-control" type="text" value="name" formControlName="name">
+                            <input class="form-control" type="text" formControlName="name">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Search By Roll No.</label>
                         <div class="col-10">
-                            <input class="form-control" type="text" value="name" formControlName="roll_no">
+                            <input class="form-control" type="text" formControlName="roll_no">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -79,7 +79,7 @@
                         <th>Delete</th>
                     </tr>
                 </thead>
-                <tbody *ngIf = "!options">
+                <tbody>
                     <tr *ngFor="let values of dataSource; let i = index">
                         <td>{{i+1}}</td>
                         <td>{{values.name}}</td>
@@ -89,12 +89,13 @@
                         <td>{{values.section}}</td>
                         <td>{{values.dob}}</td>
                         <td>{{values.doj}}</td>
-                        <td>{{values.previous_school}}</td>
+                       <!--  <td>{{values.previous_school}}</td>
                         <td>{{values.aadhar_id}}</td>
                         <td>{{values.parent.mother_name}}</td>
                         <td>{{values.parent.mother_email}}</td>
                         <td>{{values.parent.mother_mob_no}}</td>
-                        <td>{{values.parent.mother_tel_no}}</td>
+                        <td>{{values.parent.mother_tel_no}}</td> -->
+                        <td><button class="btn btn-primary" >Details</button></td>
                         <td><i class="fa fa-pencil" routerLink="#"></i></td>
                         <td><i class="fa fa-trash" routerLink="#"></i></td>
                     </tr>

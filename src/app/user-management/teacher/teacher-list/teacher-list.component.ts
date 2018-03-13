@@ -42,7 +42,7 @@ export class TeacherListComponent implements OnInit {
     this.loadingService.display(true);
      this.teacherService.getTeachers(this.form.value).subscribe((res)=> {
         this.loadingService.display(false);
-        //console.log('[Student List Component] Response =>' +JSON.stringify(res));
+        //console.log('[TeacherListComponent] Response =>' +JSON.stringify(res));
         this.dataSource = res.data;
 
         if(this.dataSource.length == 0) {
@@ -52,7 +52,7 @@ export class TeacherListComponent implements OnInit {
       },(err) => {
             this.loadingService.display(false);
             const errBody = err.json();
-            console.log('[Student List Component] Error  =>' +errBody);
+            console.log('[TeacherListComponent] Error  =>' +errBody);
       });
   }
 
