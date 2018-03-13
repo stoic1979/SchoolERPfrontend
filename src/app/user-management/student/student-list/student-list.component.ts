@@ -17,8 +17,6 @@ export class StudentListComponent implements OnInit {
 
   private formSubmitAttempt: boolean;
   dataSource;
-  options;
-  all;
 
   showSearch:boolean = false;
 
