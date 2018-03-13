@@ -10,6 +10,7 @@ import { LoadingService } from '../../../core/services/utils/loading.service';
   templateUrl: './finance-manager-list.component.html',
   styleUrls: ['./finance-manager-list.component.css']
 })
+
 export class FinanceManagerListComponent implements OnInit {
 
   form: FormGroup;
@@ -22,10 +23,10 @@ export class FinanceManagerListComponent implements OnInit {
   }
 
   constructor(
-  private fb: FormBuilder,
-  private alertService: AlertService,
-  private financeManagerService: FinanceManagerService,
-  private loadingService: LoadingService
+    private fb: FormBuilder,
+    private alertService: AlertService,
+    private financeManagerService: FinanceManagerService,
+    private loadingService: LoadingService
   ) { }
 
   ngOnInit() {

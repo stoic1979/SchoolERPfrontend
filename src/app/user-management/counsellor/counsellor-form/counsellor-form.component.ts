@@ -10,6 +10,7 @@ import { CounsellorService } from '../../../core/services/user-management/counse
   templateUrl: './counsellor-form.component.html',
   styleUrls: ['./counsellor-form.component.css']
 })
+
 export class CounsellorFormComponent implements OnInit {
   public isRole: boolean = false;
  
@@ -18,10 +19,10 @@ export class CounsellorFormComponent implements OnInit {
   private formSubmitAttempt: boolean; 
 
   constructor(
-  private fb: FormBuilder,
-  private counsellorService: CounsellorService,
-  private alertService: AlertService,
-  private loadingService: LoadingService
+    private fb: FormBuilder,
+    private counsellorService: CounsellorService,
+    private alertService: AlertService,
+    private loadingService: LoadingService
   ) { }
 
   ngOnInit() {

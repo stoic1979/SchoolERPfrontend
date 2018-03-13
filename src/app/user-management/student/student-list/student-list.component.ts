@@ -11,6 +11,7 @@ import { LoadingService } from '../../../core/services/utils/loading.service';
   templateUrl: './student-list.component.html',
   styleUrls: ['./student-list.component.css']
 })
+
 export class StudentListComponent implements OnInit {
   
   form: FormGroup;
@@ -25,12 +26,11 @@ export class StudentListComponent implements OnInit {
   }
 
   constructor(
-  private fb: FormBuilder,
-  private alertService: AlertService,
-  private studentService: StudentService,
-  private loadingService: LoadingService
-  ) { 
-  }
+    private fb: FormBuilder,
+    private alertService: AlertService,
+    private studentService: StudentService,
+    private loadingService: LoadingService
+  ) { }
 
   ngOnInit() {
     this.form = this.fb.group({

@@ -11,6 +11,7 @@ import { TabManager } from '../../../core/helpers/tabManager';
   templateUrl: './teacher-form.component.html',
   styleUrls: ['./teacher-form.component.css']
 })
+
 export class TeacherFormComponent extends TabManager implements OnInit {
 
   public isRole: boolean = false;
@@ -20,10 +21,10 @@ export class TeacherFormComponent extends TabManager implements OnInit {
   private formSubmitAttempt: boolean;
 
   constructor(
-  private fb: FormBuilder,
-  private teacherService: TeacherService,
-  private alertService: AlertService,
-  private loadingService: LoadingService
+    private fb: FormBuilder,
+    private teacherService: TeacherService,
+    private alertService: AlertService,
+    private loadingService: LoadingService
   ) { 
     super();
   }

@@ -22,10 +22,10 @@ export class TeacherListComponent implements OnInit {
   }
 
   constructor(
-  private fb: FormBuilder,
-  private alertService: AlertService,
-  private teacherService: TeacherService,
-  private loadingService: LoadingService
+    private fb: FormBuilder,
+    private alertService: AlertService,
+    private teacherService: TeacherService,
+    private loadingService: LoadingService
   ) { 
   }
 

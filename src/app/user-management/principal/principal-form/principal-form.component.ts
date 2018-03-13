@@ -10,6 +10,7 @@ import { PrincipalService } from '../../../core/services/user-management/princip
   templateUrl: './principal-form.component.html',
   styleUrls: ['./principal-form.component.css']
 })
+
 export class PrincipalFormComponent implements OnInit {
   public isRole: boolean = false;
  
@@ -18,11 +19,11 @@ export class PrincipalFormComponent implements OnInit {
   private formSubmitAttempt: boolean; 
 
   constructor(
-  private fb: FormBuilder,
-  private principalService: PrincipalService,
-  private alertService: AlertService,
-  private loadingService: LoadingService
-    ) { }
+    private fb: FormBuilder,
+    private principalService: PrincipalService,
+    private alertService: AlertService,
+    private loadingService: LoadingService
+  ) { }
 
   ngOnInit() {
   this.form = this.fb.group({

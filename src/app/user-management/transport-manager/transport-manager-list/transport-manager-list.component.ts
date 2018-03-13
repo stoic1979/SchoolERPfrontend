@@ -25,10 +25,10 @@ export class TransportManagerListComponent implements OnInit {
   }
 
   constructor(
-  private fb: FormBuilder,
-  private alertService: AlertService,
-  private transportManagerService: TransportManagerService,
-  private loadingService: LoadingService
+    private fb: FormBuilder,
+    private alertService: AlertService,
+    private transportManagerService: TransportManagerService,
+    private loadingService: LoadingService
   ) { }
 
   ngOnInit() {

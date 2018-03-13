@@ -31,7 +31,7 @@
   	<table class="table">
     	<thead>
       	<tr>
-        	<th>#</th>
+          <th>#</th>
         	<th>Name</th>
         	<th>Email</th>
         	<th>DOB</th>
@@ -42,10 +42,12 @@
           <th>Father Name</th>
         	<th>Education</th>
           <th>Work Experience</th>
-          <th>Bank acc. no.</th>
           <th>Bank Name</th>
+          <th>Bank Acc. No.</th>
           <th>Aadhar ID</th>
           <th>Address</th>
+          <th>Edit</th>
+          <th>Delete</th>
      	</tr>
     	</thead>
     	<tbody>
@@ -61,9 +63,12 @@
         		<td>{{values.father_name}}</td>
         		<td>{{values.education}}</td>
         		<td>{{values.work_exp}}</td>
+            <td>{{values.bank_name}}</td>
             <td>{{values.bank_acc_no}}</td>
             <td>{{values.aadhar_id}}</td>
             <td>{{values.address}}</td>
+            <td><i class="fa fa-pencil" routerLink="#"></i></td>
+            <td><i class="fa fa-trash" routerLink="#"></i></td>
       		</tr>
     	</tbody>
   	</table>

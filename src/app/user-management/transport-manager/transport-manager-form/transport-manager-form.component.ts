@@ -19,10 +19,10 @@ export class TransportManagerFormComponent implements OnInit {
   private formSubmitAttempt: boolean;
 
   constructor(
-  private fb: FormBuilder,
-  private transportManagerService: TransportManagerService,
-  private alertService: AlertService,
-  private loadingService: LoadingService
+    private fb: FormBuilder,
+    private transportManagerService: TransportManagerService,
+    private alertService: AlertService,
+    private loadingService: LoadingService
   ) { }
 
   ngOnInit() {

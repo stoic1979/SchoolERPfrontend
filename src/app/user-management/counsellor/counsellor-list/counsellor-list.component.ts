@@ -10,6 +10,7 @@ import { LoadingService } from '../../../core/services/utils/loading.service';
   templateUrl: './counsellor-list.component.html',
   styleUrls: ['./counsellor-list.component.css']
 })
+
 export class CounsellorListComponent implements OnInit {
   
   form: FormGroup;
@@ -22,11 +23,11 @@ export class CounsellorListComponent implements OnInit {
   }
 
   constructor(
-  private fb: FormBuilder,
-  private alertService: AlertService,
-  private counsellorService: CounsellorService,
-  private loadingService: LoadingService
-  	) { }
+    private fb: FormBuilder,
+    private alertService: AlertService,
+    private counsellorService: CounsellorService,
+    private loadingService: LoadingService
+  ) { }
 
   ngOnInit() {
     this.form = this.fb.group({

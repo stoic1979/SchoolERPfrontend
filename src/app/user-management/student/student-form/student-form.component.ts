@@ -13,6 +13,7 @@ import { TabManager } from '../../../core/helpers/tabManager';
   templateUrl: './student-form.component.html',
   styleUrls: ['./student-form.component.css']
 })
+
 export class StudentFormComponent extends TabManager implements OnInit {
 
   public isRole: boolean = false;
@@ -22,10 +23,10 @@ export class StudentFormComponent extends TabManager implements OnInit {
   private formSubmitAttempt: boolean;
 
   constructor(
-  private fb: FormBuilder,
-  private studentService: StudentService,
-  private alertService: AlertService,
-  private loadingService: LoadingService
+    private fb: FormBuilder,
+    private studentService: StudentService,
+    private alertService: AlertService,
+    private loadingService: LoadingService
   ) {
    super(); 
   }

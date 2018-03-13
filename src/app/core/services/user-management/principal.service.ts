@@ -35,7 +35,7 @@ export class PrincipalService {
   }
 
 
-  get = () => {
+  getPrincipal = () => {
     const header = this.createAuthorizationHeader();
     return this.http.get(`${API_ENDPOINT}/api/principal`, { headers: header })
       .map(res => this.result = res.json());        

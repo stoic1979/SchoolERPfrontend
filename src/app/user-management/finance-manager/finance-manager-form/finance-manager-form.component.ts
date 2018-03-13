@@ -10,6 +10,7 @@ import { FinanceManagerService } from '../../../core/services/user-management/fi
   templateUrl: './finance-manager-form.component.html',
   styleUrls: ['./finance-manager-form.component.css']
 })
+
 export class FinanceManagerFormComponent implements OnInit {
 
   public isRole: boolean = false;
@@ -19,10 +20,10 @@ export class FinanceManagerFormComponent implements OnInit {
   private formSubmitAttempt: boolean;
 
   constructor(
-  private fb: FormBuilder,
-  private financeManagerService: FinanceManagerService,
-  private alertService: AlertService,
-  private loadingService: LoadingService
+    private fb: FormBuilder,
+    private financeManagerService: FinanceManagerService,
+    private alertService: AlertService,
+    private loadingService: LoadingService
   ) { }
 
   ngOnInit() {
