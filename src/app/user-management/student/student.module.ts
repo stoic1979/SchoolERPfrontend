@@ -5,7 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StudentRoutingModule } from './student-routing.module';
 import { StudentFormComponent } from './student-form/student-form.component';
 import { StudentListComponent } from './student-list/student-list.component';
-import { SearchStudentComponent } from './search-student/search-student.component';
 import { StudentDetailsComponent } from './student-details/student-details.component';
 
 @NgModule({
@@ -15,6 +14,6 @@ import { StudentDetailsComponent } from './student-details/student-details.compo
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [StudentFormComponent, StudentListComponent, SearchStudentComponent, StudentDetailsComponent]
+  declarations: [StudentFormComponent, StudentListComponent, StudentDetailsComponent]
 })
 export class StudentModule { }
