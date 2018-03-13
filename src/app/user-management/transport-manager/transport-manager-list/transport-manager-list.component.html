@@ -2,11 +2,33 @@
 <div class="container-fluid">
     <div class="page-header">
         <a routerLink="/users/transport/add" class="btn btn-primary">Add New Transport Manager</a>
-
-        <a routerLink="/users/transport/list" class="btn btn-primary">All Transport Managers</a>
+        <a class="btn btn-primary" (click)="toggleSearch()">Search Transport Manager</a>
+        <a (click)="getAllTransportManagers()" class="btn btn-primary">All Transport Managers</a>
     </div>
     <br><br>
-    <div class="card table-responsive-sm">    
+    <div class="card"> 
+        <div *ngIf="showSearch"  id="search">
+            <div class="card" id="search_form">
+                <form [formGroup]="form" (ngSubmit)="onSubmit()" ngNativeValidate>
+                    <h3 class="tab_title">Search Transport Manager</h3>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">Search By Name</label>
+                        <div class="col-10">
+                            <input class="form-control" type="text" formControlName="name">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">Search By Email</label>
+                        <div class="col-10">
+                            <input class="form-control" type="text" formControlName="email">
+                        </div>
+                    </div>
+                    <div class="sbt_btn">
+                        <button class="btn btn-primary" type="submit">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>   
         <div class="table">          
             <table class="table table-responsive">
                 <thead>
@@ -56,3 +78,5 @@
             </table>
         </div>
     </div>
+</div>
+

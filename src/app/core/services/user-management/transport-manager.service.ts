@@ -34,9 +34,21 @@ export class TransportManagerService {
       .map(res => this.result = res.json());        
   }
 
-  get = () => {
+  getTransportManagers = (formData) => {
+
+    console.log("[TransportManagerService] :: data: " + JSON.stringify(formData) );
+
+    // dont send empty/null form variables in a query to server !!!
+    var query = {};
+    for (var propName in formData) { 
+      if (formData[propName] === null || formData[propName] === undefined || formData[propName].length === 0) {
+        continue;
+      }
+      query[propName] = formData[propName];
+    }
+
     const header = this.createAuthorizationHeader();
-    return this.http.get(`${API_ENDPOINT}/api/transportManagers`, { headers: header })
+    return this.http.post(`${API_ENDPOINT}/api/transportManagers/all`, query, { headers: header })
       .map(res => this.result = res.json());        
   }
 
