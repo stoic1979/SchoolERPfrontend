@@ -13,7 +13,6 @@ import { TabManager } from '../../../core/helpers/tabManager';
   templateUrl: './student-form.component.html',
   styleUrls: ['./student-form.component.css']
 })
-
 export class StudentFormComponent extends TabManager implements OnInit {
 
   public isRole: boolean = false;
@@ -32,7 +31,7 @@ export class StudentFormComponent extends TabManager implements OnInit {
   }
 
   ngOnInit() {
-  	 this.form = this.fb.group({
+     this.form = this.fb.group({
         name:  ['', Validators.required],
         gender: ['',Validators.required],
         lib_no:  ['', Validators.required],
@@ -45,9 +44,9 @@ export class StudentFormComponent extends TabManager implements OnInit {
         father_name:  ['', Validators.required],
         mother_name:   ['', Validators.required],
         father_mob_no:   ['', Validators.required],
-       	mother_mob_no:   ['', Validators.required],
-       	mother_tel_no:   ['', Validators.required],
-       	father_tel_no:   ['', Validators.required],
+        mother_mob_no:   ['', Validators.required],
+        mother_tel_no:   ['', Validators.required],
+        father_tel_no:   ['', Validators.required],
         father_email:   ['', Validators.required],
         mother_email:   ['', Validators.required],
         password:   ['', Validators.required],

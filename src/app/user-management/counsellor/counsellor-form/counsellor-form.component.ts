@@ -5,13 +5,14 @@ import { AlertService } from '../../../core/services/utils/alert.service';
 import { LoadingService } from '../../../core/services/utils/loading.service';
 import { CounsellorService } from '../../../core/services/user-management/counsellor.service';
 
+import { TabManager } from '../../../core/helpers/tabManager';
+
 @Component({
   selector: 'app-counsellor-form',
   templateUrl: './counsellor-form.component.html',
   styleUrls: ['./counsellor-form.component.css']
 })
-
-export class CounsellorFormComponent implements OnInit {
+export class CounsellorFormComponent extends TabManager implements OnInit {
   public isRole: boolean = false;
  
   form: FormGroup;
@@ -19,11 +20,13 @@ export class CounsellorFormComponent implements OnInit {
   private formSubmitAttempt: boolean; 
 
   constructor(
-    private fb: FormBuilder,
-    private counsellorService: CounsellorService,
-    private alertService: AlertService,
-    private loadingService: LoadingService
-  ) { }
+  private fb: FormBuilder,
+  private counsellorService: CounsellorService,
+  private alertService: AlertService,
+  private loadingService: LoadingService
+  ) {
+      super();
+   }
 
   ngOnInit() {
   this.form = this.fb.group({
@@ -46,6 +49,9 @@ export class CounsellorFormComponent implements OnInit {
         bank_acc_no:   ['', Validators.required],
         password:   ['', Validators.required],
         });
+
+        // calling openTab from TabManager
+    this.openTab('personal_tab');
   }
 onSubmit() {
     console.log('onSubmit()');

@@ -5,13 +5,14 @@ import { AlertService } from '../../../core/services/utils/alert.service';
 import { LoadingService } from '../../../core/services/utils/loading.service';
 import { FinanceManagerService } from '../../../core/services/user-management/finance-manager.service';
 
+import { TabManager } from '../../../core/helpers/tabManager';
+
 @Component({
   selector: 'app-finance-manager-form',
   templateUrl: './finance-manager-form.component.html',
   styleUrls: ['./finance-manager-form.component.css']
 })
-
-export class FinanceManagerFormComponent implements OnInit {
+export class FinanceManagerFormComponent extends TabManager implements OnInit {
 
   public isRole: boolean = false;
  
@@ -20,11 +21,13 @@ export class FinanceManagerFormComponent implements OnInit {
   private formSubmitAttempt: boolean;
 
   constructor(
-    private fb: FormBuilder,
-    private financeManagerService: FinanceManagerService,
-    private alertService: AlertService,
-    private loadingService: LoadingService
-  ) { }
+  private fb: FormBuilder,
+  private financeManagerService: FinanceManagerService,
+  private alertService: AlertService,
+  private loadingService: LoadingService
+  ) {
+      super();
+   }
 
   ngOnInit() {
   this.form = this.fb.group({
@@ -39,12 +42,15 @@ export class FinanceManagerFormComponent implements OnInit {
         domicile:  ['', Validators.required],
         marital_status:   ['', Validators.required],
         address:   ['', Validators.required],
-       	education:   ['', Validators.required],
-       	working_exp:   ['', Validators.required],
+        education:   ['', Validators.required],
+        working_exp:   ['', Validators.required],
         bank_name:   ['', Validators.required],
         bank_acc_no:   ['', Validators.required],
         password:   ['', Validators.required],
     });
+
+      // calling openTab from TabManager
+    this.openTab('personal_tab');
   }
 
   onSubmit() {

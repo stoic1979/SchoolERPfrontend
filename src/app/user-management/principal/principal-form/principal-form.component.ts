@@ -5,13 +5,14 @@ import { AlertService } from '../../../core/services/utils/alert.service';
 import { LoadingService } from '../../../core/services/utils/loading.service';
 import { PrincipalService } from '../../../core/services/user-management/principal.service';
 
+import { TabManager } from '../../../core/helpers/tabManager';
+
 @Component({
   selector: 'app-principal-form',
   templateUrl: './principal-form.component.html',
   styleUrls: ['./principal-form.component.css']
 })
-
-export class PrincipalFormComponent implements OnInit {
+export class PrincipalFormComponent extends TabManager implements OnInit {
   public isRole: boolean = false;
  
   form: FormGroup;
@@ -23,7 +24,9 @@ export class PrincipalFormComponent implements OnInit {
     private principalService: PrincipalService,
     private alertService: AlertService,
     private loadingService: LoadingService
-  ) { }
+    ) {
+      super();
+     }
 
   ngOnInit() {
   this.form = this.fb.group({
@@ -46,6 +49,8 @@ export class PrincipalFormComponent implements OnInit {
         bank_acc_no:   ['', Validators.required],
         password:   ['', Validators.required],
         });
+        // calling openTab from TabManager
+    this.openTab('personal_tab');
   }
   onSubmit() {
     console.log('onSubmit()');
