@@ -20,21 +20,21 @@
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Name</label>
                         <div class="col-10">
-                            <input class="form-control" type="text" value="name" formControlName="name" required>
+                            <input class="form-control" type="name" pattern="^[A-Za-z]$" minlength="2" title="Please fill only characters" formControlName="name" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Library Number</label>
                         <div class="col-10">
-                            <input class="form-control" type="text" value="name" formControlName="lib_no" required>
+                            <input class="form-control" type="text" formControlName="lib_no" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Gender</label>
                         <div class="col-10">
-                            <div class="radio">
+                            <div class="radio" >
                                 <label>
-                                    <input type="radio" value="MALE" name="gender" formControlName="gender" required/> Male
+                                    <input type="radio" value="MALE" name="gender" formControlName="gender" required /> Male
                                 </label>
                             </div>
                             <div class="radio">
@@ -48,9 +48,9 @@
                         <label class="col-2 col-form-label">Standard</label>
                         <div class="col-10">
                             <select class="form-control" formControlName="standard" placeholder="Standard" required>
-                                <option value="Nursery">Nursery</option>
-                                <option value="LKG">LKG</option>
-                                <option value="UKG">UKG</option>
+                                <option value="nursery" selected>Nursery</option>
+                                <option value="lkg">LKG</option>
+                                <option value="ukg">UKG</option>
                                 <option value="1st">1st</option>
                                 <option value="2nd">2nd</option>
                                 <option value="3rd">3rd</option>
@@ -63,19 +63,19 @@
                         <label class="col-2 col-form-label">Section</label>
                         <div class="col-10">
                             <select class="form-control" formControlName="section" placeholder="Standard" required>
-                                <option value="A">A</option>
-                                <option value="B">B</option>
-                                <option value="C">C</option>
-                                <option value="D">D</option>
-                                <option value="E">E</option>
-                                <option value="F">F</option>
+                                <option value="a" selected>A</option>
+                                <option value="b">B</option>
+                                <option value="c">C</option>
+                                <option value="d">D</option>
+                                <option value="e">E</option>
+                                <option value="f">F</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Aadhar ID</label>
                         <div class="col-10">
-                            <input class="form-control" type="text" value="aadhar_id" formControlName="aadhar_id" required>
+                            <input class="form-control" type="text" pattern="^[0-9]$" length="12" title="Please fill your 12 digits number" formControlName="aadhar_id" required>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -93,10 +93,10 @@
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Previous School</label>
                         <div class="col-10">
-                            <input class="form-control" type="text" value="previous_school" formControlName="previous_school" required>
+                            <input class="form-control" type="string" formControlName="previous_school" required>
                         </div>
                     </div>
-                     <button class="btn btn-primary" (click)="openTab('parent_tab')">Next Step - Parent Details ></button>
+                      <button class="btn btn-primary" type="submit">Save Student Data</button>
                 </div>
 
                 <!--- PARENT DETAILS TAB CONTENT -->
@@ -105,55 +105,55 @@
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Mother Name</label>
                         <div class="col-10">
-                            <input class="form-control" type="text"  formControlName="mother_name" required>
+                            <input class="form-control" type="name" pattern="^[A-Za-z]$" minlength="2" title="Please fill only characters" formControlName="mother_name" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Mother Email</label>
                         <div class="col-10">
-                            <input class="form-control" type="text" formControlName="mother_email" required>
+                            <input class="form-control" type="email" pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$" formControlName="mother_email" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Mother Mobile No.</label>
                         <div class="col-10">
-                            <input class="form-control" type="text" formControlName="mother_mob_no" required>
+                            <input class="form-control" type="tel" pattern="^\d{3}\d{3}\d{4}$" title="Please fill your 10 digit number" formControlName="mother_mob_no" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Mother Telephone No.</label>
                         <div class="col-10">
-                            <input class="form-control" type="text" formControlName="mother_tel_no" required>
+                            <input class="form-control" type="tel" pattern="^\d{4}\d{6}$" title="Please fill your number with code" formControlName="mother_tel_no" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Father Name</label>
                         <div class="col-10">
-                            <input class="form-control" type="text" value="father_name" formControlName="father_name" required>
+                            <input class="form-control" type="name" pattern="^[A-Za-z]$" minlength="2" title="Please fill only characters" formControlName="father_name" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Father Email</label>
                         <div class="col-10">
-                            <input class="form-control" type="text" formControlName="father_email" required>
+                            <input class="form-control" type="email" pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$" formControlName="father_email" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Father Mobile No.</label>
                         <div class="col-10">
-                            <input class="form-control"  formControlName="father_mob_no" required>
+                            <input class="form-control" type="tel" pattern="^\d{3}\d{3}\d{4}$" title="Please fill your 10 digit number" formControlName="father_mob_no" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Father Telephone No.</label>
                         <div class="col-10">
-                            <input class="form-control" formControlName="father_tel_no" required>
+                            <input class="form-control" type="tel" pattern="^\d{4}\d{6}$" title="Please fill your number with code" formControlName="father_tel_no" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Password</label>
                         <div class="col-10">
-                            <input class="form-control" type="text" formControlName="password" required>
+                            <input class="form-control" type="password" formControlName="password" required>
                         </div>
                     </div>
                     <button class="btn btn-primary" (click)="openTab('student_tab')">< Previous Step - Go To Student Details </button>
