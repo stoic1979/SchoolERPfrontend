@@ -15,9 +15,10 @@ export class TransportManagerListComponent implements OnInit {
 
   form: FormGroup;
 
-  private formSubmitAttempt: boolean;
-  dataSource;
+  p: number = 1;
+  dataSource: any[];
   
+  private formSubmitAttempt: boolean;
   showSearch:boolean = false;
 
   toggleSearch() {

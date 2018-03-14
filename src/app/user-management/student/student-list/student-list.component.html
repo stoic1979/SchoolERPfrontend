@@ -58,7 +58,7 @@
             </div>
         </div>
         <div class="table">          
-            <table class="table">
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -81,8 +81,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let values of dataSource; let i = index">
-                        <td>{{i+1}}</td>
+                    <tr *ngFor="let values of dataSource | paginate: { itemsPerPage: 10, currentPage: p }; let i= index" >
+                        <td>{{ (p - 1) * 10 + i +1 }}</td>
                         <td>{{values.name}}</td>
                         <td>{{values.gender}}</td>
                         <td>{{values.lib_no}}</td>
@@ -102,9 +102,10 @@
                     </tr>
                 </tbody>
             </table>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
         </div>
     </div>
 </div>
 
-
+  
 

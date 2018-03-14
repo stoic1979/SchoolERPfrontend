@@ -14,7 +14,9 @@ import { LoadingService } from '../../../core/services/utils/loading.service';
 export class CounsellorListComponent implements OnInit {
   
   form: FormGroup;
-  dataSource;
+
+  p: number = 1;
+  dataSource: any[];
 
   showSearch:boolean = false;
 

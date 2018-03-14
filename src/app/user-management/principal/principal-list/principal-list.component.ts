@@ -10,7 +10,8 @@ import { LoadingService } from '../../../core/services/utils/loading.service';
 
 export class PrincipalListComponent implements OnInit {
 
-  dataSource;
+  p: number = 1;
+  dataSource: any[];
 
   constructor(
     private principalService: PrincipalService,

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { FinanceManagerRoutingModule } from './finance-manager-routing.module';
 import { FinanceManagerFormComponent } from './finance-manager-form/finance-manager-form.component';
@@ -11,7 +12,8 @@ import { FinanceManagerListComponent } from './finance-manager-list/finance-mana
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    FinanceManagerRoutingModule
+    FinanceManagerRoutingModule,
+    NgxPaginationModule
   ],
   declarations: [FinanceManagerFormComponent, FinanceManagerListComponent]
 })

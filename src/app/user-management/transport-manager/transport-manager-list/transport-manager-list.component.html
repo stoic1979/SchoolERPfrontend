@@ -35,47 +35,46 @@
                     <tr>
                         <th>#</th>
                         <th>Name</th>
-                        <th>Designation</th>
-                        <th>Father Name</th>
-                        <th>Section</th>
+                        <th>Email</th>
                         <th>DOB</th>
                         <th>DOJ</th>
-                        <th>Age</th>
-                        <th>Aadhar Id</th>
                         <th>Marital Status</th>
-                        <th>Domicile</th>
-                        <th>Address</th>
+                        <th>Mob No.</th>
+                        <th>Tel No.</th>
+                        <th>Father Name</th>
                         <th>Education</th>
-                        <th>Working Exp</th>
+                        <th>Work Experience</th>
                         <th>Bank Name</th>
-                        <th>Bank Account No</th>
+                        <th>Bank Acc. No.</th>
+                        <th>Aadhar ID</th>
+                        <th>Address</th>
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let values of dataSource; let i = index">
-                        <td>{{i+1}}</td>
+                     <tr *ngFor="let values of dataSource | paginate: { itemsPerPage: 10, currentPage: p }; let i= index" >
+                        <td>{{ (p - 1) * 10 + i +1 }}</td>
                         <td>{{values.name}}</td>
-                        <td>{{values.designation}}</td>
-                        <td>{{values.father_name}}</td>
-                        <td>{{values.section}}</td>
+                        <td>{{values.user.email}}</td>
                         <td>{{values.dob}}</td>
                         <td>{{values.doj}}</td>
-                        <td>{{values.age}}</td>
+                        <td>{{values.marital_status}}</td>
+                        <td>{{values.mob_no}}</td>
+                        <td>{{values.tel_no}}</td>
+                        <td>{{values.father_name}}</td>
+                        <td>{{values.education}}</td>
+                        <td>{{values.work_exp}}</td>
+                        <td>{{values.bank_name}}</td>
+                        <td>{{values.bank_acc_no}}</td>
                         <td>{{values.aadhar_id}}</td>
-                        <td>{{values.domicile}}</td>
-                        <td>{{values.parent.marital_status}}</td>
-                        <td>{{values.parent.address}}</td>
-                        <td>{{values.parent.eduction}}</td>
-                        <td>{{values.parent.working_exp}}</td>
-                        <td>{{values.parent.bank_name}}</td>
-                        <td>{{values.parent.bank_acc_no}}</td>
+                        <td>{{values.address}}</td>
                         <td><i class="fa fa-pencil" routerLink="#"></i></td>
                         <td><i class="fa fa-trash" routerLink="#"></i></td>
                     </tr>
                 </tbody>
             </table>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
         </div>
     </div>
 </div>

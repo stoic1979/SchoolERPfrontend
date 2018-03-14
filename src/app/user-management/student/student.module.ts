@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { StudentRoutingModule } from './student-routing.module';
 import { StudentFormComponent } from './student-form/student-form.component';
@@ -12,7 +13,8 @@ import { StudentDetailsComponent } from './student-details/student-details.compo
     CommonModule,
     StudentRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   declarations: [StudentFormComponent, StudentListComponent, StudentDetailsComponent]
 })
