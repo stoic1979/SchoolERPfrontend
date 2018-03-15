@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { StudentService } from '../../../core/services/user-management/student.service';
 import { AlertService } from '../../../core/services/utils/alert.service';
@@ -15,14 +14,9 @@ import { TabManager } from '../../../core/helpers/tabManager';
 })
 export class StudentDetailsComponent extends TabManager implements OnInit {
 
-  public isRole: boolean = false;
- 
-  form: FormGroup;
-
-  private formSubmitAttempt: boolean;
+  dataSource: any;  
 
   constructor(
-  	private fb: FormBuilder,
     private studentService: StudentService,
     private alertService: AlertService,
     private loadingService: LoadingService
@@ -34,6 +28,24 @@ export class StudentDetailsComponent extends TabManager implements OnInit {
 
   	// calling openTab from TabManager
      this.openTab('student_tab');
+
+     const id = localStorage.getItem('selected_stu_id');
+     console.log('selected_stu_id in student details' +id);
+     this.loadingService.display(true);
+     this.studentService.getById(id).subscribe((res)=> {
+        this.loadingService.display(false);
+        console.log('[StudentDetailsComponent] Response =>' +JSON.stringify(res));
+        this.dataSource = res.data;
+
+        if(this.dataSource.length == 0) {
+          this.alertService.info("No records found !!!");
+        }
+
+      },(err) => {
+            this.loadingService.display(false);
+            const errBody = err.json();
+            console.log('[StudentDetailsComponent] Error  =>' +errBody);
+      });
    }
   }
 

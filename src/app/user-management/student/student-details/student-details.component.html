@@ -1,151 +1,128 @@
 <div class="container">
   <div class="page-header">
-  <a routerLink="/users/student/details"></a>
+    <a routerLink="/users/student/details"></a>
     <h2><img src="../../../assets/images/manuser.png" height="50px" width="50px">Student Profile</h2>      
-    
   </div>
-
   <hr class="featurette-divider">
-
-  
   <div class="container">
     <div class="row">
-    
-      
-    <div class="col-sm-4">
-    <div class="card">
-    
-
-      <!-- <div class="container" > -->
-      <div class="circle"><img src="../../../assets/images/people.png" height="129px" width="129px">
-               </div>
-      <!-- </div> -->
-      <br>
-         
-  <table class="table table-striped" border="1">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <td>Vibha</td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-      <th>Library Number</th>
-        <td>12</td>
-      </tr>
-      <tr>
-        <th>Standard</th>
-        <td>1st</td>
-      </tr>
-      <tr>
-        <th>Mother Name</th>
-        <td>Anchal</td>
-      </tr>
-      <tr>
-        <th>Father Name</th>
-        <td>Vivek</td>
-      </tr>
-    </tbody>
-  </table>
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="circle">
+            <img src="../../../assets/images/people.png" height="129px" width="129px">
+          </div>
+          <br>
+          <table class="table table-striped" border="1">
+            <thead>
+                <tr>
+                  <th>Name</th>
+                  <td>{{dataSource.name}}</td>
+                </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Library Number</th>
+                <td>{{dataSource.lib_no}</td>
+              </tr>
+              <tr>
+                <th>Standard</th>
+                <td>{{dataSource.standard}}</td>
+              </tr>
+              <tr>
+                <th>Mother Name</th>
+                <td>{{dataSource.mother_name}</td>
+              </tr>
+              <tr>
+                <th>Father Name</th>
+                <td>{{dataSource.father_name}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-sm-8">
+        <div class="card">
+          <div class="tab" align="right">
+            <button class="tablinks active" id="btn_student_tab" (click)="openTab('student_tab')"><img src="../../../assets/images/locateuser.png" height="16" width="16">Student Details</button>
+            <button class="tablinks" id="btn_parent_tab"(click)="openTab('parent_tab')"><img src="../../../assets/images/grade.png" height="16" width="16"> Parents Details</button>
+          </div>
+          <div id="student_tab" class="tabcontent">
+            <h2> <img src="../../../assets/images/information.png" height="19" width="19"> Personal Details </h2>
+            <br>
+            <hr class="featurette-divider">
+            <div class="container">        
+              <table  class="table table-striped" border="1"  width="100%">
+                <tbody>
+                  <tr>
+                    <th>Name</th>
+                    <td>{{dataSource.name}</td>
+                    <th>Library Number</th>
+                    <td>{{dataSource.lib_no}}</td>
+                  </tr>
+                  <tr>
+                    <th>Gender</th>
+                    <td>{{dataSource.gender}}</td>
+                    <th>Aadhar ID</th>
+                    <td>{{dataSource.aadhar_id}</td>
+                  </tr>
+                  <tr>
+                    <th>Standard</th>
+                    <td>{{dataSource.standard}}</td>
+                    <th>Section</th>
+                    <td>{{dataSource.section}}</td>
+                  </tr>
+                  <tr>
+                    <th>Date of Birth</th>
+                    <td>{{dataSource.dob}}</td>
+                    <th>Date of Joining</th>
+                    <td>{{dataSource.doj}}</td>
+                  </tr>
+                  <tr>
+                    <th>Previous School</th>
+                    <td>{{dataSource.previous_school}}</td>
+                    <th></th>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div id="parent_tab" class="tabcontent">
+            <h2><img src="../../../assets/images/information.png" height="19" width="19"> Parent's Details</h2>
+            <br>
+            <hr class="featurette-divider">
+            <div class="container">        
+              <table  class="table table-striped" border="1"  width="100%">
+                <tbody>
+                  <tr>
+                    <th> Mother Name</th>
+                    <td>{{dataSource.parent.mother_name}} </td>
+                    <th>Father Name</th>
+                    <td>{{dataSource.parent.father_name}} </td>
+                  </tr>
+                  <tr>
+                    <th>Mother Email</th>
+                    <td>{{dataSource.parent.mother_email}}</td>
+                    <th>Father Email</th>
+                    <td>{{dataSource.parent.father_email}}</td>
+                  </tr>
+                  <tr>
+                    <th>Mother Mobile No</th>
+                    <td>{{dataSource.parent.mother_mob_no}}</td>
+                    <th>Father Mobile No</th>
+                    <td>{{dataSource.parent.fatherr_mob_no}}</td>
+                  </tr>
+                  <tr>
+                    <th>Mother Telephone No</th>
+                    <td>{{dataSource.parent.mother_tel_no}}</td>
+                    <th>Father Telephone No</th>
+                    <td>{{dataSource.parent.father_tel_no}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+      </div>
+    </div>
   </div>
-  </div>
- <!--  </div>
-</div>
-</div> -->
-
-
-<div class="col-sm-8">
-<div class="card">
-<div class="tab" align="right">
-  <button class="tablinks active" id="btn_student_tab" (click)="openTab('student_tab')"><img src="../../../assets/images/locateuser.png" height="16" width="16">Student Details</button>
-  <button class="tablinks" id="btn_parent_tab"(click)="openTab('parent_tab')"><img src="../../../assets/images/grade.png" height="16" width="16"> Parents Details</button>
-</div>
-
-
-<div id="student_tab" class="tabcontent">
-  <h2> <img src="../../../assets/images/information.png" height="19" width="19"> Personal Details </h2>
-  <br>
-  
-  <hr class="featurette-divider">
- 
-    <div class="container">        
-    <table  class="table table-striped" border="1"  width="100%">
-          <tbody>
-              <tr>
-                 <th>Name</th>
-                    <td>Vibha</td>
-                 <th>Library Number</th>
-                    <td>12</td>
-              </tr>
-              <tr>
-                 <th>Gender</th>
-                    <td>Female</td>
-                 <th>Aadhar ID</th>
-                 <td>745632185643</td>
-              </tr>
-              <tr>
-              <th>Standard</th>
-                 <td>1st</td>
-              <th>Section</th>
-                 <td>Anchal</td>
-              </tr>
-              <tr>
-              <th>Date of Birth</th>
-                 <td>11/08/2012</td>
-              <th>Date of Joining</th>
-                 <td>01/03/2018</td>
-              </tr>
-              <tr>
-              <th>Previous School</th>
-                 <td>DAV School</td>
-              <th></th>
-                 <td></td>
-              </tr>
-          </tbody>
-    </table>
-</div>
-</div>
-
-
-<div id="parent_tab" class="tabcontent">
-  <h2><img src="../../../assets/images/information.png" height="19" width="19"> Parent's Details</h2>
-  <br>
-  
-<hr class="featurette-divider">
- 
-    <div class="container">        
-    <table  class="table table-striped" border="1"  width="100%">
-          <tbody>
-              <tr>
-                 <th> Mother Name</th>
-                    <td>Anchal</td>
-                 <th>Father Name</th>
-                    <td>Vivek</td>
-              </tr>
-              <tr>
-                 <th>Mother Email</th>
-                    <td>anchal@gmail.com</td>
-                 <th>Father Email</th>
-                 <td>vivek@gmail</td>
-              </tr>
-              <tr>
-              <th>Mother Mobile No</th>
-                 <td>8975643728</td>
-              <th>Father Mobile No</th>
-                 <td>9865473284</td>
-              </tr>
-              <tr>
-              <th>Mother Telephone No</th>
-                 <td>0172-286754</td>
-              <th>Father Telephone No</th>
-                 <td>0172-286754</td>
-              </tr>
-          </tbody>
-    </table>
-</div>
-</div>
-</div>
-</div>
-</div>
 </div>
