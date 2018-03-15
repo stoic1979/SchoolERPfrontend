@@ -36,9 +36,9 @@ export class StudentListComponent implements OnInit {
   ngOnInit() {
     this.form = this.fb.group({
         name:  ['', Validators.required],
-        roll_no:  ['', Validators.required],
+        lib_no:  ['', Validators.required],
         standard:  ['', Validators.required],
-        section:  ['', Validators.required],
+       
     });
 
      this.getStudents();
