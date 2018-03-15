@@ -81,5 +81,10 @@ export class StudentListComponent implements OnInit {
     // fetch all students
     this.getStudents();
   }
+
+  saveStudentId(id){
+    localStorage.setItem('selected_stu_id', id);
+    console.log('selected student id '+id);
+  }
 }
 
