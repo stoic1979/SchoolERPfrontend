@@ -1,7 +1,7 @@
 <br>
 <div class="container-fluid">
     <div class="page-header">
-        <a routerLink="/users/transport/add" class="btn btn-primary">Add Finance Manager</a>
+        <a routerLink="/users/finance/add" class="btn btn-primary">Add Finance Manager</a>
         <a class="btn btn-primary" (click)="toggleSearch()">Search Finance Manager</a>
         <a (click)="getAllFinanceManagers()" class="btn btn-primary">All Finance Managers</a>
     </div>
@@ -10,7 +10,7 @@
         <div *ngIf="showSearch"  id="search">
             <div class="card" id="search_form">
                 <form [formGroup]="form" (ngSubmit)="onSubmit()" ngNativeValidate>
-                    <h3 class="tab_title">Search Student</h3>
+                    <h3 class="tab_title">Search Finance Manager</h3>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Search By Name</label>
                         <div class="col-10">
