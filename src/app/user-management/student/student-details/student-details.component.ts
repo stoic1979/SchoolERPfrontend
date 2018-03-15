@@ -46,7 +46,7 @@ export class StudentDetailsComponent extends TabManager implements OnInit {
             const errBody = err.json();
             console.log('[StudentDetailsComponent] Error  =>' +errBody);
       });
-   }
+    }
   }
 
   
