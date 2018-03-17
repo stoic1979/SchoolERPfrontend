@@ -47,20 +47,21 @@ export class CounsellorService {
     }
 
     const header = this.createAuthorizationHeader();
-    return this.http.post(`${API_ENDPOINT}/api/counsellors/all`, query, { headers: header })
+    return this.http.post(`${API_ENDPOINT}/api/teachers/all`, query, { headers: header })
       .map(res => this.result = res.json());        
   }
 
-   getById = (id) => {
+  getById = (id) => {
     const header = this.createAuthorizationHeader();
-    return this.http.get(`${API_ENDPOINT}/api/counsellor/id`, { headers: header })
+    return this.http.get(`${API_ENDPOINT}/api/teacher/${  id}`, { headers: header })
       .map(res => this.result = res.json());        
   }
 
   getToken () {
-    console.log( '[CounsellorService] token '+localStorage.getItem('userToken'));
+    console.log( '[SectionService] token '+localStorage.getItem('userToken'));
     return localStorage.getItem('userToken') || '';
   }
+
   private handleError (error: Response | any) {
     console.error('[CounsellorService] :: handleError', error);
     return Observable.throw(error);
@@ -74,4 +75,5 @@ export class CounsellorService {
         return headers;
   }
 
+ 
 }//CounsellorService

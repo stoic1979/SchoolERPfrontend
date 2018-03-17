@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { TransportManagerFormComponent } from './transport-manager-form/transport-manager-form.component';
 import { TransportManagerListComponent } from './transport-manager-list/transport-manager-list.component';
+import { TransportManagerDetailsComponent } from './transport-manager-details/transport-manager-details.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'add',
     component: TransportManagerFormComponent
+  },
+   {
+    path: 'details',
+    component: TransportManagerDetailsComponent
   }
 ];
 

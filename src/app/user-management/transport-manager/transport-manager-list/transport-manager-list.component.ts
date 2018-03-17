@@ -78,5 +78,10 @@ export class TransportManagerListComponent implements OnInit {
     // fetch all students
     this.getTransportManagers();
   }
+
+  saveTransportManagerId(id){
+    localStorage.setItem('selected_tran_id', id);
+    console.log('selected transport id '+id);
+  }
 }
 

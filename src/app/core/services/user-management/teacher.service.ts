@@ -53,9 +53,10 @@ export class TeacherService {
 
   getById = (id) => {
     const header = this.createAuthorizationHeader();
-    return this.http.get(`${API_ENDPOINT}/api/teacher/id`, { headers: header })
+    return this.http.get(`${API_ENDPOINT}/api/teacher/${  id}`, { headers: header })
       .map(res => this.result = res.json());        
   }
+
   getToken () {
   	console.log( '[SectionService] token '+localStorage.getItem('userToken'));
     return localStorage.getItem('userToken') || '';

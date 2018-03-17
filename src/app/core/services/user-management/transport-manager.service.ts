@@ -54,7 +54,7 @@ export class TransportManagerService {
 
    getById = (id) => {
     const header = this.createAuthorizationHeader();
-    return this.http.get(`${API_ENDPOINT}/api/transportManager/id`, { headers: header })
+    return this.http.get(`${API_ENDPOINT}/api/transportManager/${  id}`, { headers: header })
       .map(res => this.result = res.json());        
   }
 

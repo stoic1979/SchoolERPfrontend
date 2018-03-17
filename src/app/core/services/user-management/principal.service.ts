@@ -26,34 +26,44 @@ export class PrincipalService {
     private router: Router
   ) {}
   
-
-  add = (credential: any) => {
+ add = (credential: any) => {
     credential.role = "PRINCIPAL";
-  	const header = this.createAuthorizationHeader();
+    const header = this.createAuthorizationHeader();
     return this.http.post(`${API_ENDPOINT}/api/user`, credential, { headers: header })
       .map(res => this.result = res.json());        
   }
 
+  getPrincipal = (formData) => {
 
-  getPrincipal = () => {
+    console.log("[PrincipalService] :: data: " + JSON.stringify(formData) );
+
+    // dont send empty/null form variables in a query to server !!!
+    var query = {};
+    for (var propName in formData) { 
+      if (formData[propName] === null || formData[propName] === undefined || formData[propName].length === 0) {
+        continue;
+      }
+      query[propName] = formData[propName];
+    }
+
     const header = this.createAuthorizationHeader();
-    return this.http.get(`${API_ENDPOINT}/api/principal`, { headers: header })
+    return this.http.post(`${API_ENDPOINT}/api/principal/all`, query, { headers: header })
       .map(res => this.result = res.json());        
   }
 
   getById = (id) => {
     const header = this.createAuthorizationHeader();
-    return this.http.get(`${API_ENDPOINT}/api/principal/id`, { headers: header })
+    return this.http.get(`${API_ENDPOINT}/api/principal/${  id}`, { headers: header })
       .map(res => this.result = res.json());        
   }
 
   getToken () {
-  	console.log( '[PrincipalService] token '+localStorage.getItem('userToken'));
+    console.log( '[SectionService] token '+localStorage.getItem('userToken'));
     return localStorage.getItem('userToken') || '';
   }
 
   private handleError (error: Response | any) {
-    console.error('[PrincipalService] :: handleError', error);
+    console.error('PrincipalService] :: handleError', error);
     return Observable.throw(error);
   }
 
@@ -64,7 +74,5 @@ export class PrincipalService {
         headers.append('Authorization', token);
         return headers;
   }
-
- 
   
 }//PrincipalService

@@ -50,7 +50,7 @@ export class PrincipalFormComponent extends TabManager implements OnInit {
         password:   ['', Validators.required],
         });
         // calling openTab from TabManager
-    this.openTab('personal_tab');
+    this.openTab('principal_tab');
   }
   onSubmit() {
     console.log('onSubmit()');

@@ -45,7 +45,7 @@ export class TeacherListComponent implements OnInit {
     this.loadingService.display(true);
      this.teacherService.getTeachers(this.form.value).subscribe((res)=> {
         this.loadingService.display(false);
-        //console.log('[TeacherListComponent] Response =>' +JSON.stringify(res));
+        console.log('[TeacherListComponent] Response =>' +JSON.stringify(res));
         this.dataSource = res.data;
 
         if(this.dataSource.length == 0) {

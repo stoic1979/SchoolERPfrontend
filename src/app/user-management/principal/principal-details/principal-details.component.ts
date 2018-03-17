@@ -1,40 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 
-import { StudentService } from '../../../core/services/user-management/student.service';
+import { PrincipalService } from '../../../core/services/user-management/principal.service';
 import { AlertService } from '../../../core/services/utils/alert.service';
 import { LoadingService } from '../../../core/services/utils/loading.service';
 
 import { TabManager } from '../../../core/helpers/tabManager';
 
-
 @Component({
-  selector: 'app-student-details',
-  templateUrl: './student-details.component.html',
-  styleUrls: ['./student-details.component.css']
+  selector: 'app-principal-details',
+  templateUrl: './principal-details.component.html',
+  styleUrls: ['./principal-details.component.css']
 })
-export class StudentDetailsComponent extends TabManager implements OnInit {
+export class PrincipalDetailsComponent extends TabManager implements OnInit {
 
-  dataSource: any;  
+	dataSource: any;  
 
   constructor(
-    private studentService: StudentService,
+  	private principalService: PrincipalService,
     private alertService: AlertService,
     private loadingService: LoadingService
-  	) {
+  	) { 
   		super();
-  	 }
+  	}
 
   ngOnInit() {
-
   	// calling openTab from TabManager
-     this.openTab('student_tab');
+     this.openTab('principal_tab');
 
-     const id = localStorage.getItem('selected_stu_id');
-     console.log('selected_stu_id in student details' +id);
+     const id = localStorage.getItem('selected_prin_id');
+     console.log('selected_prin_id in principal details' +id);
      this.loadingService.display(true);
-     this.studentService.getById(id).subscribe((res)=> {
+     this.principalService.getById(id).subscribe((res)=> {
         this.loadingService.display(false);
-        console.log('[StudentDetailsComponent] Response =>' +JSON.stringify(res));
+        console.log('[PrincipalDetailsComponent] Response =>' +JSON.stringify(res));
         this.dataSource = res.data;
 
         if(this.dataSource.length == 0) {
@@ -44,10 +42,8 @@ export class StudentDetailsComponent extends TabManager implements OnInit {
       },(err) => {
             this.loadingService.display(false);
             const errBody = err.json();
-            console.log('[StudentDetailsComponent] Error  =>' +errBody);
-    });
+            console.log('[PrincipalDetailsComponent] Error  =>' +errBody);
+      });
   }
+
 }
-
-  
-

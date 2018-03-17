@@ -48,7 +48,7 @@
                         <td>{{values.name}}</td>
                         <td>{{values.user.email}}</td>
                         <td>{{values.aadhar_id}}</td>
-                        <td><a routerLink="/users/transport/details" >Details</a></td> 
+                        <td><a routerLink="/users/transport/details" (click)="saveTransportManagerId(values._id)">Details</a></td> 
                         <td><i class="fa fa-pencil" routerLink="#"></i></td>
                         <td><i class="fa fa-trash" routerLink="#"></i></td>
                     </tr>

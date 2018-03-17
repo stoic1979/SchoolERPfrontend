@@ -18,6 +18,7 @@ export class CounsellorListComponent implements OnInit {
   p: number = 1;
   dataSource: any[];
 
+   private formSubmitAttempt: boolean;
   showSearch:boolean = false;
 
   toggleSearch() {
@@ -35,6 +36,7 @@ export class CounsellorListComponent implements OnInit {
     this.form = this.fb.group({
         name:  ['', Validators.required],
         email:  ['', Validators.required],
+        aadhar_id:  ['', Validators.required],
     });
 
      this.getCounsellors();
@@ -77,5 +79,11 @@ export class CounsellorListComponent implements OnInit {
     // fetch all students
     this.getCounsellors();
   }
+
+   saveCounsellorId(id){
+    localStorage.setItem('selected_coun_id', id);
+    console.log('selected counsellor id '+id);
+  }
+ 
 }
 

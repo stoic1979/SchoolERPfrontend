@@ -1,0 +1,109 @@
+<div class="container">
+  <div class="page-header">
+    <a routerLink="/users/counsellor/details"></a>
+    <h2><img src="../../../assets/images/manuser.png" height="50px" width="50px">Counsellor Profile</h2>      
+  </div>
+  <hr class="featurette-divider">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="circle">
+            <img src="../../../assets/images/people.png" height="129px" width="129px">
+          </div>
+          <br>
+          <table class="table table-striped" >
+            <thead>
+              <tr>
+                <th>Name</th>
+                <td>{{dataSource.name}}</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Aadhar ID</th>
+                <td>{{dataSource.aadhar_id}}</td>
+              </tr>
+              <tr>
+                <th>Email</th>
+                <td>{{dataSource.email}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-sm-8">
+        <div class="card">
+          <div class="tab" align="right">
+            <button class="tablinks active" id="btn_counsellor_tab" (click)="openTab('counsellor_tab')">Personal Details</button>
+            <button class="tablinks" id="btn_edu_tab"(click)="openTab('edu_tab')"> Educational Details</button>
+          </div>
+          <div id="counsellor_tab" class="tabcontent">
+            <h2> <img src="../../../assets/images/information.png" height="19" width="19"> Personal Details </h2>
+            <br>
+            <hr class="featurette-divider">
+            <div class="container">        
+              <table  class="table table-striped" width="100%">
+                <tbody>
+                  <tr>
+                    <th>Name</th>
+                    <td>{{dataSource.name}}</td>
+                    <th>Gender</th>
+                    <td>{{dataSource.gender}}</td>
+                  </tr>
+                  <tr>
+                    <th>Aadhar ID</th>
+                    <td>{{dataSource.aadhar_id}}</td>
+                    <th>Marital Status</th>
+                    <td>{{dataSource.marital_status}}</td>
+                  </tr>
+                  <tr>
+                    <th>Date of Birth</th>
+                    <td>{{dataSource.dob}}</td>
+                    <th>Date of Joining</th>
+                    <td>{{dataSource.doj}}</td>
+                  </tr>
+                  <tr>
+                    <th>Mobile No</th>
+                    <td>{{dataSource.mob_no}}</td>
+                    <th>Telephone No</th>
+                    <td>{{dataSource.tel_no}}</td>
+                  </tr>
+                   <tr>
+                    <th>Address</th>
+                    <td>{{dataSource.address}}</td>
+                    <th></th>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div id="edu_tab" class="tabcontent">
+            <h2><img src="../../../assets/images/information.png" height="19" width="19"> Educational Details</h2>
+            <br>
+            <hr class="featurette-divider">
+            <div class="container">        
+              <table  class="table table-striped" width="100%">
+                <tbody>
+                  <tr>
+                    <th>Education</th>
+                    <td>{{dataSource.edu.education}} </td>
+                    <th>Working Exp</th>
+                    <td>{{dataSource.edu.work_exp}} </td>
+                  </tr>
+                  <tr>
+                    <th>Bank Name</th>
+                    <td>{{dataSource.edu.bank_name}}</td>
+                    <th>Bank Account No</th>
+                    <td>{{dataSource.edu.bank_acc_no}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
