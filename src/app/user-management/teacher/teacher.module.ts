@@ -6,6 +6,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { TeacherRoutingModule } from './teacher-routing.module';
 import { TeacherFormComponent } from './teacher-form/teacher-form.component';
 import { TeacherListComponent } from './teacher-list/teacher-list.component';
+import { TeacherDetailsComponent } from './teacher-details/teacher-details.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { TeacherListComponent } from './teacher-list/teacher-list.component';
     ReactiveFormsModule,
     NgxPaginationModule
   ],
-  declarations: [TeacherFormComponent, TeacherListComponent]
+  declarations: [TeacherFormComponent, TeacherListComponent, TeacherDetailsComponent]
 })
 export class TeacherModule { }

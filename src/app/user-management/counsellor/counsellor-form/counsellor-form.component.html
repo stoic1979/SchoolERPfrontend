@@ -7,14 +7,14 @@
     <div class="card">
         <br>
         <div class="tab">
-            <button class="tablinks active" id="btn_personal_tab" (click)="openTab('personal_tab')">COUNSELLOR DETAILS</button>
+            <button class="tablinks active" id="btn_counsellor_tab" (click)="openTab('counsellor_tab')">PERSONAL DETAILS</button>
             <button class="tablinks" id="btn_edu_tab" (click)="openTab('edu_tab')">EDUCATIONAL DETAILS</button>
         </div>
         <div id="logbox">
             <form [formGroup]="form" (ngSubmit)="onSubmit()" ngNativeValidate>
 
                 <!--- COUNSELLOR DETAILS TAB CONTENT -->
-                <div id="personal_tab" class="tabcontent">
+                <div id="counsellor_tab" class="tabcontent">
                     <h3  class="tab_title">Fill Personal Details</h3>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Name</label>
@@ -129,7 +129,7 @@
                             <input class="form-control" type="text" formControlName="bank_acc_no" required>
                         </div>
                     </div>
-                    <button class="btn btn-primary" (click)="openTab('personal_tab')">< Previous Step - Fill Personal Details </button>
+                    <button class="btn btn-primary" (click)="openTab('counsellor_tab')">< Previous Step - Fill Personal Details </button>
                     <div class="sbt_btn">
                         <button class="btn btn-primary" type="submit">Save Counsellor Data</button>
                     </div>

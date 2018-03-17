@@ -7,14 +7,14 @@
     <div class="card">
         <br>
         <div class="tab">
-            <button class="tablinks active" id="btn_personal_tab" (click)="openTab('personal_tab')">TRANSPORT DETAILS</button>
+            <button class="tablinks active" id="btn_personal_tab" (click)="openTab('transport_tab')">PERSONAL DETAILS</button>
             <button class="tablinks" id="btn_edu_tab" (click)="openTab('edu_tab')">EDUCATIONAL DETAILS</button>
         </div>
         <div id="logbox">
             <form [formGroup]="form" (ngSubmit)="onSubmit()" ngNativeValidate>
 
                 <!--- TRANSPORT DETAILS TAB CONTENT -->
-                <div id="personal_tab" class="tabcontent">
+                <div id="transport_tab" class="tabcontent">
                     <h3  class="tab_title">Fill Personal Details</h3>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Name</label>

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { TeacherFormComponent } from './teacher-form/teacher-form.component';
 import { TeacherListComponent } from './teacher-list/teacher-list.component';
+import { TeacherDetailsComponent } from './teacher-details/teacher-details.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'add',
     component: TeacherFormComponent
+  },
+  {
+    path: 'details',
+    component: TeacherDetailsComponent
   }
 ];
 

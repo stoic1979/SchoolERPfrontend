@@ -77,4 +77,9 @@ export class FinanceManagerListComponent implements OnInit {
     // fetch all students
     this.getFinanceManagers();
   }
+
+   saveFinanceManagerId(id){
+    localStorage.setItem('selected_fnc_id', id);
+    console.log('selected finance id '+id);
+  }
 }

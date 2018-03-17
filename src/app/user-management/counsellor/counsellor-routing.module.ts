@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { CounsellorFormComponent } from './counsellor-form/counsellor-form.component';
 import { CounsellorListComponent } from './counsellor-list/counsellor-list.component';
+import { CounsellorDetailsComponent } from './counsellor-details/counsellor-details.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'add',
     component: CounsellorFormComponent
+  },
+  {
+    path: 'details',
+    component: CounsellorDetailsComponent
   }
 ];
 

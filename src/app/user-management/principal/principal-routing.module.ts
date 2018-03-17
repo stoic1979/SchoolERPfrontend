@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { PrincipalFormComponent } from './principal-form/principal-form.component';
 import { PrincipalListComponent } from './principal-list/principal-list.component';
+import { PrincipalDetailsComponent } from './principal-details/principal-details.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'add',
     component: PrincipalFormComponent
+  },
+  {
+    path: 'details',
+    component: PrincipalDetailsComponent
   }
 ];
 

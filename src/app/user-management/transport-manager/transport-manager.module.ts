@@ -6,6 +6,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { TransportManagerRoutingModule } from './transport-manager-routing.module';
 import { TransportManagerFormComponent } from './transport-manager-form/transport-manager-form.component';
 import { TransportManagerListComponent } from './transport-manager-list/transport-manager-list.component';
+import { TransportManagerDetailsComponent } from './transport-manager-details/transport-manager-details.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { TransportManagerListComponent } from './transport-manager-list/transpor
     TransportManagerRoutingModule,
     NgxPaginationModule
   ],
-  declarations: [TransportManagerFormComponent, TransportManagerListComponent]
+  declarations: [TransportManagerFormComponent, TransportManagerListComponent, TransportManagerDetailsComponent]
 })
 export class TransportManagerModule { }

@@ -29,13 +29,12 @@ export class TeacherFormComponent extends TabManager implements OnInit {
   }
 
   ngOnInit() {
-  this.form = this.fb.group({
+    this.form = this.fb.group({
         name:  ['', Validators.required],
         designation:  ['', Validators.required],
         father_name:  ['', Validators.required],
         gender:   ['', Validators.required],
         email:  ['', Validators.required],
-
         dob:  ['', Validators.required],
         doj:  ['', Validators.required],
         age:   ['', Validators.required],
@@ -49,32 +48,39 @@ export class TeacherFormComponent extends TabManager implements OnInit {
         bank_name:   ['', Validators.required],
         bank_acc_no:   ['', Validators.required],
         password:   ['', Validators.required],
-        });
+      });
 
     // calling openTab from TabManager
-    this.openTab('personal_tab');
+    this.openTab('teacher_tab');
+  }
+
+  isFieldInvalid(field: string) {
+    return (
+      (!this.form.get(field).valid && this.form.get(field).touched) ||
+      (this.form.get(field).untouched && this.formSubmitAttempt)
+    );
   }
 
 onSubmit() {
     console.log('onSubmit()');
-    console.log('Teacher data '+this.form.value);
-    this.loadingService.display(true);
+    console.log(' onSubmit() teacher data '+JSON.stringify(this.form.value));
 
-    this.teacherService.add(this.form.value).subscribe((res)=> {
-
+    if (this.form.valid) {
+      this.loadingService.display(true);
+      this.teacherService.add(this.form.value).subscribe((res)=> {
         this.loadingService.display(false);
-
         console.log('[TeacherFormComponent] Response =>' +JSON.stringify(res));
         this.formSubmitAttempt = true;
         this.alertService.success("Teacher added successfully");
-
-      },(err) => {
-            
-            this.loadingService.display(false);
-
-            const errBody = err.json();
-            console.log('add Teacher  error: ', errBody);
-            this.alertService.success("[TeacherFormComponent] failed to add teacher");
-      });
+        },(err) => {
+          this.loadingService.display(false);
+          const errBody = err.json();
+          console.log('[TeacherFormComponent] Error =>' +errBody);
+          this.alertService.success("[TeacherFormComponent] failed to add teacher");
+        });
+      }
+    else{
+      console.log("form data is not valid");
     }
+  }
 }

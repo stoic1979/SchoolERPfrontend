@@ -17,6 +17,7 @@ export class TeacherListComponent implements OnInit {
   p: number = 1;
   dataSource: any[];
 
+  private formSubmitAttempt: boolean;
   showSearch:boolean = false;
 
   toggleSearch() {
@@ -28,14 +29,14 @@ export class TeacherListComponent implements OnInit {
     private alertService: AlertService,
     private teacherService: TeacherService,
     private loadingService: LoadingService
-  ) { 
-  }
+  ) { }
 
   ngOnInit() {
     this.form = this.fb.group({
         name:  ['', Validators.required],
         email:  ['', Validators.required],
-    });
+        aadhar_id:  ['', Validators.required],
+      });
 
      this.getTeachers();
   }
@@ -62,7 +63,7 @@ export class TeacherListComponent implements OnInit {
     this.getTeachers();
   }
 
-  // get from top button "Get All Students"
+  // get from top button "Get All Teachers"
   getAllTeachers() {
 
     // clear table data
@@ -74,8 +75,13 @@ export class TeacherListComponent implements OnInit {
     // reset form
     this.form.reset();
 
-    // fetch all students
+    // fetch all teachers
     this.getTeachers();
+  }
+
+  saveTeacherId(id){
+    localStorage.setItem('selected_tech_id', id);
+    console.log('selected teacher id '+id);
   }
 }
 

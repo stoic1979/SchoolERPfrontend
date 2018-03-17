@@ -50,7 +50,7 @@ export class TransportManagerFormComponent extends TabManager implements OnInit 
         password:   ['', Validators.required],
     });
     // calling openTab from TabManager
-    this.openTab('personal_tab');
+    this.openTab('transport_tab');
     }   
 
 onSubmit() {

@@ -65,6 +65,7 @@
                         <th>Name</th>
                         <th>Lib No.</th>
                         <th>Standard</th>
+                        <th>Section</th>
                         <th>Details</th>
                         <th>Edit</th>
                         <th>Delete</th>
@@ -76,7 +77,8 @@
                         <td>{{values.name}}</td>
                         <td>{{values.lib_no}}</td>
                         <td>{{values.standard}}</td>
-                       <td><a (click) = "saveStudentId(values._id)" routerLink="/users/student/details" class="btn btn-primary">Details</a></td> 
+                        <td>{{values.section}}</td>
+                       <td><a (click) = "saveStudentId(values._id)" routerLink="/users/student/details" >Details</a></td> 
                         <td><i class="fa fa-pencil" routerLink="#"></i></td>
                         <td><i class="fa fa-trash" routerLink="#"></i></td>
                     </tr>

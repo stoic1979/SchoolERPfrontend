@@ -38,6 +38,7 @@ export class StudentListComponent implements OnInit {
         name:  ['', Validators.required],
         lib_no:  ['', Validators.required],
         standard:  ['', Validators.required],
+        section:  ['', Validators.required],
        
     });
 

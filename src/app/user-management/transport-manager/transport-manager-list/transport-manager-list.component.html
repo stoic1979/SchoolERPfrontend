@@ -36,6 +36,7 @@
                         <th>#</th>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Aadhar ID</th>
                         <th>Details</th>
                         <th>Edit</th>
                         <th>Delete</th>
@@ -46,7 +47,8 @@
                         <td>{{ (p - 1) * 10 + i +1 }}</td>
                         <td>{{values.name}}</td>
                         <td>{{values.user.email}}</td>
-                        <td><a routerLink="/users/transport/details" class="btn btn-primary">Details</a></td> 
+                        <td>{{values.aadhar_id}}</td>
+                        <td><a routerLink="/users/transport/details" >Details</a></td> 
                         <td><i class="fa fa-pencil" routerLink="#"></i></td>
                         <td><i class="fa fa-trash" routerLink="#"></i></td>
                     </tr>

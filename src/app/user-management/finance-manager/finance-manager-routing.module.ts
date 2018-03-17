@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { FinanceManagerFormComponent } from './finance-manager-form/finance-manager-form.component';
 import { FinanceManagerListComponent } from './finance-manager-list/finance-manager-list.component';
+import { FinanceManagerDetailsComponent } from './finance-manager-details/finance-manager-details.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'add',
     component: FinanceManagerFormComponent
+  },
+  {
+    path: 'details',
+    component: FinanceManagerDetailsComponent
   }
 ];
 
