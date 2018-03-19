@@ -39,6 +39,7 @@ export class FinanceManagerFormComponent extends TabManager implements OnInit {
         doj:  ['', Validators.required],
         age:   ['', Validators.required],
         aadhar_id:  ['', Validators.required],
+        img:   ['', Validators.required],
         domicile:  ['', Validators.required],
         marital_status:   ['', Validators.required],
         address:   ['', Validators.required],

@@ -40,6 +40,7 @@ export class StudentFormComponent extends TabManager implements OnInit {
         doj:  ['', Validators.required],
         previous_school:   ['', Validators.required],
         aadhar_id:   ['', Validators.required],
+        img:   ['', Validators.required],
         father_name:  ['', Validators.required],
         mother_name:   ['', Validators.required],
         father_mob_no:   ['', Validators.required],

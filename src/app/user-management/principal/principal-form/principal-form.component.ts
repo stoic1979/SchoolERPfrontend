@@ -39,6 +39,7 @@ export class PrincipalFormComponent extends TabManager implements OnInit {
         doj:  ['', Validators.required],
         age:   ['', Validators.required],
         tel_no:   ['', Validators.required],
+        img:   ['', Validators.required],
         mob_no:   ['', Validators.required],
         aadhar_id:   ['', Validators.required],
         marital_status:   ['', Validators.required],

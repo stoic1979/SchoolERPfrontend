@@ -40,6 +40,7 @@ export class CounsellorFormComponent extends TabManager implements OnInit {
         age:   ['', Validators.required],
         tel_no:   ['', Validators.required],
         mob_no:   ['', Validators.required],
+        img:   ['', Validators.required],
         aadhar_id:   ['', Validators.required],
         marital_status:   ['', Validators.required],
         address:   ['', Validators.required],
