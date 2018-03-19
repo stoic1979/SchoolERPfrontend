@@ -84,6 +84,5 @@ export class PrincipalListComponent implements OnInit {
     localStorage.setItem('selected_prin_id', id);
     console.log('selected principal id '+id);
   }
-
-  
+ 
 }

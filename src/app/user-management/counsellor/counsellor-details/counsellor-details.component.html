@@ -1,7 +1,10 @@
 <div class="container">
+  <br>
+  <a routerLink="/users/counsellor/add" class="btn btn-primary">Add Counsellor</a>
+  <a routerLink="/users/counsellor/list" class="btn btn-primary">All Counsellors</a>      
   <div class="page-header">
-    <a routerLink="/users/counsellor/details"></a>
-    <h2><img src="../../../assets/images/manuser.png" height="50px" width="50px">Counsellor Profile</h2>      
+      <a routerLink="/users/counsellor/details"></a>
+      <h2 class="tab_title">Counsellor Profile</h2>
   </div>
   <hr class="featurette-divider">
   <div class="container">
@@ -39,7 +42,8 @@
             <button class="tablinks" id="btn_edu_tab"(click)="openTab('edu_tab')"> Educational Details</button>
           </div>
           <div id="counsellor_tab" class="tabcontent">
-            <h2> <img src="../../../assets/images/information.png" height="19" width="19"> Personal Details </h2>
+            <br>
+            <h2> Personal Details </h2>
             <br>
             <hr class="featurette-divider">
             <div class="container">        
@@ -80,7 +84,7 @@
             </div>
           </div>
           <div id="edu_tab" class="tabcontent">
-            <h2><img src="../../../assets/images/information.png" height="19" width="19"> Educational Details</h2>
+            <h2>Educational Details</h2>
             <br>
             <hr class="featurette-divider">
             <div class="container">        
