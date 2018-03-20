@@ -32,12 +32,10 @@ export class FinanceManagerFormComponent extends TabManager implements OnInit {
   ngOnInit() {
   this.form = this.fb.group({
         name:  ['', Validators.required],
-        designation:  ['', Validators.required],
         father_name:  ['', Validators.required],
         section:  ['', Validators.required],
         dob:  ['', Validators.required],
         doj:  ['', Validators.required],
-        age:   ['', Validators.required],
         aadhar_id:  ['', Validators.required],
         img:   ['', Validators.required],
         domicile:  ['', Validators.required],

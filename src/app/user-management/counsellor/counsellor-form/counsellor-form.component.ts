@@ -31,13 +31,11 @@ export class CounsellorFormComponent extends TabManager implements OnInit {
   ngOnInit() {
   this.form = this.fb.group({
         name:  ['', Validators.required],
-        designation:  ['', Validators.required],
         father_name:  ['', Validators.required],
         gender:   ['', Validators.required],
         email:  ['', Validators.required],
         dob:  ['', Validators.required],
         doj:  ['', Validators.required],
-        age:   ['', Validators.required],
         tel_no:   ['', Validators.required],
         mob_no:   ['', Validators.required],
         img:   ['', Validators.required],
