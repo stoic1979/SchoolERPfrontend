@@ -87,16 +87,13 @@ table {
   position: absolute;
   top: 0;
   right: 0;
-  -webkit-transition: width 0.3s linear;
-  transition: width 0.3s linear;
   width: calc(100% - 200px);
-  background-color: #F4F7FA;
   min-height: 100vh;
   padding-bottom: 50px;
 }
 
 .page.active {
-  width: calc(100% - 70px);
+  width: calc(100% - 100px);
 }
 
 h2 {
@@ -1430,7 +1427,7 @@ button {
 .login-page,
 .register-page {
   width: 100%;
-  background: #f5f5f5;
+  /*background: #f5f5f5;*/
   min-height: auto;
   padding-bottom: 0;
 }
