@@ -23,13 +23,7 @@
         "assets/css/custom.css",
         "assets/css/fontastic.css",
         "assets/css/grasp_mobile_progress_circle-1.0.0.min.css",
-        "assets/css/style.blue.css",
-        "assets/css/style.default.css",       
-        "assets/css/style.pink.css",
-        "assets/css/style.red.css",
-        "assets/css/style.sea.css",
-        "assets/css/style.violet.css",
-        "assets/css/style.green.css"
+        "assets/css/style.default.css"     
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
