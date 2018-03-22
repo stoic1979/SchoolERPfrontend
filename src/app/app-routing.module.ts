@@ -19,11 +19,16 @@ const routes: Routes = [
     loadChildren: './dashboard/dashboard.module#DashboardModule',
     canActivate: [AuthGuard]
   },
+  { 
+    path: 'layouts', 
+    loadChildren: './dummy/dummy.module#DummyModule',
+    canActivate: [AuthGuard]
+  },
   {
     path: 'users',
     loadChildren: './user-management/user-management.module#UserManagementModule',
     canActivate: [AuthGuard]
-  },
+  }
 ];
 
 

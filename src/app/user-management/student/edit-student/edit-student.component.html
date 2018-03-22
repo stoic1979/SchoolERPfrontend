@@ -12,7 +12,7 @@
         </div>
 
         <div id="logbox">
-            <form [formGroup]="form" (ngSubmit)="onSubmit()" ngNativeValidate>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" enctype="multipart/form-data" ngNativeValidate>
 
                 <!--- STUDENT DETAILS TAB CONTENT -->
                 <div id="student_tab" class="tabcontent">
@@ -20,13 +20,13 @@
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Name</label>
                         <div class="col-10">
-                            <input class="form-control" type="name" pattern="^[A-Za-z]$" minlength="2" title="Please fill only characters" formControlName="name" required>
+                            <input class="form-control" type="text" formControlName="name" value={{dataSource.name}}>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Library Number</label>
                         <div class="col-10">
-                            <input class="form-control" type="text" formControlName="lib_no" required>
+                            <input class="form-control" type="text" formControlName="lib_no" value={{dataSource.lib_no}}>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -34,7 +34,7 @@
                         <div class="col-10">
                             <div class="radio" >
                                 <label>
-                                    <input type="radio" value="MALE" name="gender" formControlName="gender" required /> Male
+                                    <input type="radio" value="MALE" name="gender" formControlName="gender"/> Male
                                 </label>
                             </div>
                             <div class="radio">
@@ -47,7 +47,7 @@
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Standard</label>
                         <div class="col-10">
-                            <select class="form-control" formControlName="standard" placeholder="Standard" required>
+                            <select class="form-control" formControlName="standard" placeholder="Standard">
                                 <option value="nursery" selected>Nursery</option>
                                 <option value="lkg">LKG</option>
                                 <option value="ukg">UKG</option>
@@ -62,7 +62,7 @@
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Section</label>
                         <div class="col-10">
-                            <select class="form-control" formControlName="section" placeholder="Standard" required>
+                            <select class="form-control" formControlName="section" placeholder="Standard">
                                 <option value="a" selected>A</option>
                                 <option value="b">B</option>
                                 <option value="c">C</option>
@@ -75,91 +75,91 @@
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Aadhar ID</label>
                         <div class="col-10">
-                            <input class="form-control" type="text" pattern="^[0-9]$" minlength="12" title="Please fill your 12 digits number" formControlName="aadhar_id" required>
+                            <input class="form-control" type="text" value={{dataSource.aadhar_id}} formControlName="aadhar_id" >
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Date of Birth</label>
                         <div class="col-10">
-                            <input class="form-control" type="text" onfocus="(this.type='date')" formControlName="dob" required>
+                            <input class="form-control" type="text" onfocus="(this.type='date')" value={{dataSource.dob}} formControlName="dob" >
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Date of Joining</label>
                         <div class="col-10">
-                            <input class="form-control" type="text" onfocus="(this.type='date')" formControlName="doj" required>
+                            <input class="form-control" type="text" onfocus="(this.type='date')" value={{dataSource.doj}} formControlName="doj" >
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Previous School</label>
                         <div class="col-10">
-                            <input class="form-control" type="string" formControlName="previous_school" required>
+                            <input class="form-control" type="string" value={{dataSource.previous_school}} formControlName="previous_school" >
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-2 col-form-label">Upload Photo</label>
+                        <label class="col-2 col-form-label">Upload Student Image</label>
                         <div class="col-10">
-                            <input class="form-control" type="photo"  title="Please upload your picture" formControlName="img" >
+                            <input type="file" id="img" (change)="onFileChange($event)" #fileInput>
                         </div>
                     </div>
-                       <button class="btn btn-primary" (click)="openTab('parent_tab')">Next Step - Fill Parent's Details > </button>
+                    <button class="btn btn-primary" (click)="openTab('edu_tab')">Next Step - Fill Parent's Details > </button>
                 </div>
-
+               
                 <!--- PARENT DETAILS TAB CONTENT -->
                 <div id="parent_tab" class="tabcontent">
                     <br><h3 class="tab_title">Fill Parents Details</h3>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Mother Name</label>
                         <div class="col-10">
-                            <input class="form-control" type="name" pattern="^[A-Za-z]$" minlength="2" title="Please fill only characters" formControlName="mother_name" required>
+                            <input class="form-control" type="text" formControlName="mother_name" >
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Mother Email</label>
                         <div class="col-10">
-                            <input class="form-control" type="email" pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$" formControlName="mother_email" required>
+                            <input class="form-control" type="email" formControlName="mother_email">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Mother Mobile No.</label>
                         <div class="col-10">
-                            <input class="form-control" type="tel" pattern="^\d{3}\d{3}\d{4}$" title="Please fill your 10 digit number" formControlName="mother_mob_no" required>
+                            <input class="form-control" type="tel" formControlName="mother_mob_no" >
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Mother Telephone No.</label>
                         <div class="col-10">
-                            <input class="form-control" type="tel" pattern="^\d{4}\d{6}$" title="Please fill your number with code" formControlName="mother_tel_no" required>
+                            <input class="form-control" type="tel" formControlName="mother_tel_no" >
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Father Name</label>
                         <div class="col-10">
-                            <input class="form-control" type="name" pattern="^[A-Za-z]$" minlength="2" title="Please fill only characters" formControlName="father_name" required>
+                            <input class="form-control" type="text" formControlName="father_name" >
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Father Email</label>
                         <div class="col-10">
-                            <input class="form-control" type="email" pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$" formControlName="father_email" required>
+                            <input class="form-control" type="email" formControlName="father_email" >
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Father Mobile No.</label>
                         <div class="col-10">
-                            <input class="form-control" type="tel" pattern="^\d{3}\d{3}\d{4}$" title="Please fill your 10 digit number" formControlName="father_mob_no" required>
+                            <input class="form-control" type="tel" formControlName="father_mob_no" >
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Father Telephone No.</label>
                         <div class="col-10">
-                            <input class="form-control" type="tel" pattern="^\d{4}\d{6}$" title="Please fill your number with code" formControlName="father_tel_no" required>
+                            <input class="form-control" type="tel" formControlName="father_tel_no" >
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Password</label>
                         <div class="col-10">
-                            <input class="form-control" type="password" formControlName="password" required>
+                            <input class="form-control" type="password" formControlName="password">
                         </div>
                     </div>
                     <button class="btn btn-primary" (click)="openTab('student_tab')">< Previous Step - Go To Student Details </button>

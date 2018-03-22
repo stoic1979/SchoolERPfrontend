@@ -29,7 +29,7 @@ import { TeacherService } from './core/services/user-management/teacher.service'
 import { TransportManagerService } from './core/services/user-management/transport-manager.service'
 import { FinanceManagerService } from './core/services/user-management/finance-manager.service'
 import { PrincipalService } from './core/services/user-management/principal.service'
-import { CounsellorService } from './core/services/user-management/counsellor.service'
+import { CounsellorService } from './core/services/user-management/counsellor.service';
 
 @NgModule({
   declarations: [

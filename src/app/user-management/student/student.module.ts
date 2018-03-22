@@ -7,6 +7,7 @@ import { StudentRoutingModule } from './student-routing.module';
 import { StudentFormComponent } from './student-form/student-form.component';
 import { StudentListComponent } from './student-list/student-list.component';
 import { StudentDetailsComponent } from './student-details/student-details.component';
+import { EditStudentComponent } from './edit-student/edit-student.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { StudentDetailsComponent } from './student-details/student-details.compo
     ReactiveFormsModule,
     NgxPaginationModule
   ],
-  declarations: [StudentFormComponent, StudentListComponent, StudentDetailsComponent]
+  declarations: [StudentFormComponent, StudentListComponent, StudentDetailsComponent, EditStudentComponent]
 })
 export class StudentModule { }

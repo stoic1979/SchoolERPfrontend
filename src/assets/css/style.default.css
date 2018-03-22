@@ -637,6 +637,7 @@ nav.navbar a.menu-btn:hover {
 */
 .dashboard-counts {
   color: #333;
+  background: #98FB98;
 }
 
 .dashboard-counts .count-title span {
@@ -670,6 +671,7 @@ nav.navbar a.menu-btn:hover {
 @media (max-width: 991px) {
   .dashboard-counts div[class*='col-'] {
     margin-bottom: 20px;
+
   }
 }
 
@@ -780,6 +782,7 @@ nav.navbar a.menu-btn:hover {
   padding: 20px;
   margin-bottom: 0;
   height: 100%;
+  background: #d8f3fe;
 }
 
 .statistics h2 {
@@ -895,6 +898,7 @@ nav.navbar a.menu-btn:hover {
 */
 .updates .left-col {
   padding-right: 20px;
+
 }
 
 .updates .icon {
@@ -954,6 +958,7 @@ nav.navbar a.menu-btn:hover {
 @media (max-width: 991px) {
   .updates h2 {
     font-size: 1.05rem;
+    
   }
   .updates strong {
     font-size: 1em;
