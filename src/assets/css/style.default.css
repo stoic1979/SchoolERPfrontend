@@ -637,7 +637,7 @@ nav.navbar a.menu-btn:hover {
 */
 .dashboard-counts {
   color: #333;
-  background: #98FB98;
+  background: #CCFFCC;
 }
 
 .dashboard-counts .count-title span {
@@ -898,7 +898,6 @@ nav.navbar a.menu-btn:hover {
 */
 .updates .left-col {
   padding-right: 20px;
-
 }
 
 .updates .icon {
@@ -908,6 +907,7 @@ nav.navbar a.menu-btn:hover {
 .updates li {
   border-bottom: 1px solid #f3f3f3;
   padding: .75rem 1.25rem;
+  background: #F9B7B7; 
 }
 
 .updates .update-date {
@@ -1038,6 +1038,7 @@ nav.navbar a.menu-btn:hover {
 /* Activities  ------------------- */
 .activities li {
   padding: 0;
+  background: #F9B7B7; 
 }
 
 .activities .date-holder {

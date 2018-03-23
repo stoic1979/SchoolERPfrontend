@@ -6,9 +6,12 @@ body {font-family: Arial;}
 .tab {
     overflow: hidden;
     border-bottom: 3px solid #5cb85c;
-    background-color: #f1f1f1;
+    background-color: #FFFFFF;
+}
 
-
+/* Style the height of  the tab */
+.card {
+  height: 100%;
 }
 
 /* Style the buttons inside the tab */
@@ -39,20 +42,20 @@ body {font-family: Arial;}
 .tabcontent {
     display: none;
     padding: 6px 12px;
-    border: 1px solid #ccc;
+    border: 1px solid #FFFFFF;
     border-top: none;
 }
 
 .container {
 
-  background-color: #f1f1f1;
+  background-color: #FFFFFF;
 }
 .circle {
   
   display: block;
   width: 150px;
   height: 150px;
-  margin: 1em auto;
+  margin: auto;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -62,4 +65,3 @@ body {font-family: Arial;}
   border: 5px solid #eee;
   box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);
 }
- 
