@@ -5,6 +5,7 @@ import { AlertService } from '../../../core/services/utils/alert.service';
 import { LoadingService } from '../../../core/services/utils/loading.service';
 
 import { TabManager } from '../../../core/helpers/tabManager';
+import Utils from '../../../core/helpers/utils';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { TabManager } from '../../../core/helpers/tabManager';
 })
 export class StudentDetailsComponent extends TabManager implements OnInit {
 
-  dataSource: any;  
+  dataSource: any;
 
   constructor(
     private studentService: StudentService,
@@ -37,8 +38,14 @@ export class StudentDetailsComponent extends TabManager implements OnInit {
         console.log('[StudentDetailsComponent] Response =>' +JSON.stringify(res));
         this.dataSource = res.data;
 
-        if(this.dataSource.length == 0) {
+       if(this.dataSource.length == 0) {
           this.alertService.info("No records found !!!");
+        }
+
+        // date fixes for mongodb date, only keeping date, rejecting time
+        for(var i=0; i<this.dataSource.length; i++) {
+          this.dataSource[i].dob = Utils.dateOnlyStr(this.dataSource[i].dob);
+          this.dataSource[i].doj = Utils.dateOnlyStr(this.dataSource[i].doj);
         }
 
       },(err) => {
@@ -48,6 +55,3 @@ export class StudentDetailsComponent extends TabManager implements OnInit {
     });
   }
 }
-
-  
-
