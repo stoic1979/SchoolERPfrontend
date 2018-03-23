@@ -19,9 +19,9 @@ export class DashboardComponent implements AfterViewInit {
        		type: 'doughnut',
         	data: {
             	labels: [
-                	"First",
-                	"Second",
-                	"Third"
+                	"Student",
+                	"Teaching Staff",
+                	"Nonteaching staff"
             	],
             	datasets: [
                 {

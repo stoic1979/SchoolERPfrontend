@@ -19,7 +19,7 @@
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Name</label>
                         <div class="col-10">
-                            <input class="form-control" type="name" pattern="^[A-Za-z]$" minlength="2" title="Please fill only characters" formControlName="name" required>
+                            <input class="form-control" type="text" minlength="2" title="Please fill only characters" formControlName="name" required>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -40,7 +40,7 @@
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Aadhar ID</label>
                         <div class="col-10">
-                            <input class="form-control" type="text" pattern="^[0-9]$" length="12" title="Please fill your 12 digits number" formControlName="aadhar_id" required>
+                            <input class="form-control" type="text" title="Please fill your 12 digits number" formControlName="aadhar_id" required>
                         </div>
                     </div>
 
@@ -65,25 +65,29 @@
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Marital Status</label>
                         <div class="col-10">
-                            <input class="form-control" type="string" formControlName="marital_status" required>
+                            <select class="form-control" formControlName="marital_status" placeholder="Marital Status" required>
+                                <option value="married" selected>Married</option>
+                                <option value="unmarried">Unmarried</option>
+                                <option value="widowed">Widowed</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Father Name</label>
                         <div class="col-10">
-                            <input class="form-control" type="name" pattern="^[A-Za-z]$" minlength="2" title="Please fill only characters" formControlName="father_name" required>
+                            <input class="form-control" type="text" minlength="2" title="Please fill only characters" formControlName="father_name" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Telephone No</label>
                         <div class="col-10">
-                            <input class="form-control" type="tel" pattern="^\d{4}\d{6}$" title="Please fill your number with code"  formControlName="tel_no" required>
+                            <input class="form-control" type="tel" title="Please fill your number with code"  formControlName="tel_no" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Mobile No</label>
                         <div class="col-10">
-                            <input class="form-control" type="tel" pattern="^\d{3}\d{3}\d{4}$" title="Please fill your 10 digit number" formControlName="mob_no" required>
+                            <input class="form-control" type="tel" title="Please fill your 10 digit number" formControlName="mob_no" required>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -95,7 +99,7 @@
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Email</label>
                         <div class="col-10">
-                            <input class="form-control" type="email" pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$" formControlName="email" required>
+                            <input class="form-control" type="email"  formControlName="email" required>
                         </div>
                     </div>
                     <div class="form-group row">
