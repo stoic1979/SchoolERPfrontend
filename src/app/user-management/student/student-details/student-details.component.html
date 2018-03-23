@@ -15,25 +15,25 @@
             <img src="../../../assets/images/people.png" height="129px" width="129px">
           </div>
           <br>
-          <table class="table table-striped" >
+          <table class="table table-striped" *ngFor="let values of dataSource">
             <thead>
               <tr>
                 <th>Name</th>
-                <td>{{dataSource.name}}</td>
+                <td>{{values.name}}</td>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <th>Library Number</th>
-                <td>{{dataSource.lib_no}}</td>
+                <td>{{values.lib_no}}</td>
               </tr>
               <tr>
                 <th>Standard</th>
-                <td>{{dataSource.standard}}</td>
+                <td>{{values.standard}}</td>
               </tr>
               <tr>
                 <th>Aadhar ID</th>
-                <td>{{dataSource.aadhar_id}}</td>
+                <td>{{values.aadhar_id}}</td>
               </tr>
             </tbody>
           </table>
@@ -49,35 +49,35 @@
             <br>
             <h2 class="tab_title">Personal Details</h2>
             <hr class="featurette-divider">  
-              <table  class="table table-striped" width="100%">
+              <table  class="table table-striped" width="100%" *ngFor="let values of dataSource">
                 <tbody>
                   <tr>
                     <th>Name</th>
-                    <td>{{dataSource.name}}</td>
+                    <td>{{values.name}}</td>
                     <th>Library Number</th>
-                    <td>{{dataSource.lib_no}}</td>
+                    <td>{{values.lib_no}}</td>
                   </tr>
                   <tr>
                     <th>Gender</th>
-                    <td>{{dataSource.gender}}</td>
+                    <td>{{values.gender}}</td>
                     <th>Aadhar ID</th>
-                    <td>{{dataSource.aadhar_id}}</td>
+                    <td>{{values.aadhar_id}}</td>
                   </tr>
                   <tr>
                     <th>Standard</th>
-                    <td>{{dataSource.standard}}</td>
+                    <td>{{values.standard}}</td>
                     <th>Section</th>
-                    <td>{{dataSource.section}}</td>
+                    <td>{{values.section}}</td>
                   </tr>
                   <tr>
                     <th>Date of Birth</th>
-                    <td>{{dataSource.dob}}</td>
+                    <td>{{values.dob}}</td>
                     <th>Date of Joining</th>
-                    <td>{{dataSource.doj}}</td>
+                    <td>{{values.doj}}</td>
                   </tr>
                   <tr>
                     <th>Previous School</th>
-                    <td>{{dataSource.previous_school}}</td>
+                    <td>{{values.previous_school}}</td>
                     <th></th>
                     <td></td>
                   </tr>
@@ -89,31 +89,31 @@
             <h2 class="tab_title">Parent's Details</h2>
             <hr class="featurette-divider">
             <div class="container">        
-              <table  class="table table-striped" width="100%">
+              <table  class="table table-striped" width="100%" *ngFor="let values of dataSource">
                 <tbody>
                   <tr>
                     <th> Mother Name</th>
-                    <td>{{dataSource.parent.mother_name}} </td>
+                    <td>{{values.parent.mother_name}} </td>
                     <th>Father Name</th>
-                    <td>{{dataSource.parent.father_name}} </td>
+                    <td>{{values.parent.father_name}} </td>
                   </tr>
                   <tr>
                     <th>Mother Email</th>
-                    <td>{{dataSource.parent.mother_email}}</td>
+                    <td>{{values.parent.mother_email}}</td>
                     <th>Father Email</th>
-                    <td>{{dataSource.parent.father_email}}</td>
+                    <td>{{values.parent.father_email}}</td>
                   </tr>
                   <tr>
                     <th>Mother Mobile No</th>
-                    <td>{{dataSource.parent.mother_mob_no}}</td>
+                    <td>{{values.parent.mother_mob_no}}</td>
                     <th>Father Mobile No</th>
-                    <td>{{dataSource.parent.fatherr_mob_no}}</td>
+                    <td>{{values.parent.fatherr_mob_no}}</td>
                   </tr>
                   <tr>
                     <th>Mother Telephone No</th>
-                    <td>{{dataSource.parent.mother_tel_no}}</td>
+                    <td>{{values.parent.mother_tel_no}}</td>
                     <th>Father Telephone No</th>
-                    <td>{{dataSource.parent.father_tel_no}}</td>
+                    <td>{{values.parent.father_tel_no}}</td>
                   </tr>
                 </tbody>
               </table>
