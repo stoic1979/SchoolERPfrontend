@@ -5,6 +5,7 @@ import { AlertService } from '../../../core/services/utils/alert.service';
 import { LoadingService } from '../../../core/services/utils/loading.service';
 
 import { TabManager } from '../../../core/helpers/tabManager';
+import Utils from '../../../core/helpers/utils';
 
 @Component({
   selector: 'app-transport-manager-details',
@@ -38,6 +39,13 @@ export class TransportManagerDetailsComponent  extends TabManager implements OnI
         if(this.dataSource.length == 0) {
           this.alertService.info("No records found !!!");
         }
+
+         // date fixes for mongodb date, only keeping date, rejecting time
+          this.dataSource.dob = Utils.dateOnlyStr(this.dataSource.dob);
+          this.dataSource.doj = Utils.dateOnlyStr(this.dataSource.doj);
+
+          console.log("[TransportManagerDetailsComponent] :: dob = " + this.dataSource.dob);
+          console.log("[TransportManagerDetailsComponent] :: doj = " + this.dataSource.doj);
 
       },(err) => {
             this.loadingService.display(false);

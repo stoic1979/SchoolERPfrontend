@@ -43,11 +43,13 @@ export class StudentDetailsComponent extends TabManager implements OnInit {
         }
 
         // date fixes for mongodb date, only keeping date, rejecting time
-        for(var i=0; i<this.dataSource.length; i++) {
-          this.dataSource[i].dob = Utils.dateOnlyStr(this.dataSource[i].dob);
-          this.dataSource[i].doj = Utils.dateOnlyStr(this.dataSource[i].doj);
-        }
+          this.dataSource.dob = Utils.dateOnlyStr(this.dataSource.dob);
+          this.dataSource.doj = Utils.dateOnlyStr(this.dataSource.doj);
 
+          console.log("[StudentDetailsComponent] :: dob = " + this.dataSource.dob);
+          console.log("[StudentDetailsComponent] :: doj = " + this.dataSource.doj);
+
+        
       },(err) => {
             this.loadingService.display(false);
             const errBody = err.json();
