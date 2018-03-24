@@ -1,5 +1,9 @@
-.grid {
-	background-color: #FFFFFF;
-	padding-top: 10%;
-	padding-left: 20%;
-}
+ body { 
+ 	text-align: center; 
+ 	padding: 150px; 
+ 	background-image: url("../../../assets/images/notfound.jpg"); }
+  h1 { font-size: 50px; }
+  body { font: 20px Helvetica, sans-serif; color: #333; }
+  article { display: block; text-align: left; width: 650px; margin: 0 auto; color: #FFFFFF}
+  a { color: #dc8100; text-decoration: none; }
+  a:hover { color: #333; text-decoration: none; }

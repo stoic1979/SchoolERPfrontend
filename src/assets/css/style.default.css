@@ -637,7 +637,7 @@ nav.navbar a.menu-btn:hover {
 */
 .dashboard-counts {
   color: #333;
-  background: #CCFFCC;
+  background: #d6f5d6;
 }
 
 .dashboard-counts .count-title span {
@@ -907,7 +907,7 @@ nav.navbar a.menu-btn:hover {
 .updates li {
   border-bottom: 1px solid #f3f3f3;
   padding: .75rem 1.25rem;
-  background: #FFFFCC; 
+  background: #fff5ee; 
 }
 
 .updates .update-date {
@@ -1038,7 +1038,7 @@ nav.navbar a.menu-btn:hover {
 /* Activities  ------------------- */
 .activities li {
   padding: 0;
-  background: #FFFFCC; 
+  background: #fff5ee; 
 }
 
 .activities .date-holder {
