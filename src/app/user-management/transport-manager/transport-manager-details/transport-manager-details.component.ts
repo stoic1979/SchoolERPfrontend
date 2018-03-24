@@ -45,6 +45,5 @@ export class TransportManagerDetailsComponent  extends TabManager implements OnI
             console.log('[TransportManagerDetailsComponent] Error  =>' +errBody);
       });
   }
-
 }
 

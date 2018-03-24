@@ -33,16 +33,18 @@ export class FinanceManagerFormComponent extends TabManager implements OnInit {
   this.form = this.fb.group({
         name:  ['', Validators.required],
         father_name:  ['', Validators.required],
-        section:  ['', Validators.required],
+        gender:   ['', Validators.required],
         dob:  ['', Validators.required],
         doj:  ['', Validators.required],
         aadhar_id:  ['', Validators.required],
         img:   ['', Validators.required],
-        domicile:  ['', Validators.required],
+        email:  ['', Validators.required],
+        tel_no:  ['', Validators.required],
+        mob_no:   ['', Validators.required],
         marital_status:   ['', Validators.required],
         address:   ['', Validators.required],
         education:   ['', Validators.required],
-        working_exp:   ['', Validators.required],
+        work_exp:   ['', Validators.required],
         bank_name:   ['', Validators.required],
         bank_acc_no:   ['', Validators.required],
         password:   ['', Validators.required],
@@ -54,7 +56,7 @@ export class FinanceManagerFormComponent extends TabManager implements OnInit {
 
   onSubmit() {
     console.log('onSubmit()');
-    console.log('finance data '+this.form.value);
+    console.log('finance data '+JSON.stringify(this.form.value));
     this.loadingService.display(true);
 
     this.financeManagerService.add(this.form.value).subscribe((res)=> {

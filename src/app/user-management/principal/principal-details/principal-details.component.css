@@ -50,7 +50,8 @@ body {font-family: Arial;}
 
   background-color: #FFFFFF;
 }
-.circle {
+
+/*.circle {
   
   display: block;
   width: 150px;
@@ -64,4 +65,9 @@ body {font-family: Arial;}
   border-radius: 99em;
   border: 5px solid #eee;
   box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);
+}
+*/
+
+.image{
+  margin-left: 30%;
 }

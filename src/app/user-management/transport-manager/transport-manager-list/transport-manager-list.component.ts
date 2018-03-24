@@ -18,7 +18,6 @@ export class TransportManagerListComponent implements OnInit {
   p: number = 1;
   dataSource: any[];
   
-  private formSubmitAttempt: boolean;
   showSearch:boolean = false;
 
   toggleSearch() {
@@ -45,7 +44,7 @@ export class TransportManagerListComponent implements OnInit {
     this.loadingService.display(true);
      this.transportManagerService.getTransportManagers(this.form.value).subscribe((res)=> {
         this.loadingService.display(false);
-        //console.log('[Student List Component] Response =>' +JSON.stringify(res));
+        //console.log('[Transport List Component] Response =>' +JSON.stringify(res));
         this.dataSource = res.data;
 
         if(this.dataSource.length == 0) {
@@ -55,7 +54,7 @@ export class TransportManagerListComponent implements OnInit {
       },(err) => {
             this.loadingService.display(false);
             const errBody = err.json();
-            console.log('[Student List Component] Error  =>' +errBody);
+            console.log('[Transport List Component] Error  =>' +errBody);
       });
   }
 

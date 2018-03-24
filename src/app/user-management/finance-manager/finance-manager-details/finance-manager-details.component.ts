@@ -46,5 +46,4 @@ export class FinanceManagerDetailsComponent extends TabManager implements OnInit
             console.log('[FinanceManagerDetailsComponent] Error  =>' +errBody);
       });
   }
-
 }

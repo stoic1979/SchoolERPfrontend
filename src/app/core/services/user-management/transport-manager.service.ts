@@ -74,8 +74,5 @@ export class TransportManagerService {
         headers.append('Content-Type', 'application/json; charset=utf-8');
         headers.append('Authorization', token);
         return headers;
-  }
-
- 
-  
+  }   
 }//TransportManagerService

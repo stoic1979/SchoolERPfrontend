@@ -59,7 +59,7 @@ export class FinanceManagerService {
   }
 
   getToken () {
-  	console.log( '[FinanceManagerService] token '+localStorage.getItem('userToken'));
+  	console.log( '[SectionService] token '+localStorage.getItem('userToken'));
     return localStorage.getItem('userToken') || '';
   }
 
@@ -74,8 +74,5 @@ export class FinanceManagerService {
         headers.append('Content-Type', 'application/json; charset=utf-8');
         headers.append('Authorization', token);
         return headers;
-  }
-
- 
-  
+  } 
 }//FinanceManagerService
