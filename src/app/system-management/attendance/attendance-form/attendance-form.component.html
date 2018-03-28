@@ -1,20 +1,21 @@
 <div class="container-fluid">
-	<br />
+	<br>
 	<div class="page-header">
 		<a routerLink="/systems/attendance/list" class="btn btn-primary">View Student Attendance</a>
 	</div>
-	<br />
+	<br>
 	<div class="card">
 		<br>
 		<div class="tab">
 			<button class="tablinks active" id="btn_studentattendance_tab" (click)="openTab('studentattendance_tab')">STUDENT ATTENDANCE</button>
 		</div>
+
 		<div id="logbox">
 			<form [formGroup]="form" (ngSubmit)="onSubmit()" ngNativeValidate>
 
 				<!--- STUDENT ATTENDANCE TAB CONTENT -->	
 				<div id="studentattendance_tab" class="tabcontent">
-					<h3 class="tab_title">Attendance</h3>
+					<br><h3 class="tab_title">Attendance</h3>
 					<div class="form-group row">
             			<label class="col-2 col-form-label">Name</label>
             			<div class="col-10">
@@ -52,7 +53,7 @@
           			<div class="form-group row">
             			<label class="col-2 col-form-label">Date</label>
             			<div class="col-10">
-              				<input class="form-control" type="text" onfocus="(this.type='date')" formControlName="dob" required>
+              				<input class="form-control" type="text" onfocus="(this.type='date')" formControlName="dos" required>
             			</div>
           			</div>
           			<div class="sbt_btn">

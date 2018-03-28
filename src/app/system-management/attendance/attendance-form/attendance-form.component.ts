@@ -33,7 +33,7 @@ export class AttendanceFormComponent extends TabManager implements OnInit {
       name: ['', Validators.required],
   		standard: ['', Validators.required],
   		section: ['', Validators.required],
-  		date: ['', Validators.required],
+  		dos: ['', Validators.required],
   	});
 
   	//calling openTab from TabManager
