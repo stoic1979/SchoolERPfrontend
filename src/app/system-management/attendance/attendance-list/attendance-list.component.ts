@@ -37,6 +37,7 @@ export class AttendanceListComponent implements OnInit {
         name:  ['', Validators.required],
         standard:  ['', Validators.required],
         section:  ['', Validators.required],
+        status: ['', Validators.required],
         dos:  ['', Validators.required],
       });
 
