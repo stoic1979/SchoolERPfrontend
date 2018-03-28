@@ -26,13 +26,38 @@ export class AttendanceService {
     return this.http.post(`${API_ENDPOINT}/api/attendance`, credential, { headers: header })
       .map(res => this.result = res.json());        
   }
+
+  getAttendance = (formData) => {
+
+    console.log("[AttendanceService] :: data: " + JSON.stringify(formData) );
+
+    // dont send empty/null form variables in a query to server !!!
+    var query = {};
+    for (var propName in formData) { 
+      if (formData[propName] === null || formData[propName] === undefined || formData[propName].length === 0) {
+        continue;
+      }
+      query[propName] = formData[propName];
+    }
+
+    const header = this.createAuthorizationHeader();
+    return this.http.post(`${API_ENDPOINT}/api/attendance/all`, query, { headers: header })
+      .map(res => this.result = res.json());        
+  }
+
+   getById = (id) => {
+    const header = this.createAuthorizationHeader();
+    return this.http.get(`${API_ENDPOINT}/api/attendance/${  id}`, { headers: header })
+      .map(res => this.result = res.json());        
+  } 
+
   getToken () {
   	console.log( '[SectionService] token '+localStorage.getItem('userToken'));
   	return localStorage.getItem('userToken') || '';
   }
 
   private handleError (error: Response | any ) {
-  	console.error('[SectionService] :: handleError', error);
+  	console.error('[AttendanceService] :: handleError', error);
   	return Observable.throw(error);
   }
 

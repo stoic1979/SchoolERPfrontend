@@ -28,6 +28,11 @@ const routes: Routes = [
     path: 'users',
     loadChildren: './user-management/user-management.module#UserManagementModule',
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'systems',
+    loadChildren: './system-management/system-management.module#SystemManagementModule',
+    canActivate: [AuthGuard]
   }
 ];
 

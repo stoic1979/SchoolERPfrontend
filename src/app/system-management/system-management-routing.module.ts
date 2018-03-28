@@ -3,6 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
 
+	{
+		path: 'attendance',
+		loadChildren: './attendance/attendance.module#AttendanceModule'
+	},
+	{
+		path: 'stationery',
+		loadChildren: './stationery/stationery.module#StationeryModule'
+	},
 ];
 
 @NgModule({

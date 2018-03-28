@@ -1,0 +1,76 @@
+<br>
+<div class="container-fluid">
+	<div class="page-header">
+		<a routerLink="/systems/attendance/add" class="btn btn-primary">Attendance</a>
+	</div>
+	<div class="card">
+		<br>
+		<div class="tab">
+			<button class="tablinks active" id="btn_viewattendance_tab" (click)="openTab('viewattendance_tab')">VIEW STUDENT ATTENDANCE</button>
+		</div>
+		<div id="logbox">
+			<form [formGroup]="form" (ngSubmit)="onSubmit()" ngNativeValidate>
+
+				<!--- STUDENT ATTENDANCE TAB CONTENT -->	
+				<div id="viewattendance_tab" class="tabcontent">
+					<h3 class="tab_title"> View Attendance</h3>
+					<div class="form-group row">
+            			<label class="col-2 col-form-label">Name</label>
+            			<div class="col-10">
+              				<input class="form-control" type="text"  formControlName="name">
+            			</div>
+          			</div>
+					<div class="form-group row">
+            			<label class="col-2 col-form-label">Standard</label>
+            			<div class="col-10">
+              				<input class="form-control" type="text"  formControlName="standard">
+            			</div>
+          			</div>
+          			<div class="form-group row">
+            			<label class="col-2 col-form-label">Section</label>
+            			<div class="col-10">
+              				<input class="form-control" type="text" formControlName="section">
+            			</div>
+          			</div>
+          			<div class="form-group row">
+            			<label class="col-2 col-form-label">Date</label>
+            			<div class="col-10">
+              				<input class="form-control" type="text" onfocus="(this.type='date')" formControlName="dob" required>
+            			</div>
+          			</div>
+          			<div class="sbt_btn">
+            			<button class="btn btn-primary" type="submit">Search</button>
+          			</div>
+          		</div>
+        	</form>
+      	</div>
+      	<div class="table">          
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Lib No.</th>
+                        <th>Standard</th>
+                        <th>Section</th>
+                        <th>Details</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr >
+                        <td>{{ (p - 1) * 10 + i +1 }}</td>
+                        <td>{{values.name}}</td>
+                        <td>{{values.lib_no}}</td>
+                        <td>{{values.standard}}</td>
+                        <td>{{values.section}}</td>
+                       <td><a (click) = "saveStudentId(values._id)" routerLink="/users/student/details" >Details</a></td> 
+                        <td><i class="fa fa-pencil" (click) = "saveStudentId(values._id)" routerLink="/users/student/edit"></i></td>
+                        <td><i class="fa fa-trash" routerLink="#"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>	
+</div>	

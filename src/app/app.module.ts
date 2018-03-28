@@ -30,6 +30,7 @@ import { TransportManagerService } from './core/services/user-management/transpo
 import { FinanceManagerService } from './core/services/user-management/finance-manager.service'
 import { PrincipalService } from './core/services/user-management/principal.service'
 import { CounsellorService } from './core/services/user-management/counsellor.service';
+import { AttendanceService } from './core/services/system-management/attendance.service'; 
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import { CounsellorService } from './core/services/user-management/counsellor.se
     AppRoutingModule,
     HttpModule
   ],
-  providers: [ AuthGuard, AlertService, LoadingService, AuthService, SectionService, StandardService, StudentService, TeacherService, TransportManagerService, FinanceManagerService, PrincipalService, CounsellorService],
+  providers: [ AuthGuard, AlertService, LoadingService, AuthService, SectionService, StandardService, StudentService, TeacherService, TransportManagerService, FinanceManagerService, PrincipalService, CounsellorService, AttendanceService],
 
   bootstrap: [AppComponent]
 })
