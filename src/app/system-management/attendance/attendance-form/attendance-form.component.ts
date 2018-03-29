@@ -31,6 +31,7 @@ export class AttendanceFormComponent extends TabManager implements OnInit {
   ngOnInit() {
   	this.form = this.fb.group({
       name: ['', Validators.required],
+      lib_no: ['', Validators.required],
   		standard: ['', Validators.required],
   		section: ['', Validators.required],
       status: ['', Validators.required],

@@ -1,108 +1,103 @@
 <br>
 <div class="container-fluid">
-	<div class="page-header">
-		<a routerLink="/systems/attendance/add" class="btn btn-primary">Attendance</a>
-	</div>
-    <br><br>
-	<div class="card">
-        <div *ngIf="showSearch"  id="search">
-            <div class="card" id="search_form">
-		       <br>
-		        <div class="tab">
-			        <button class="tablinks active" id="btn_viewattendance_tab" (click)="openTab('viewattendance_tab')">VIEW STUDENT ATTENDANCE</button>
-		        </div>
-		    <div id="logbox">
-			<form [formGroup]="form" (ngSubmit)="onSubmit()" ngNativeValidate>
-
-				<!--- STUDENT ATTENDANCE TAB CONTENT -->	
-				<div id="viewattendance_tab" class="tabcontent">
-					<h3 class="tab_title"> View Attendance</h3>
-					<div class="form-group row">
-            			<label class="col-2 col-form-label">Name</label>
-            			<div class="col-10">
-              				<input class="form-control" type="text"  formControlName="name">
-            			</div>
-          			</div>
-					<div class="form-group row">
-                        <label class="col-2 col-form-label">Standard</label>
-                        <div class="col-10">
-                            <select class="form-control" formControlName="standard" placeholder="Standard" required>
-                                <option value="nursery" selected>Nursery</option>
-                                <option value="lkg">LKG</option>
-                                <option value="ukg">UKG</option>
-                                <option value="1st">1st</option>
-                                <option value="2nd">2nd</option>
-                                <option value="3rd">3rd</option>
-                                <option value="4th">4th</option>
-                                <option value="5th">5th</option>
-                            </select>
-                        </div>
-                    </div>
-          			<div class="form-group row">
-                        <label class="col-2 col-form-label">Section</label>
-                        <div class="col-10">
-                            <select class="form-control" formControlName="section" placeholder="Section" required>
-                                <option value="a" selected>A</option>
-                                <option value="b">B</option>
-                                <option value="c">C</option>
-                                <option value="d">D</option>
-                                <option value="e">E</option>
-                                <option value="f">F</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-2 col-form-label">Status</label>
-                        <div class="col-10">
-                            <select class="form-control" formControlName="status" placeholder="Status" required>
-                                <option value="present" selected>Present</option>
-                                <option value="absent">Absent</option>
-                            </select>
-                        </div>
-                    </div>
-          			<div class="form-group row">
-            			<label class="col-2 col-form-label">Date</label>
-            			<div class="col-10">
-              				<input class="form-control" type="text" onfocus="(this.type='date')" formControlName="dos" required>
-            			</div>
-          			</div>
-          			<div class="sbt_btn">
-            			<button class="btn btn-primary" type="submit">Search</button>
-          			</div>
-          		</div>
-        	</form>
-      	</div>
-      </div>
-  </div>
-      	<!-- <div class="table">          
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Lib No.</th>
-                        <th>Standard</th>
-                        <th>Section</th>
-                        <th>Details</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr*ngFor="let values of dataSource | paginate: { itemsPerPage: 10, currentPage: p }; let i= index" >
-                        <td></td>
-                        <td>{{values.name}}</td>
-                        <td>{{values.lib_no}}</td>
-                        <td>{{values.standard}}</td>
-                        <td>{{values.section}}</td>
-                       <td><a (click) = "saveStudentId(values._id)" routerLink="/users/student/details" >Details</a></td> 
-                        <td><i class="fa fa-pencil" (click) = "saveStudentId(values._id)" routerLink="/users/student/edit"></i></td>
-                        <td><i class="fa fa-trash" routerLink="#"></i></td>
-                    </tr>
-                </tbody>
-            </table>
-             <pagination-controls (pageChange)="p = $event"></pagination-controls>
-         </div> -->
+    <div class="page-header">
+        <a routerLink="/systems/attendance/add" class="btn btn-primary">Attendance</a>
+        <a class="btn btn-primary" (click)="toggleSearch()">View Attendance</a>
+        <a (click)="getAttendance()" class="btn btn-primary">All Attendance</a>
+    </div>
+    <div class="card">  
+    <div *ngIf="showSearch"  id="search">
+        <div class="card" id="search_form">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" ngNativeValidate>
+            <h3 class="tab_title">View Attendance</h3>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Name</label>
+                <div class="col-10">
+                    <input class="form-control" type="text"  formControlName="name">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Library No.</label>
+                <div class="col-10">
+                    <input class="form-control" type="text" formControlName="lib_no">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Standard</label>
+                <div class="col-10">
+                    <select class="form-control" formControlName="standard" placeholder="Standard" required>
+                        <option value="nursery" selected>Nursery</option>
+                        <option value="lkg">LKG</option>
+                        <option value="ukg">UKG</option>
+                        <option value="1st">1st</option>
+                        <option value="2nd">2nd</option>
+                        <option value="3rd">3rd</option>
+                        <option value="4th">4th</option>
+                        <option value="5th">5th</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Section</label>
+                <div class="col-10">
+                    <select class="form-control" formControlName="section" placeholder="Standard" required>
+                        <option value="a" selected>A</option>
+                        <option value="b">B</option>
+                        <option value="c">C</option>
+                        <option value="d">D</option>
+                        <option value="e">E</option>
+                        <option value="f">F</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Status</label>
+                <div class="col-10">
+                    <select class="form-control" formControlName="status" placeholder="Standard" required>
+                        <option value="absent" selected>Absent</option>
+                        <option value="present">Present</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Date of Submit</label>
+                <div class="col-10">
+                     <input class="form-control" type="text" onfocus="(this.type='date')" formControlName="dos" required>
+                </div>
+            </div>
+            <div class="sbt_btn">
+                <button class="btn btn-primary" type="submit">Search</button>
+            </div>
+            </form>
         </div>
-    </div>	
-</div>	t
+    </div>          
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Library Number</th>
+                <th>Standard</th>
+                <th>Section</th>
+                <th>Status</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let values of dataSource | paginate: { itemsPerPage: 10, currentPage: p }; let i= index" >
+                <td>{{ (p - 1) * 10 + i +1 }}</td>
+                <td>{{values.name}}</td>
+                <td>{{values.lib_no}}</td>
+                <td>{{values.standard}}</td>
+                <td>{{values.section}}</td>
+                <td>{{values.status}}</td>
+                <td><a (click) = "saveCounsellorId(values._id)" routerLink="/users/counsellor/details" >Details</a></td>
+                 <td><i class="fa fa-pencil" routerLink="#"></i></td>
+                <td><i class="fa fa-trash" routerLink="#"></i></td>
+            </tr>
+        </tbody>
+    </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+</div>

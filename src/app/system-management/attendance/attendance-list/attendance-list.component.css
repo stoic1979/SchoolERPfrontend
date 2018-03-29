@@ -1,3 +1,12 @@
+.page-header > a{
+    color: white;
+}
+#search_form{
+    padding: 10px;
+    margin: 20px ;
+    background-color: #F5F5F5;
+}
 .sbt_btn{
 	text-align:right;
 }
+

@@ -8,8 +8,11 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
+import config from '../../../config/config';
 
-const API_ENDPOINT = 'http://localhost:3000';
+const API_ENDPOINT = config.API_ENDPOINT;
+
+// const API_ENDPOINT = 'http://localhost:3000';
 
 @Injectable()
 export class AttendanceService {
@@ -22,8 +25,9 @@ export class AttendanceService {
   	) { }
 
   add = (credential: any) => {
+    credential.role = "ATTENDANCE";
   	const header = this.createAuthorizationHeader();
-    return this.http.post(`${API_ENDPOINT}/api/attendance`, credential, { headers: header })
+    return this.http.post(`${API_ENDPOINT}/api/system`, credential, { headers: header })
       .map(res => this.result = res.json());        
   }
 
@@ -52,7 +56,7 @@ export class AttendanceService {
   } 
 
   getToken () {
-  	console.log( '[SectionService] token '+localStorage.getItem('userToken'));
+  	console.log( '[AttendanceService] token '+localStorage.getItem('userToken'));
   	return localStorage.getItem('userToken') || '';
   }
 
