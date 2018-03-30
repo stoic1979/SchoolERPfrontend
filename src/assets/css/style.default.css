@@ -637,7 +637,7 @@ nav.navbar a.menu-btn:hover {
 */
 .dashboard-counts {
   color: #333;
-  background: #d6f5d6;
+  background: #e8f9e8;
 }
 
 .dashboard-counts .count-title span {
@@ -782,7 +782,7 @@ nav.navbar a.menu-btn:hover {
   padding: 20px;
   margin-bottom: 0;
   height: 100%;
-  background: #d8f3fe;
+  background: #e6f0f4;
 }
 
 .statistics h2 {
