@@ -1,3 +1,79 @@
-<p>
-  stationery-list works!
-</p>
+<br>
+<div class="container-fluid">
+    <div class="page-header">
+        <a routerLink="/systems/stationery/add" class="btn btn-primary">Stationery Request</a>
+        <a class="btn btn-primary" (click)="toggleSearch()">View Stationery Request</a>
+         <a routerLink="/systems/stationery/items" class="btn btn-primary">All Stationery Items</a>
+    </div>
+     <div class="card">  
+    <div *ngIf="showSearch"  id="search">
+        <div class="card" id="search_form">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" ngNativeValidate>
+            <h3 class="tab_title">View Stationery</h3>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Name</label>
+                <div class="col-10">
+                    <input class="form-control" type="text"  formControlName="name">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Standard</label>
+                <div class="col-10">
+                    <select class="form-control" formControlName="standard" placeholder="Standard" required>
+                        <option value="nursery" selected>Nursery</option>
+                        <option value="lkg">LKG</option>
+                        <option value="ukg">UKG</option>
+                        <option value="1st">1st</option>
+                        <option value="2nd">2nd</option>
+                        <option value="3rd">3rd</option>
+                        <option value="4th">4th</option>
+                        <option value="5th">5th</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Section</label>
+                <div class="col-10">
+                    <select class="form-control" formControlName="section" placeholder="Standard" required>
+                        <option value="a" selected>A</option>
+                        <option value="b">B</option>
+                        <option value="c">C</option>
+                        <option value="d">D</option>
+                        <option value="e">E</option>
+                        <option value="f">F</option>
+                    </select>
+                </div>
+            </div>
+            <div class="sbt_btn">
+                <button class="btn btn-primary" type="submit">Search</button>
+            </div>
+            </form>
+        </div>
+    </div>          
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Standard</th>
+                <th>Section</th>
+                <th>Priority</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let values of dataSource | paginate: { itemsPerPage: 10, currentPage: p }; let i= index" >
+                <td>{{ (p - 1) * 10 + i +1 }}</td>
+                <td>{{values.name}}</td>
+                <td>{{values.standard}}</td>
+                <td>{{values.section}}</td>
+                <td>{{values.priority}}</td>
+                 <td><i class="fa fa-pencil" routerLink="#"></i></td>
+                <td><i class="fa fa-trash" routerLink="#"></i></td>
+            </tr>
+        </tbody>
+    </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+</div>    
