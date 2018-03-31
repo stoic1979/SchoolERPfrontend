@@ -6,6 +6,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { AttendanceRoutingModule } from './attendance-routing.module';
 import { AttendanceFormComponent } from './attendance-form/attendance-form.component';
 import { AttendanceListComponent } from './attendance-list/attendance-list.component';
+import { EditableTableModule } from '../../editable-table/editable-table.module';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import { AttendanceListComponent } from './attendance-list/attendance-list.compo
     FormsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
+    EditableTableModule,
     AttendanceRoutingModule
   ],
   declarations: [AttendanceFormComponent, AttendanceListComponent]

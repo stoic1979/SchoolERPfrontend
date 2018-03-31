@@ -67,28 +67,18 @@
                         </div>
                     </div>
                     <h2 class="tab_title">Product Details</h2>
-		                <table border ="1">
-  			        	<tr>
-    						<th>No</th>
-    						<th>Item Name</th>
-    						<th>Qty</th>
-            			</tr>
-            				<tr>
-    							<td></td>
-    							<td></td>
-   								<td></td>
-  							</tr>
-  							<tr>
-    							<td></td>
-    							<td></td>
-    							<td></td>
-  							</tr>
-  							<tr>
-  								<td></td>
-    							<td></td>
-    							<td></td>
-  							</tr>
-						</table>
+		               <div class="form-group row">
+                      <label class="col-2 col-form-label">Product Name</label>
+                      <div class="col-10">
+                          <input class="form-control" type="text" title="Please fill only characters" formControlName="proname" required>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-2 col-form-label">Quantity</label>
+                      <div class="col-10">
+                          <input class="form-control" type="text" title="Please fill only units" formControlName="qty" required>
+                      </div>
+                    </div>
                     <button class="btn btn-primary" type="submit">Save Request</button>
                 </div>
             </form>

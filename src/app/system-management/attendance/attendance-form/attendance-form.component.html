@@ -1,79 +1,62 @@
-<div class="container-fluid">
-    <br>
-    <div class="page-header">
-        <a routerLink="/systems/attendance/list" class="btn btn-primary">View Attendance</a>
-    </div>
-    <br>
-    <div class="card">
-        <br>
-        <div class="tab">
-            <button class="tablinks active" id="btn_attendance_tab" (click)="openTab('attendance_tab')">Daily Attendance</button>
-            
-        </div>
-        <div id="logbox">
-            <form [formGroup]="form" (ngSubmit)="onSubmit()" ngNativeValidate>
-
-                <!--- ADD ATTENDANCE TAB CONTENT -->
-                <div id="attendance_tab" class="tabcontent">
-                    <h3  class="tab_title">Fill Attendance</h3>
-                    <div class="form-group row">
-                      <label class="col-2 col-form-label">Name</label>
-                      <div class="col-10">
-                          <input class="form-control" type="text" title="Please fill only characters" formControlName="name" required>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-2 col-form-label">Library Number</label>
-                        <div class="col-10">
-                            <input class="form-control" type="text" formControlName="lib_no" required>
+<br>
+<h2 class="tab_title">Attendance Report Sheet</h2>
+<nv-editable-table [table-headers]="tableHeaders" [table-rows-with-id]="tableRowsWithId" [data-type]="dataType" (onRemove)="onRemove($event)"
+      class="ui table">
+</nv-editable-table>
+<hr/>
+<!-- <h1>Stationery Item Management</h1>
+<table>
+      <thead>
+            <tr>
+                  <th *ngFor="let title of service.tableHeadersObjects">{{title.content}}</th>
+                  <th></th>
+            </tr>
+      </thead>
+      <tbody>
+            <tr *ngFor="let row of service.tableRowsObjects">
+                  <td *ngFor="let cell of row.cells">
+                        <span *ngIf="service.isEditing.indexOf(row) === -1 && service.checkTypeOf(cell.content) !== 'boolean'">{{cell.content}}</span>
+                        <span *ngIf="service.isEditing.indexOf(row) === -1 && service.checkTypeOf(cell.content) == 'boolean'">
+                        {{cell.content ? 'Active' : 'Inactive'}}
+                        </span>
+                        <div class="ui input requiredInput" [ngClass]="{'error': !cell.content && cell.touched}" *ngIf="!(service.isEditing.indexOf(row) == -1) && service.checkTypeOf(cell.content) !== 'boolean'">
+                              <input type="text" [(ngModel)]="cell.content" [name]="cell.content" #[cell.content]="ngModel" required />
+                              <div [ngClass]="{'show': !cell.content && cell.touched, 
+                                       'hide': cell.content}" class="divmessage" style="Color: red;" [hidden]="cell.content">
+                                    <div>{{requiredMessage}}</div>
+                              </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-2 col-form-label">Standard</label>
-                      <div class="col-10">
-                        <select class="form-control" formControlName="standard" placeholder="Standard" required>
-                          <option value="nursery" selected>Nursery</option>
-                          <option value="lkg">LKG</option>
-                          <option value="ukg">UKG</option>
-                          <option value="1st">1st</option>
-                          <option value="2nd">2nd</option>
-                          <option value="3rd">3rd</option>
-                          <option value="4th">4th</option>
-                          <option value="5th">5th</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-2 col-form-label">Section</label>
-                      <div class="col-10">
-                        <select class="form-control" formControlName="section" placeholder="Standard" required>
-                          <option value="a" selected>A</option>
-                          <option value="b">B</option>
-                          <option value="c">C</option>
-                          <option value="d">D</option>
-                          <option value="e">E</option>
-                          <option value="f">F</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-2 col-form-label">Status</label>
-                      <div class="col-10">
-                        <select class="form-control" formControlName="status" placeholder="Standard" required>
-                          <option value="absent" selected>Absent</option>
-                          <option value="present">Present</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-2 col-form-label">Date of Submit</label>
-                        <div class="col-10">
-                            <input class="form-control" type="text" onfocus="(this.type='date')" formControlName="dos" required>
+                        <div *ngIf="!(service.isEditing.indexOf(row) == -1) && service.checkTypeOf(cell.content) === 'boolean'" class="field checkboxContainer">
+                              <div class="ui toggle checkbox">
+                                    <input type="checkbox" name="public" [(ngModel)]="cell.content" name="active">
+                                    <label>{{cell.content ? 'Active' : 'Inactive'}}</label>
+                              </div>
                         </div>
-                    </div>
-                    <button class="btn btn-primary" type="submit">Save Attendance</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+                  </td>
+                  <td>
+                        <button *ngIf="service.isEditing.indexOf(row) === -1 " (click)="service.editRow(row)">
+                      <i class="fa fa-pencil-square-o"></i>
+                    </button>
+                        <button *ngIf="!(service.isEditing.indexOf(row) == -1)" (click)="service.saveRow(row)">
+                      <i class="fa fa-check"></i>
+                    </button>
+                        <button *ngIf="service.isEditing.indexOf(row) === -1" (click)="service.deleteRow(row)">
+                      <i class="fa fa-times"></i>
+                    </button>
+                        <button *ngIf="!(service.isEditing.indexOf(row) == -1) " (click)="service.cancelEdition(row)">
+                      <i class="fa fa-times"></i>
+                    </button>                 
+                  </td>
+            </tr>
+      </tbody>
+      <tfoot>
+            <tr>
+                  <th *ngFor="let title of service.tableHeadersObjects"></th>
+                  <th>
+                        <button (click)="service.addRow()">
+                          <i class="fa fa-plus"></i>
+                      </button>
+                  </th>
+            </tr>
+      </tfoot>
+</table> -->

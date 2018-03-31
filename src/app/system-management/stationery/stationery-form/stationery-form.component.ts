@@ -35,6 +35,8 @@ export class StationeryFormComponent extends TabManager implements OnInit {
       section: ['', Validators.required],
       priority: ['', Validators.required],
   	  dos: ['', Validators.required],
+      proname: ['', Validators.required],
+      qty: ['', Validators.required],
   	});
 
   	//calling openTab from TabManager

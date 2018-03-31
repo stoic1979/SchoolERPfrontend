@@ -1,4 +1,8 @@
-.sbt_btn{
-	text-align:right;
+.ui.table {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
+tfoot{text-align: right;} 
+.error{color:red} 
+.requiredInput.divmessage{display:none} 
+.requiredInput.divmessage.show{display:block !important} 
+.requiredInput.divmessage.hide{display:none}

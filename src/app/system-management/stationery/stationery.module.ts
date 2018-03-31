@@ -7,6 +7,7 @@ import { StationeryRoutingModule } from './stationery-routing.module';
 import { StationeryFormComponent } from './stationery-form/stationery-form.component';
 import { StationeryListComponent } from './stationery-list/stationery-list.component';
 import { StationeryItemsComponent } from './stationery-items/stationery-items.component';
+import { EditableTableModule } from '../../editable-table/editable-table.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { StationeryItemsComponent } from './stationery-items/stationery-items.co
     FormsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
-    StationeryRoutingModule
+    StationeryRoutingModule,
+    EditableTableModule
   ],
   declarations: [StationeryFormComponent, StationeryListComponent, StationeryItemsComponent]
 })
