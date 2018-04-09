@@ -17,15 +17,29 @@ School ERP frontend in angular and bootstrap
 
 ### Watch Demo
 [Live Demo]Link (https://skoolerp.herokuapp.com)
-Email:-  admin@schoolerp.comadmin
+Email:-  admin@schoolerp.com
 Password:-  123
 
 # Dashboard screenshots
-![Alt text](screenshots/Dashboard1.png?raw=true "Dashboard")
+![Alt text](screenshots/Dashboard.png?raw=true "Dashboard")
 
 # Projects screenshot
-![Alt text](screenshots/Add_student_forms.png?raw=true "Add Students")
+![Alt text](screenshots/Student_module.png?raw=true "Student Module")
 
-![Alt text](screenshots/Add_student_details.png?raw=true "View Details")
+![Alt text](screenshots/Student_form.png?raw=true "Add Students")
+
+![Alt text](screenshots/Student_personal_details.png?raw=true "View Student Details")
+
+![Alt text](screenshots/Student_family_details.png?raw=true "View Student Details")
+
+![Alt text](screenshots/Teacher_module.png?raw=true "Teacher Module")
+
+![Alt text](screenshots/Teacher_form.png?raw=true "Add Teacher")
+
+![Alt text](screenshots/Counsellor_module.png?raw=true "Add Counsellor")
+
+![Alt text](screenshots/Stationery_request_form.png?raw=true "Stationery Request Form")
+
 
 ![Alt text](screenshots/Stationery_items.png?raw=true "Stationery Items")
+
