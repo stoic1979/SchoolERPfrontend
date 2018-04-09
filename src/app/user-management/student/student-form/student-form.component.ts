@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/filter';
+
 import { StudentService } from '../../../core/services/user-management/student.service';
 import { AlertService } from '../../../core/services/utils/alert.service';
 import { LoadingService } from '../../../core/services/utils/loading.service';
@@ -14,6 +18,8 @@ import { TabManager } from '../../../core/helpers/tabManager';
 })
 export class StudentFormComponent extends TabManager implements OnInit {
 
+  data: any;
+
   public isRole: boolean = false;
  
   form: FormGroup;
@@ -24,13 +30,16 @@ export class StudentFormComponent extends TabManager implements OnInit {
     private fb: FormBuilder,
     private studentService: StudentService,
     private alertService: AlertService,
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private route: ActivatedRoute,
+    private router: Router
   ) {
    super(); 
   }
 
   ngOnInit() {
      this.form = this.fb.group({
+         _id: [''],
         name:  ['', Validators.required],
         gender: ['',Validators.required],
         lib_no:  ['', Validators.required],
@@ -40,7 +49,7 @@ export class StudentFormComponent extends TabManager implements OnInit {
         doj:  ['', Validators.required],
         previous_school:   ['', Validators.required],
         aadhar_id:   ['', Validators.required],
-        img:   ['', Validators.required],
+        // img:   ['', Validators.required],
         father_name:  ['', Validators.required],
         mother_name:   ['', Validators.required],
         father_mob_no:   ['', Validators.required],
@@ -53,10 +62,29 @@ export class StudentFormComponent extends TabManager implements OnInit {
     });
 
      // calling openTab from TabManager
-     this.openTab('student_tab');
-   }
+    this.openTab('student_tab');
 
-   isFieldInvalid(field: string) {
+    this.route.paramMap
+    .filter(params => params.get('id') !== undefined && params.get('id') !== null)
+    .switchMap((params: ParamMap) => this.studentService.getById(params.get('id')))
+    .subscribe((res)=> {
+        this.loadingService.display(false);
+        console.log('Edit [StudentFormComponent] Response =>' +JSON.stringify(res));
+        this.data = res.data;
+        this.form.patchValue({_id:this.data._id});
+        console.log('Edit [StudentFormComponent] data  =>' +JSON.stringify(this.data)); 
+            
+        if(this.data.length == 0) {
+           this.alertService.info("No records found !!!");
+        }
+
+    },(err) => {
+          const errBody = err.json();
+          console.log('Edit [StudentFormComponent] Error  =>' +errBody);
+    })
+  }
+
+  isFieldInvalid(field: string) {
     return (
       (!this.form.get(field).valid && this.form.get(field).touched) ||
       (this.form.get(field).untouched && this.formSubmitAttempt)

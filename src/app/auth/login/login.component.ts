@@ -16,14 +16,11 @@ import { LoadingService } from '../../core/services/utils/loading.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
- 
  private loggedIn = new BehaviorSubject<boolean>(false);
  form: FormGroup;
  private formSubmitAttempt: boolean;
-
  loginErrors;
  errMsg;
-
   constructor(
   	 	private fb: FormBuilder,
   		private authService: AuthService,
@@ -31,15 +28,11 @@ export class LoginComponent implements OnInit {
       private loadingService: LoadingService,
       private router: Router
   	) { 
-
     // check user is already logged in
     if(authService.getToken().length > 0) {
       this.router.navigate(['/']);
     }
-
   }
- 
-  
   ngOnInit() {
   	 this.form = this.fb.group({
         email:  ['', Validators.required],
@@ -48,25 +41,16 @@ export class LoginComponent implements OnInit {
   }
   onSubmit() {
     console.log('onSubmit()');
-
-    
       this.loadingService.display(true);
-
       this.authService.login(this.form.value).subscribe((res)=> {
-
         this.loadingService.display(false);
-
         console.log('[Login Component] Response =>' +JSON.stringify(res));
-        console.log('[Login Componets] Token =>' +JSON.stringify(res.token));
+        console.log('[Login Component] Token =>' +JSON.stringify(res.token));
         this.authService.saveToken(res.token);
         this.authService.loginDone();
         this.formSubmitAttempt = true;
-
-
       },(err) => {
-
-            this.loadingService.display(false);
-            
+            this.loadingService.display(false); 
             this.loginErrors = JSON.stringify(err.json());
             console.log('[LoginComponent] login  error: ', this.loginErrors);
             this.alertService.error("Login Failed");
@@ -75,6 +59,5 @@ export class LoginComponent implements OnInit {
     }
   get isLoggedIn() {
     	return this.loggedIn.asObservable();
-  }
-  
+  }  
 }

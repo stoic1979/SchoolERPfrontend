@@ -11,23 +11,17 @@ import 'rxjs/add/observable/throw';
 import config from '../../../config/config';
 
 const API_ENDPOINT = config.API_ENDPOINT;
-
 //const API_ENDPOINT = 'http://localhost:3000';
-
 //const API_ENDPOINT = 'http://192.168.1.13:3000';
-
 
 @Injectable()
 export class StudentService {
-
   result: any;
-
   constructor(
     private http: Http,
     private router: Router
   ) {}
   
-
   add = (credential: any) => {
     credential.role = "STUDENT";
   	const header = this.createAuthorizationHeader();
@@ -36,9 +30,7 @@ export class StudentService {
   }
 
   getStudents = (formData) => {
-
     console.log("[StudentService] :: data: " + JSON.stringify(formData) );
-
     // dont send empty/null form variables in a query to server !!!
     var query = {};
     for (var propName in formData) { 
@@ -47,7 +39,6 @@ export class StudentService {
       }
       query[propName] = formData[propName];
     }
-
     const header = this.createAuthorizationHeader();
     return this.http.post(`${API_ENDPOINT}/api/students/all`, query, { headers: header })
       .map(res => this.result = res.json());        
@@ -63,7 +54,6 @@ export class StudentService {
   	console.log( '[SectionService] token '+localStorage.getItem('userToken'));
     return localStorage.getItem('userToken') || '';
   }
-
   private handleError (error: Response | any) {
     console.error('[StudentService] :: handleError', error);
     return Observable.throw(error);
@@ -75,8 +65,5 @@ export class StudentService {
         headers.append('Content-Type', 'application/json; charset=utf-8');
         headers.append('Authorization', token);
         return headers;
-  }
-
- 
-  
+  }   
 }//StudentService

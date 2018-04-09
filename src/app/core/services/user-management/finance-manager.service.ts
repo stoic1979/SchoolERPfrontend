@@ -11,21 +11,16 @@ import 'rxjs/add/observable/throw';
 import config from '../../../config/config';
 
 const API_ENDPOINT = config.API_ENDPOINT;
-
 //const API_ENDPOINT = 'http://localhost:3000';
 //const API_ENDPOINT = 'http://192.168.1.13:3000';
 
-
 @Injectable()
 export class FinanceManagerService {
-
   result: any;
-
   constructor(
     private http: Http,
     private router: Router
   ) {}
-  
 
   add = (credential: any) => {
     credential.role = "FINANCE-MANAGER";
@@ -35,9 +30,7 @@ export class FinanceManagerService {
   }
 
    getFinanceManagers = (formData) => {
-
     console.log("[FinanceManagerService] :: data: " + JSON.stringify(formData) );
-
     // dont send empty/null form variables in a query to server !!!
     var query = {};
     for (var propName in formData) { 
@@ -46,7 +39,6 @@ export class FinanceManagerService {
       }
       query[propName] = formData[propName];
     }
-
     const header = this.createAuthorizationHeader();
     return this.http.post(`${API_ENDPOINT}/api/financeManagers/all`, query, { headers: header })
       .map(res => this.result = res.json());        
@@ -62,7 +54,6 @@ export class FinanceManagerService {
   	console.log( '[SectionService] token '+localStorage.getItem('userToken'));
     return localStorage.getItem('userToken') || '';
   }
-
   private handleError (error: Response | any) {
     console.error('[FinanceMangerService] :: handleError', error);
     return Observable.throw(error);

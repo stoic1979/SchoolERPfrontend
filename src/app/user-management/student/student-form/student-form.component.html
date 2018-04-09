@@ -20,13 +20,13 @@
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Name</label>
                         <div class="col-10">
-                            <input class="form-control" type="name" title="Please fill only characters" formControlName="name" required>
+                            <input class="form-control" type="text" formControlName="name" [(ngModel)]="data && data.name" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Library Number</label>
                         <div class="col-10">
-                            <input class="form-control" type="text" formControlName="lib_no" required>
+                            <input class="form-control" type="text" formControlName="lib_no" [(ngModel)]="data && data.lib_no" required>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -34,12 +34,12 @@
                         <div class="col-10">
                             <div class="radio" >
                                 <label>
-                                    <input type="radio" value="MALE" name="gender" formControlName="gender" required /> Male
+                                    <input type="radio" value="MALE" name="gender" formControlName="gender"   required/> Male
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" value="FEMALE" name="gender" formControlName="gender"/> Female
+                                    <input type="radio" value="FEMALE" [(ngModel)]="data && data.gender" name="gender" formControlName="gender"/> Female
                                 </label>
                             </div>
                         </div>
@@ -47,7 +47,7 @@
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Standard</label>
                         <div class="col-10">
-                            <select class="form-control" formControlName="standard" placeholder="Standard" required>
+                            <select class="form-control" formControlName="standard" placeholder="Standard" [(ngModel)]="data && data.standard" required>
                                 <option value="nursery" selected>Nursery</option>
                                 <option value="lkg">LKG</option>
                                 <option value="ukg">UKG</option>
@@ -62,46 +62,46 @@
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Section</label>
                         <div class="col-10">
-                            <select class="form-control" formControlName="section" placeholder="Standard" required>
-                                <option value="a" selected>A</option>
-                                <option value="b">B</option>
-                                <option value="c">C</option>
-                                <option value="d">D</option>
-                                <option value="e">E</option>
-                                <option value="f">F</option>
+                            <select class="form-control" formControlName="section" placeholder="Section" [(ngModel)]="data && data.section" required>
+                                <option value="A" selected>A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                                <option value="D">D</option>
+                                <option value="E">E</option>
+                                <option value="F">F</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Aadhar ID</label>
                         <div class="col-10">
-                            <input class="form-control" type="text" title="Please fill your 12 digits number" formControlName="aadhar_id" required>
+                            <input class="form-control" type="text" formControlName="aadhar_id" [(ngModel)]="data && data.aadhar_id" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Date of Birth</label>
                         <div class="col-10">
-                            <input class="form-control" type="text" onfocus="(this.type='date')" formControlName="dob" required>
+                            <input class="form-control" type="text" onfocus="(this.type='date')" formControlName="dob" [(ngModel)]="data && data.dob" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Date of Joining</label>
                         <div class="col-10">
-                            <input class="form-control" type="text" onfocus="(this.type='date')" formControlName="doj" required>
+                            <input class="form-control" type="text" onfocus="(this.type='date')" formControlName="doj" [(ngModel)]="data && data.doj" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Previous School</label>
                         <div class="col-10">
-                            <input class="form-control" type="string" formControlName="previous_school" required>
+                            <input class="form-control" type="string" formControlName="previous_school"  [(ngModel)]="data && data.previous_school" required>
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <!-- <div class="form-group row">
                         <label class="col-2 col-form-label">Upload Photo</label>
                         <div class="col-10">
-                            <input class="form-control" type="photo"  title="Please upload your picture" formControlName="img" >
+                            <input class="form-control" type="photo" formControlName="img" required>
                         </div>
-                    </div>
+                    </div> -->
                        <button class="btn btn-primary" (click)="openTab('parent_tab')">Next Step - Fill Parent's Details > </button>
                 </div>
 
@@ -111,49 +111,49 @@
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Mother Name</label>
                         <div class="col-10">
-                            <input class="form-control" type="text" title="Please fill only characters" formControlName="mother_name" required>
+                            <input class="form-control" type="text" formControlName="mother_name" [(ngModel)]="data && data.parent.mother_name" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Mother Email</label>
                         <div class="col-10">
-                            <input class="form-control" type="email" formControlName="mother_email" required>
+                            <input class="form-control" type="email" formControlName="mother_email" [(ngModel)]="data && data.parent.mother_email" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Mother Mobile No.</label>
                         <div class="col-10">
-                            <input class="form-control" type="tel" title="Please fill your 10 digit number" formControlName="mother_mob_no" required>
+                            <input class="form-control" type="tel" formControlName="mother_mob_no" [(ngModel)]="data && data.parent.name" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Mother Telephone No.</label>
                         <div class="col-10">
-                            <input class="form-control" type="tel" title="Please fill your number with code" formControlName="mother_tel_no" required>
+                            <input class="form-control" type="tel" formControlName="mother_tel_no" [(ngModel)]="data && data.parent.mother_tel_no" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Father Name</label>
                         <div class="col-10">
-                            <input class="form-control" type="name" title="Please fill only characters" formControlName="father_name" required>
+                            <input class="form-control" type="text" formControlName="father_name" [(ngModel)]="data && data.parent.father_name" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Father Email</label>
                         <div class="col-10">
-                            <input class="form-control" type="email" formControlName="father_email" required>
+                            <input class="form-control" type="email" formControlName="father_email" [(ngModel)]="data && data.parent.father_email" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Father Mobile No.</label>
                         <div class="col-10">
-                            <input class="form-control" type="tel" title="Please fill your 10 digit number" formControlName="father_mob_no" required>
+                            <input class="form-control" type="tel" formControlName="father_mob_no" [(ngModel)]="data && data.parent.father_mob_no" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Father Telephone No.</label>
                         <div class="col-10">
-                            <input class="form-control" type="tel" title="Please fill your number with code" formControlName="father_tel_no" required>
+                            <input class="form-control" type="tel" formControlName="father_tel_no" [(ngModel)]="data && data.parent.father_tel_no" required>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -163,7 +163,7 @@
                         </div>
                     </div>
                     <button class="btn btn-primary" (click)="openTab('student_tab')">< Previous Step - Go To Student Details </button>
-                    <div class="sbt_btn">
+                    <div class="sbt_btn" >
                         <button class="btn btn-primary" type="submit">Save Student Data</button>
                     </div>
                 </div>

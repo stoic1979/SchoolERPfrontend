@@ -52,7 +52,7 @@
                         </div>
                     </div>
                     <div class="sbt_btn" >
-                        <button class="btn btn-primary"  type="submit">Search</button>
+                        <button class="btn btn-primary"  type="submit">Search <img src="."></button>
                     </div>
                 </form>
             </div>
@@ -79,7 +79,7 @@
                         <td>{{values.standard}}</td>
                         <td>{{values.section}}</td>
                        <td><a (click) = "saveStudentId(values._id)" routerLink="/users/student/details" >Details</a></td> 
-                        <td><i class="fa fa-pencil" (click) = "saveStudentId(values._id)" routerLink="/users/student/edit"></i></td>
+                        <td><i class="fa fa-pencil" [routerLink]="['/users/student/edit',values._id]"></i></td>
                         <td><i class="fa fa-trash" routerLink="#"></i></td>
                     </tr>
                 </tbody>
@@ -90,4 +90,3 @@
 </div>
 
   
-
