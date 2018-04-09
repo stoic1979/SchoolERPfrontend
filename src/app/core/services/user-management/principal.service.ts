@@ -65,5 +65,5 @@ export class PrincipalService {
         headers.append('Content-Type', 'application/json; charset=utf-8');
         headers.append('Authorization', token);
         return headers;
-  }  
+  }             
 }//PrincipalService
