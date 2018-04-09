@@ -14,23 +14,22 @@ const API_ENDPOINT = config.API_ENDPOINT;
 //const API_ENDPOINT = 'http://localhost:3000';
 //const API_ENDPOINT = 'http://192.168.1.13:3000';
 
-
 @Injectable()
 export class TransportManagerService {
   result: any;
   constructor(
     private http: Http,
     private router: Router
-  ) {
+  ) {}
 
   add = (credential: any) => {
     credential.role = "TRANSPORT-MANAGER";
-  	const header = this.createAuthorizationHeader();
+    const header = this.createAuthorizationHeader();
     return this.http.post(`${API_ENDPOINT}/api/user`, credential, { headers: header })
       .map(res => this.result = res.json());        
   }
 
-  getTransportManagers = (formData) => {
+   getTransportManagers = (formData) => {
     console.log("[TransportManagerService] :: data: " + JSON.stringify(formData) );
     // dont send empty/null form variables in a query to server !!!
     var query = {};
@@ -52,12 +51,11 @@ export class TransportManagerService {
   }
 
   getToken () {
-  	console.log( '[SectionService] token '+localStorage.getItem('userToken'));
+    console.log( '[SectionService] token '+localStorage.getItem('userToken'));
     return localStorage.getItem('userToken') || '';
   }
-
   private handleError (error: Response | any) {
-    console.error('[TransportManagerService] :: handleError', error);
+    console.error('[TransportMangerService] :: handleError', error);
     return Observable.throw(error);
   }
 
@@ -67,5 +65,5 @@ export class TransportManagerService {
         headers.append('Content-Type', 'application/json; charset=utf-8');
         headers.append('Authorization', token);
         return headers;
-  }   
+  } 
 }//TransportManagerService
