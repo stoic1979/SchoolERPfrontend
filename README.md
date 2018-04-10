@@ -21,6 +21,8 @@ Email:-  admin@schoolerp.com
 Password:-  123
 
 # Glimpse of Project
+![Alt text](screenshots/login.png?raw=true "Login")
+
 ![Alt text](screenshots/Dashboard.png?raw=true "Dashboard")
 
 ![Alt text](screenshots/Student_module.png?raw=true "Student Module")

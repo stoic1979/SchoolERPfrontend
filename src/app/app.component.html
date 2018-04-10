@@ -1,4 +1,4 @@
-<div class="page">
+<div [ngClass]="{ 'page': isLoggedIn$ | async}">
   <app-sidebar *ngIf="isLoggedIn$ | async"></app-sidebar>
   <app-header *ngIf="isLoggedIn$ | async"></app-header>
   <app-alert></app-alert>
