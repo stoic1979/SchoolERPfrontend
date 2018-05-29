@@ -16,8 +16,12 @@ const routes: Routes = [
     component: PrincipalFormComponent
   },
   {
-    path: 'details',
+    path: 'details/:id',
     component: PrincipalDetailsComponent
+  },
+  {
+    path: 'edit/:id',
+    component: PrincipalFormComponent
   }
 ];
 

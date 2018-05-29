@@ -15,9 +15,13 @@ const routes: Routes = [
     path: 'add',
     component: TransportManagerFormComponent
   },
-   {
-    path: 'details',
+  {
+    path: 'details/:id',
     component: TransportManagerDetailsComponent
+  },
+  {
+    path: 'edit/:id',
+    component: TransportManagerFormComponent
   }
 ];
 

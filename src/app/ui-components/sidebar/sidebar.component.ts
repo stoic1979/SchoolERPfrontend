@@ -8,6 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class SidebarComponent implements OnInit {
 	visible = false;
 	system = false;
+	
+	user: any;
+	role: any;
+
 
 	toggle(event){
     	this.visible = !this.visible;
@@ -20,6 +24,8 @@ export class SidebarComponent implements OnInit {
   	constructor() { }
 
   	ngOnInit() {
+  		this.user = localStorage.getItem('userName') || '';
+  		this.role = localStorage.getItem('role') || '';
   	}
 
 }

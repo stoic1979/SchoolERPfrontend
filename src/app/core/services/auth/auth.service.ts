@@ -50,6 +50,13 @@ export class AuthService {
     return localStorage.getItem('userToken') || '';
   }
 
+  saveUser(name: string, id: string, role: string) {
+    localStorage.setItem('userName', name);
+    localStorage.setItem('userId', id);
+    localStorage.setItem('role', role);
+  }
+
+
   private handleError (error: Response | any) {
     console.error('[AuthService] :: handleError', error);
     return Observable.throw(error);
@@ -64,6 +71,9 @@ export class AuthService {
     this.loggedIn.next(false);
     localStorage.removeItem('userToken');
     localStorage.removeItem('selected_stu_id');
+    localStorage.removeItem('userName');
+    localStorage.removeItem('userId');
+    localStorage.removeItem('role');
     this.router.navigate(['/auth']);
   }
   

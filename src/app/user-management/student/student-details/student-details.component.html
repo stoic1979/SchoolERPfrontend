@@ -10,10 +10,9 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-4">
-        <div class="card">
-          <div class="image">
-            <img src="../../../assets/images/student.png" height="129px" width="129px">
-          </div>
+        <div class="card">       
+         <div class ="image" *ngIf="!dataSource.parent.user.img; else wrong"><img src ="../../../assets/images/dummy.png" class="rounded-circle" height="50px" width="50px"></div>
+          <ng-template #wrong><div class ="image"><img src="https://schoolerp-api.herokuapp.com{{dataSource.parent.user.img}}" class="rounded-circle" height="50px" width="50px"></div></ng-template> 
           <br>
           <table class="table table-striped" >
             <thead>
@@ -107,7 +106,7 @@
                     <th>Mother Mobile No</th>
                     <td>{{dataSource.parent.mother_mob_no}}</td>
                     <th>Father Mobile No</th>
-                    <td>{{dataSource.parent.fatherr_mob_no}}</td>
+                    <td>{{dataSource.parent.father_mob_no}}</td>
                   </tr>
                   <tr>
                     <th>Mother Telephone No</th>

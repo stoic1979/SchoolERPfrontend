@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 
 import { StudentService } from '../../../core/services/user-management/student.service';
 import { AlertService } from '../../../core/services/utils/alert.service';
@@ -15,6 +16,7 @@ import Utils from '../../../core/helpers/utils';
 })
 export class StudentDetailsComponent extends TabManager implements OnInit {
 
+  data: any;
   dataSource: any;
 
   constructor(

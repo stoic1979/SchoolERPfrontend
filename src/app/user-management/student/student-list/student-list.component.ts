@@ -15,6 +15,7 @@ import { LoadingService } from '../../../core/services/utils/loading.service';
 export class StudentListComponent implements OnInit {
   
   form: FormGroup;
+  url: any;
 
   p: number = 1;
   dataSource: any[];
@@ -38,18 +39,17 @@ export class StudentListComponent implements OnInit {
         name:  ['', Validators.required],
         lib_no:  ['', Validators.required],
         standard:  ['', Validators.required],
-        section:  ['', Validators.required],
-       
+        section:  ['', Validators.required],       
     });
 
-     this.getStudents();
+    this.getStudents();
   }
 
   getStudents() {
     this.loadingService.display(true);
      this.studentService.getStudents(this.form.value).subscribe((res)=> {
         this.loadingService.display(false);
-        //console.log('[Student List Component] Response =>' +JSON.stringify(res));
+        console.log('[Student List Component] Response =>' +JSON.stringify(res));
         this.dataSource = res.data;
 
         if(this.dataSource.length == 0) {

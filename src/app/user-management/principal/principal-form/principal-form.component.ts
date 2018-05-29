@@ -13,6 +13,8 @@ import { TabManager } from '../../../core/helpers/tabManager';
   styleUrls: ['./principal-form.component.css']
 })
 export class PrincipalFormComponent extends TabManager implements OnInit {
+  
+  dataSource: any;
   public isRole: boolean = false;
  
   form: FormGroup;

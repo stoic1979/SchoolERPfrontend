@@ -1,3 +1,4 @@
+<br>
 <div class="container-fluid">
     <br>
     <div class="page-header">
@@ -10,45 +11,68 @@
             <button class="tablinks active" id="btn_student_tab" (click)="openTab('student_tab')">Student Details</button>
             <button class="tablinks" id="btn_parent_tab" (click)="openTab('parent_tab')">Parents Details</button>
         </div>
-
+        <br>
+        <h3 class="tab_title">Fill Student Details</h3>
         <div id="logbox">
-            <form [formGroup]="form" (ngSubmit)="onSubmit()" ngNativeValidate>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" ngNativeValidate enctype="multipart/form-data">
 
                 <!--- STUDENT DETAILS TAB CONTENT -->
-                <div id="student_tab" class="tabcontent">
-                    <br><h3 class="tab_title">Fill Student Details</h3>
-                    <div class="form-group row">
-                        <label class="col-2 col-form-label">Name</label>
-                        <div class="col-10">
-                            <input class="form-control" type="text" formControlName="name" [(ngModel)]="data && data.name" required>
+                  <div id="student_tab" class="tabcontent">
+                
+                    <br>
+                    <div class="row">
+                        <div class="col-9">
+                            <div class="form-group row"> 
+                                <label>Name</label>
+                                <div class="col-9">
+                                    <input class="form-control" type="text" formControlName="name" [(ngModel)]="data && data.name" placeholder="Name" required>
+                                </div>
+                                <br>
+                            </div> 
+                             <div class="form-group row">
+                                <label>Library Number</label>
+                                <div class="col-9">
+                                    <input class="form-control" type="text" formControlName="lib_no" [(ngModel)]="data && data.lib_no" placeholder="Library Number"  required>
+                                </div>
+                            </div> 
+                            <div class="form-group row"> 
+                                <label>Gender</label>
+                                <div class="col-9">
+                                    <div class="radio" >
+                                        <label>
+                                            <input type="radio" value="MALE" name="gender" formControlName="gender" [checked]='true'  required /> Male
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" value="FEMALE" [(ngModel)]="data && data.gender" name="gender" placeholder="Gender" formControlName="gender"/> Female
+                                        </label>
+                                    </div>
+                                </div>
+                                <br>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-2 col-form-label">Library Number</label>
-                        <div class="col-10">
-                            <input class="form-control" type="text" formControlName="lib_no" [(ngModel)]="data && data.lib_no" required>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-2 col-form-label">Gender</label>
-                        <div class="col-10">
-                            <div class="radio" >
-                                <label>
-                                    <input type="radio" value="MALE" name="gender" formControlName="gender"   required/> Male
+                        <div class="form-group">
+                            <div id="hide">
+                                <label class="hand-cursor">
+                                    <input #fileInput type="file" id="img" (change)="onFileChange($event)">
+                                    <div class="img-wrapper">
+                                        <img  height="200" width="205" src="{{url||'../../../assets/images/user_profile.png'}}">
+                                        <div class="img-overlay">
+                                            <span class="fa fa-camera"></span>
+                                            <span class="photo_text hidden-xs">Upload Photo</span>
+                                        </div>
+                                    </div>
                                 </label>
                             </div>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" value="FEMALE" [(ngModel)]="data && data.gender" name="gender" formControlName="gender"/> Female
-                                </label>
-                            </div>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-2 col-form-label">Standard</label>
+                   <div class="form-group row">
+                        <label >Standard</label>
                         <div class="col-10">
                             <select class="form-control" formControlName="standard" placeholder="Standard" [(ngModel)]="data && data.standard" required>
-                                <option value="nursery" selected>Nursery</option>
+                                <option value="" [selected]="true" [disabled] hidden>Select Standard</option>
+                                <option value="nursery">Nursery</option>
                                 <option value="lkg">LKG</option>
                                 <option value="ukg">UKG</option>
                                 <option value="1st">1st</option>
@@ -60,9 +84,10 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-2 col-form-label">Section</label>
+                        <label >Section</label>
                         <div class="col-10">
                             <select class="form-control" formControlName="section" placeholder="Section" [(ngModel)]="data && data.section" required>
+                                <option value="" [selected]="true" [disabled] hidden>Select Section</option>
                                 <option value="A" selected>A</option>
                                 <option value="B">B</option>
                                 <option value="C">C</option>
@@ -73,93 +98,87 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-2 col-form-label">Aadhar ID</label>
+                        <label >Aadhar ID</label>
                         <div class="col-10">
-                            <input class="form-control" type="text" formControlName="aadhar_id" [(ngModel)]="data && data.aadhar_id" required>
+                            <input class="form-control" type="text" formControlName="aadhar_id" [(ngModel)]="data && data.aadhar_id" placeholder="Aadhra ID" required>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-2 col-form-label">Date of Birth</label>
+                        <label>Date of Birth</label>
                         <div class="col-10">
-                            <input class="form-control" type="text" onfocus="(this.type='date')" formControlName="dob" [(ngModel)]="data && data.dob" required>
+                            <input class="form-control" type="date" formControlName="dob" [(ngModel)]="data && data.dob" placeholder="Date of Birth" required>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-2 col-form-label">Date of Joining</label>
+                   <div class="form-group row">
+                        <label>Date of Joining</label>
                         <div class="col-10">
-                            <input class="form-control" type="text" onfocus="(this.type='date')" formControlName="doj" [(ngModel)]="data && data.doj" required>
+                            <input class="form-control" type="text" onfocus="(this.type='date')" [(ngModel)]="data && data.doj" placeholder="Date of Joining" formControlName="doj" required>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-2 col-form-label">Previous School</label>
+                    </div>    
+                  <div class="form-group row">
+                        <label>Previous School</label>
                         <div class="col-10">
-                            <input class="form-control" type="string" formControlName="previous_school"  [(ngModel)]="data && data.previous_school" required>
+                            <input class="form-control" type="string" formControlName="previous_school" [(ngModel)]="data && data.previous_school" placeholder="Previous School"  required>
                         </div>
-                    </div>
-                    <!-- <div class="form-group row">
-                        <label class="col-2 col-form-label">Upload Photo</label>
-                        <div class="col-10">
-                            <input class="form-control" type="photo" formControlName="img" required>
-                        </div>
-                    </div> -->
-                       <button class="btn btn-primary" (click)="openTab('parent_tab')">Next Step - Fill Parent's Details > </button>
+                    </div>                    
+                        <button class="btn btn-primary" (click)="openTab('parent_tab')">Next Step - Fill Parent's Details > </button>                
                 </div>
 
                 <!--- PARENT DETAILS TAB CONTENT -->
                 <div id="parent_tab" class="tabcontent">
                     <br><h3 class="tab_title">Fill Parents Details</h3>
                     <div class="form-group row">
-                        <label class="col-2 col-form-label">Mother Name</label>
+                        <label>Mother Name</label>
                         <div class="col-10">
-                            <input class="form-control" type="text" formControlName="mother_name" [(ngModel)]="data && data.parent.mother_name" required>
+                            <input class="form-control" type="text" formControlName="mother_name" [(ngModel)]="data && data.parent.mother_name" placeholder="Mother Name" required>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-2 col-form-label">Mother Email</label>
+                        <label >Mother Email</label>
                         <div class="col-10">
-                            <input class="form-control" type="email" formControlName="mother_email" [(ngModel)]="data && data.parent.mother_email" required>
+                            <input class="form-control" type="email" formControlName="mother_email" [(ngModel)]="data && data.parent.mother_email" placeholder="Mother Email" required>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-2 col-form-label">Mother Mobile No.</label>
+                        <label >Mother Mobile No.</label>
                         <div class="col-10">
-                            <input class="form-control" type="tel" formControlName="mother_mob_no" [(ngModel)]="data && data.parent.name" required>
+                            <input class="form-control" type="tel" formControlName="mother_mob_no" [(ngModel)]="data && data.parent.mother_mob_no" placeholder="Mother Mobile No" required>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-2 col-form-label">Mother Telephone No.</label>
+                        <label>Mother Tel No.</label>
                         <div class="col-10">
-                            <input class="form-control" type="tel" formControlName="mother_tel_no" [(ngModel)]="data && data.parent.mother_tel_no" required>
+                            <input class="form-control" type="tel" formControlName="mother_tel_no" [(ngModel)]="data && data.parent.mother_tel_no" placeholder="Mother Tel No" required>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-2 col-form-label">Father Name</label>
+                        <label >Father Name</label>
                         <div class="col-10">
-                            <input class="form-control" type="text" formControlName="father_name" [(ngModel)]="data && data.parent.father_name" required>
+                            <input class="form-control" type="text" formControlName="father_name" [(ngModel)]="data && data.parent.father_name" placeholder="Father Name" required>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-2 col-form-label">Father Email</label>
+                        <label>Father Email</label>
                         <div class="col-10">
-                            <input class="form-control" type="email" formControlName="father_email" [(ngModel)]="data && data.parent.father_email" required>
+                            <input class="form-control" type="email" formControlName="father_email" [(ngModel)]="data && data.parent.father_email" placeholder="Father Email" required>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-2 col-form-label">Father Mobile No.</label>
+                        <label>Father Mobile No.</label>
                         <div class="col-10">
-                            <input class="form-control" type="tel" formControlName="father_mob_no" [(ngModel)]="data && data.parent.father_mob_no" required>
+                            <input class="form-control" type="tel" formControlName="father_mob_no" [(ngModel)]="data && data.parent.father_mob_no" placeholder="Father Mobile No" required>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-2 col-form-label">Father Telephone No.</label>
+                        <label>Father Tel No.</label>
                         <div class="col-10">
-                            <input class="form-control" type="tel" formControlName="father_tel_no" [(ngModel)]="data && data.parent.father_tel_no" required>
+                            <input class="form-control" type="tel" formControlName="father_tel_no" [(ngModel)]="data && data.parent.father_tel_no" placeholder="Father Tel No" required>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-2 col-form-label">Password</label>
+                        <label >Password</label>
                         <div class="col-10">
-                            <input class="form-control" type="password" formControlName="password" required>
+                            <input class="form-control" type="password" formControlName="password" [(ngModel)]="data && data.parent.password" placeholder="Password" required>
                         </div>
                     </div>
                     <button class="btn btn-primary" (click)="openTab('student_tab')">< Previous Step - Go To Student Details </button>

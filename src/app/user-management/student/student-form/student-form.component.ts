@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
@@ -19,12 +19,16 @@ import { TabManager } from '../../../core/helpers/tabManager';
 export class StudentFormComponent extends TabManager implements OnInit {
 
   data: any;
+  dataSource: any;
+  url: any;
 
   public isRole: boolean = false;
  
   form: FormGroup;
+  fileItem;
 
   private formSubmitAttempt: boolean;
+  formData: FormData = new FormData();
 
   constructor(
     private fb: FormBuilder,
@@ -39,25 +43,24 @@ export class StudentFormComponent extends TabManager implements OnInit {
 
   ngOnInit() {
      this.form = this.fb.group({
-         _id: [''],
         name:  ['', Validators.required],
         gender: ['',Validators.required],
         lib_no:  ['', Validators.required],
         standard:  ['', Validators.required],
         section:  ['', Validators.required],
+        img: null,
         dob:  ['', Validators.required],
         doj:  ['', Validators.required],
-        previous_school:   ['', Validators.required],
-        aadhar_id:   ['', Validators.required],
-        // img:   ['', Validators.required],
+        previous_school:  ['', Validators.required],
+        aadhar_id:  ['', Validators.required],
         father_name:  ['', Validators.required],
-        mother_name:   ['', Validators.required],
-        father_mob_no:   ['', Validators.required],
-        mother_mob_no:   ['', Validators.required],
-        mother_tel_no:   ['', Validators.required],
-        father_tel_no:   ['', Validators.required],
-        father_email:   ['', Validators.required],
-        mother_email:   ['', Validators.required],
+        mother_name:  ['', Validators.required],
+        father_mob_no:  ['', Validators.required],
+        mother_mob_no:  ['', Validators.required],
+        mother_tel_no:  ['', Validators.required],
+        father_tel_no:  ['', Validators.required],
+        father_email:  ['', Validators.required],
+        mother_email:  ['', Validators.required],
         password:   ['', Validators.required],
     });
 
@@ -91,6 +94,30 @@ export class StudentFormComponent extends TabManager implements OnInit {
     );
   }
 
+  handleFileInput(files: FileList) {
+    this.fileItem = files.item(0);
+    console.log("file input has changed. The file is", this.fileItem);
+    // this.formData.append('fileItem', fileItem, fileItem.name);
+    this.form.get('img').setValue(this.fileItem);
+  }
+
+  onFileChange(event) {
+    let reader = new FileReader();
+    if(event.target.files && event.target.files.length > 0) {
+      let file = event.target.files[0];
+      reader.readAsDataURL(file);
+      reader.onload = (e:any) => {
+        this.url = e.target.result;
+        console.log("url "+this.url);
+        this.form.get('img').setValue({
+          filename: file.name,
+          filetype: file.type,
+          value: reader.result.split(',')[1]
+        })
+      };
+    }
+  }
+
   onSubmit() {
     console.log('onSubmit()');
     console.log('onSubmit() student data '+JSON.stringify(this.form.value));
@@ -101,6 +128,7 @@ export class StudentFormComponent extends TabManager implements OnInit {
         this.loadingService.display(false);
         console.log('[StudentFormComponent] Response =>' +JSON.stringify(res));
         this.formSubmitAttempt = true;
+        this.form.reset()
         this.alertService.success("Student added successfully");
         },(err) => {
           this.loadingService.display(false);

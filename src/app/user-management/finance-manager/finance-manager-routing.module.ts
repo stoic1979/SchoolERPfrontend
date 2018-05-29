@@ -16,8 +16,12 @@ const routes: Routes = [
     component: FinanceManagerFormComponent
   },
   {
-    path: 'details',
+    path: 'details/:id',
     component: FinanceManagerDetailsComponent
+  },
+  {
+    path: 'edit/:id',
+    component: FinanceManagerFormComponent
   }
 ];
 

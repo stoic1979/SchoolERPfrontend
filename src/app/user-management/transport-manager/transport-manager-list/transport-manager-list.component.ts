@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { AlertService } from '../../../core/services/utils/alert.service';
@@ -18,6 +18,7 @@ export class TransportManagerListComponent implements OnInit {
   p: number = 1;
   dataSource: any[];
   
+  private formSubmitAttempt: boolean;
   showSearch:boolean = false;
 
   toggleSearch() {

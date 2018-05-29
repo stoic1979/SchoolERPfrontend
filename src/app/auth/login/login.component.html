@@ -173,7 +173,19 @@ body{
         <input id="password" type="password" placeholder="password" name="password" formControlName="password" required class="input-material"><br>
         <button type="submit" id="submit" name="submit" class="btn btn-primary">Login</button>
     </div>
-    </form>  
+    </form> 
+    <button class="link-modal" id="linkmodal" [hidden]="true" data-toggle="modal" data-target="#text">Open Modal</button>
+      <div class="modalbox" id="text" role="dialog">
+          <div class="box">
+                <div class="sbt_btn">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">X</button>
+                </div>
+              <p class="title"><img src="../../../assets/images/danger.png" height="26px" width="26px"> Login Error</p>
+            <div class="content">
+              <p>{{loginError}}</p>
+            </div>
+          </div>
+      </div> 
   <!-- <script src='../../assets/js/login.js'></script> -->
 </body>
 

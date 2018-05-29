@@ -45,7 +45,7 @@ export class StationeryService {
     }
 
     const header = this.createAuthorizationHeader();
-    return this.http.post(`${API_ENDPOINT}/api/stationery/all`, query, { headers: header })
+    return this.http.post(`${API_ENDPOINT}/api/stationery`, query, { headers: header })
       .map(res => this.result = res.json());        
   }
 

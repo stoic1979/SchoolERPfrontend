@@ -16,8 +16,12 @@ const routes: Routes = [
     component: CounsellorFormComponent
   },
   {
-    path: 'details',
+    path: 'details/:id',
     component: CounsellorDetailsComponent
+  },
+  {
+    path: 'edit/:id',
+    component: CounsellorFormComponent
   }
 ];
 

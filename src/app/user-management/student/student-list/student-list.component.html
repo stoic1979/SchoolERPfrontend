@@ -62,6 +62,7 @@
                 <thead>
                     <tr>
                         <th>#</th>
+                         <th>Profile</th>
                         <th>Name</th>
                         <th>Lib No.</th>
                         <th>Standard</th>
@@ -72,13 +73,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let values of dataSource | paginate: { itemsPerPage: 10, currentPage: p }; let i= index" >
+                     <tr *ngFor="let values of dataSource | paginate: { itemsPerPage: 10, currentPage: p }; let i= index" >
                         <td>{{ (p - 1) * 10 + i +1 }}</td>
+                        <td *ngIf="!values.parent.user.img; else wrong"><img src ="../../../assets/images/dummy.png" class="rounded-circle" height="50px" width="50px"></td>
+                         <ng-template #wrong><td><img src="https://schoolerp-api.herokuapp.com{{values.user.img}}" class="rounded-circle" height="50px" width="50px"></td></ng-template> 
                         <td>{{values.name}}</td>
                         <td>{{values.lib_no}}</td>
                         <td>{{values.standard}}</td>
                         <td>{{values.section}}</td>
-                       <td><a (click) = "saveStudentId(values._id)" routerLink="/users/student/details" >Details</a></td> 
+                       <td><a [routerLink]="['/users/student/details',values._id]">Details</a></td> 
                         <td><i class="fa fa-pencil" [routerLink]="['/users/student/edit',values._id]"></i></td>
                         <td><i class="fa fa-trash" routerLink="#"></i></td>
                     </tr>
